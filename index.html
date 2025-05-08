@@ -535,5 +535,29 @@ if (node) rh.push(`n:${node}`);
       });
     });
   </script>
+  <div id="disqus_thread"></div>
+<script>
+    // CONFIGURE these two variables:
+    var disqus_config = function () {
+      // Use the current page URL (this ensures deep-links work)
+      this.page.url = window.location.href;
+      // Give every page on your site a unique identifier:
+      // since this is effectively a single‐page tool, you can hard-code:
+      this.page.identifier = 'amazon-super-search';
+    };
+
+    // LOAD the Disqus embed script:
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://amazon-super-search-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
 </body>
 </html>
