@@ -454,6 +454,12 @@
         const data = new FormData(this);
         const params = new URLSearchParams();
         const rh = [];
+        console.log(
+  '🔍 debug • i=', data.get('i'),
+  'node=', data.get('node'),
+  'in-stock=', data.get('in-stock')
+);
+
 
         // 1) Boolean keywords
         let q = (data.get('q') || '').trim();
