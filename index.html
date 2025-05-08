@@ -454,14 +454,14 @@
         const data = new FormData(this);
         const params = new URLSearchParams();
         const rh = [];
-        console.log(
-  '🔍 debug • i=', data.get('i'),
-  'node=', data.get('node'),
-  'in-stock=', data.get('in-stock')
-          console.log('🔧 rh array →', rh);
-console.log('🔗 full query →', params.toString());
-
+        // after initializing rh…
+console.log(
+  '🔍 debug • i=',     data.get('i'),
+  'node=',             data.get('node'),
+  'in-stock=',         data.get('in-stock')
 );
+console.log('🔧 rh array →',       rh);
+console.log('🔗 full query →',     params.toString();
 
 
         // 1) Boolean keywords
