@@ -642,28 +642,11 @@ h1.text-pulse {
       });
 
       // — form submit handler —  
-      document
-  .getElementById('amazon-search-form')
-  .addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // ⇢ REQUIRE at least one keyword
-    const data = new FormData(this);
-    const qRaw = data.get('q')?.trim() || '';
-    if (!qRaw) {
-      document.getElementById('empty-hint').textContent =
-        'Please enter at least one search keyword.';
-      this.querySelector('input[name="q"]').focus();
-      return;
-    }
-    document.getElementById('empty-hint').textContent = '';
-
-    const params = new URLSearchParams();
-    const includeOnly = data.get('include-only') === 'on';
-
-    // …rest of your logic using `data` and `params`…
-});
-
+      document.getElementById('amazon-search-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const data   = new FormData(this);
+        const params = new URLSearchParams();
+        const includeOnly = data.get('include-only') === 'on';
 
 // — Include Brands —
 const incRaw = data.get('brand-include');
@@ -673,18 +656,18 @@ try {
 } catch(e) {}
 if (incArr.length) {
   const incVal = incArr.join(',');
-  params.append('rh', `p_89:${incVal}`);
+  params.append('rh', p_89:${incVal});
 }
 
 // — Exclude Brands —
 const excRaw = data.get('brand-exclude');
 let excArr = [];
 try {
-  excArr = JSON.parse(excRaw).map(o => `-${encodeURIComponent(o.value)}`);
+  excArr = JSON.parse(excRaw).map(o => -${encodeURIComponent(o.value)});
 } catch(e) {}
 if (excArr.length) {
   const excVal = excArr.join('|');           // <-- pipe not comma
-  params.append('rh', `p_89:${excVal}`);
+  params.append('rh', p_89:${excVal});
 }
 
 
@@ -703,7 +686,7 @@ if (excArr.length) {
         if (low && high) {
           const lowC  = Math.floor(parseFloat(low) * 100);
           const highC = Math.ceil (parseFloat(high) * 100);
-          params.append('rh', `p_36:${lowC}-${highC}`);
+          params.append('rh', p_36:${lowC}-${highC});
         }
 
         // 3) Discount & flags
@@ -735,7 +718,7 @@ if (excArr.length) {
 
         // Finally open the URL
         const tag      = encodeURIComponent(data.get('tag'));
-        const finalUrl = `https://www.amazon.com/s?tag=${tag}&${params.toString()}`;
+        const finalUrl = https://www.amazon.com/s?tag=${tag}&${params.toString()};
         window.open(finalUrl, '_blank');
       });
     });
