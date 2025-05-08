@@ -642,11 +642,28 @@ h1.text-pulse {
       });
 
       // — form submit handler —  
-      document.getElementById('amazon-search-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const data   = new FormData(this);
-        const params = new URLSearchParams();
-        const includeOnly = data.get('include-only') === 'on';
+      document
+  .getElementById('amazon-search-form')
+  .addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // ⇢ REQUIRE at least one keyword
+    const data = new FormData(this);
+    const qRaw = data.get('q')?.trim() || '';
+    if (!qRaw) {
+      document.getElementById('empty-hint').textContent =
+        'Please enter at least one search keyword.';
+      this.querySelector('input[name="q"]').focus();
+      return;
+    }
+    document.getElementById('empty-hint').textContent = '';
+
+    const params = new URLSearchParams();
+    const includeOnly = data.get('include-only') === 'on';
+
+    // …rest of your logic using `data` and `params`…
+});
+
 
 // — Include Brands —
 const incRaw = data.get('brand-include');
