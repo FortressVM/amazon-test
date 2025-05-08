@@ -763,8 +763,12 @@ if (data.get('gift-wrap') === 'on') {
   filters.push('p_n_gift_wrap_available:1');
 }
 
+ // — Append combined filters —
+ if (filters.length) {
+   params.append('rh', filters.join(','));
+}
 
-        // 1) Boolean keywords
+       // 1) Boolean keywords
         let q = data.get('q')?.trim() || '';
         if (data.get('enable-boolean')) {
           q = q.replace(/\bAND\b/gi, ' ')
@@ -773,48 +777,20 @@ if (data.get('gift-wrap') === 'on') {
         }
         if (q) params.set('k', q);
 
-        // 2) Price range
-        const low  = data.get('min-price')?.trim();
-        const high = data.get('max-price')?.trim();
-        if (low && high) {
-          const lowC  = Math.floor(parseFloat(low) * 100);
-          const highC = Math.ceil (parseFloat(high) * 100);
-          params.append('rh', `p_36:${lowC}-${highC}`);
-        }
+      // — Sort Option —
+const sort = data.get('sort');
+if (sort) {
+  params.set('s', sort);
+}
 
-        // 3) Discount & flags
-        if (data.get('percent-off')) {
-          params.append('rh',
-            'p_n_pct-off-with-discount:' + data.get('percent-off')
-          );
-        }
-        if (data.get('prime-only') === 'on') {
-          params.append(
-            'rh',
-            (params.get('rh')||'') + ',p_89:ATVPDKIKX0DER'
-          );
-        }
-        if (data.get('in-stock') === 'on') {
-          params.append(
-            'rh',
-            (params.get('rh')||'') + ',p_n_availability:1248879011'
-          );
-        }
-        if (data.get('free-shipping') === 'on') {
-          params.append(
-            'rh',
-            (params.get('rh')||'') + ',p_76:13184787011'
-          );
-        }
+       // — Finally open the URL —
+const tag      = encodeURIComponent(data.get('tag'));
+const finalUrl = `https://www.amazon.com/s?tag=${tag}&${params.toString()}`;
+window.open(finalUrl, '_blank');
+  });               // end submit handler
+});                 // end DOMContentLoaded
 
-        // 4) …then paste in your remaining filters (FBA-only, lightning deals, ratings, brand include/exclude, etc.)…
 
-        // Finally open the URL
-        const tag      = encodeURIComponent(data.get('tag'));
-        const finalUrl = `https://www.amazon.com/s?tag=${tag}&${params.toString()}`;
-        window.open(finalUrl, '_blank');
-      });
-    });
   </script>
 </body>
 </html>ced Amazon product search with filters including price range, discounts, Prime only, stock availability, reviews, and more. Embed affiliate tag for easy monetization.">
