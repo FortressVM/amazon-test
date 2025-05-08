@@ -485,11 +485,7 @@
         if (data.get('best-seller')==='on')   rh.push('p_n_feature_browse-bin:15527981011');
         if (data.get('free-returns')==='on')  rh.push('p_n_free_returns_option:1');
         if (data.get('gift-wrap')==='on')     rh.push('p_n_gift_wrap_available:1');
-        console.log('🔍 debug • i=',      data.get('i'),
-                  'node=',             data.get('node'),
-                  'in-stock=',         data.get('in-stock'));
-      console.log('🖊 rh array →',      rh);
-      console.log('🔗 full query →',    params.toString());
+       
 
         // 4) Brand Include/Exclude
         const incOnly = data.get('include-only') === 'on';
