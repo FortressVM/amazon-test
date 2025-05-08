@@ -28,6 +28,30 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
   <style>
+    /* make all cards a bit chunkier, rounder & lift on hover */
+.card {
+  border-width: 3px !important;            /* thicker border */
+  border-color: #007bff !important;         /* pick any accent color */
+  border-radius: 0.75rem !important;        /* softer corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);     /* gentle shadow */
+  transition: transform 0.2s ease-in-out,
+              box-shadow   0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* if you want the accordion panels to match */
+.accordion-button {
+  border-width: 2px !important;
+  border-radius: 0.5rem !important;
+}
+.accordion-item {
+  margin-bottom: 1rem;
+}
+
   body { padding: 1rem; background: #d3d3d3; }
   .slider-label { display: flex; justify-content: space-between; }
   small.coming-soon { color: #888; font-style: italic; margin-left: .5rem; }
