@@ -3,28 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Amazon Super Search</title>
+  <title>Advanced Amazon Filter Search Tool – In-Stock Lightning Deals & Price Drop Alerts</title>
+
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Amazon Super Search: Advanced Amazon product search with filters including price range, discounts, Prime only, stock availability, reviews, and more. Embed affiliate tag for easy monetization.">
-  <meta name="keywords" content="Amazon search, affiliate Amazon, product filters, price range, discounts, Prime, in-stock, customer reviews">
+  <meta name="description"
+        content="Amazon Super Search lets you uncover live in-stock lightning deals, filter by free shipping only, set deep discount thresholds, track price drops, and sort by top customer ratings. Find the best Prime-only offers fast.">
+  <meta name="keywords"
+        content="Amazon lightning deals in stock, filter Amazon free shipping only, Amazon deep discount search, Amazon price drop alert tool, Prime exclusive deal finder, Amazon filter by customer rating">
+
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://amazonsupersearch.blogspot.com/">
+
   <!-- Open Graph / Social -->
-  <meta property="og:title" content="Amazon Super Search">
-  <meta property="og:description" content="Advanced Amazon search interface with powerful filters and affiliate integration.">
+  <meta property="og:title" content="Advanced Amazon Filter Search Tool – Lightning Deals & Price Drop Alerts">
+  <meta property="og:description"
+        content="Use Amazon Super Search to find in-stock lightning deals, set discount and price-drop alerts, filter free shipping only, and sort by highest ratings.">
   <meta property="og:url" content="https://amazonsupersearch.blogspot.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://amazonsupersearch.blogspot.com/thumbnail.png">
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Amazon Super Search">
-  <meta name="twitter:description" content="Advanced Amazon search interface with powerful filters and affiliate integration.">
+  <meta name="twitter:title" content="Advanced Amazon Filter Search Tool">
+  <meta name="twitter:description"
+        content="Discover Amazon’s best live deals: free shipping filters, deep discounts, lightning deals in stock & price drop alerts.">
   <meta name="twitter:image" content="https://amazonsupersearch.blogspot.com/thumbnail.png">
+
   <!-- Bootstrap CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Tagify CSS & JS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
   <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
+
   <style>
     /* Fancy frames */
     .card, .accordion-item {
@@ -157,6 +168,7 @@
                     </div>
                   </div>
                 </div>
+
                 <!-- Brand Filters -->
                 <div class="col-12 mb-3">
                   <div class="card border-success shadow-sm">
@@ -179,6 +191,7 @@
                     </div>
                   </div>
                 </div>
+
                 <!-- Checkbox Options -->
                 <div class="col-12 col-md-6 mb-3">
                   <div class="card h-100">
@@ -186,17 +199,50 @@
                       <h5 class="card-title mb-3">
                         Checkbox Options <small class="text-muted">(select to filter)</small>
                       </h5>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="prime-only" id="primeOnly"><label class="form-check-label" for="primeOnly">Prime Only</label></div>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="in-stock" id="inStock"><label class="form-check-label" for="inStock">In Stock</label></div>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="free-shipping" id="freeShipping"><label class="form-check-label" for="freeShipping">Free Shipping</label></div>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="fba-only" id="fbaOnly"><label class="form-check-label" for="fbaOnly">Sold &amp; Shipped by Amazon</label></div>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="lightning-deals" id="lightningDeals"><label class="form-check-label" for="lightningDeals">Lightning Deals</label></div>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="coupons" id="coupons"><label class="form-check-label" for="coupons">Coupons Available</label></div>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="subscribe-save" id="subscribeSave"><label class="form-check-label" for="subscribeSave">Subscribe &amp; Save</label></div>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="amazon-choice" id="amazonChoice"><label class="form-check-label" for="amazonChoice">Amazon’s Choice</label></div>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="best-seller" id="bestSeller"><label class="form-check-label" for="bestSeller">Best Seller</label></div>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="free-returns" id="freeReturns"><label class="form-check-label" for="freeReturns">Free Returns</label></div>
-                      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="gift-wrap" id="giftWrap"><label class="form-check-label" for="giftWrap">Gift Wrap Available</label></div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="prime-only" id="primeOnly">
+                        <label class="form-check-label" for="primeOnly">Prime Only</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="in-stock" id="inStock">
+                        <label class="form-check-label" for="inStock">In Stock</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="free-shipping" id="freeShipping">
+                        <label class="form-check-label" for="freeShipping">Free Shipping</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="fba-only" id="fbaOnly">
+                        <label class="form-check-label" for="fbaOnly">Sold &amp; Shipped by Amazon</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="lightning-deals" id="lightningDeals">
+                        <label class="form-check-label" for="lightningDeals">Lightning Deals</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="coupons" id="coupons">
+                        <label class="form-check-label" for="coupons">Coupons Available</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="subscribe-save" id="subscribeSave">
+                        <label class="form-check-label" for="subscribeSave">Subscribe &amp; Save</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="amazon-choice" id="amazonChoice">
+                        <label class="form-check-label" for="amazonChoice">Amazon’s Choice</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="best-seller" id="bestSeller">
+                        <label class="form-check-label" for="bestSeller">Best Seller</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="free-returns" id="freeReturns">
+                        <label class="form-check-label" for="freeReturns">Free Returns</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="gift-wrap" id="giftWrap">
+                        <label class="form-check-label" for="giftWrap">Gift Wrap Available</label>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -211,33 +257,63 @@
 
         <!-- Power-User Tools -->
         <div class="accordion-item">
-          <h2 class="accordion-header" id="headingPower">  
+          <h2 class="accordion-header" id="headingPower">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePower">Power-User Tools</button>
           </h2>
           <div id="collapsePower" class="accordion-collapse collapse" data-bs-parent="#accordionAdvanced">
             <div class="accordion-body">
-              <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="enable-boolean" id="enableBoolean"><label class="form-check-label" for="enableBoolean">Enable Boolean Operators</label></div>
-              <div class="mb-2"><label class="form-label">Field Filters</label><input type="text" class="form-control" name="field-filters" placeholder="e.g. field-brand:Sony"></div>
-              <div class="mb-2"><label class="form-label">ASIN / ISBN Direct Lookup</label><input type="text" class="form-control" name="direct-lookup" placeholder="Enter ASIN, ISBN or UPC"></div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" name="enable-boolean" id="enableBoolean">
+                <label class="form-check-label" for="enableBoolean">Enable Boolean Operators</label>
+              </div>
+              <div class="mb-2">
+                <label class="form-label">Field Filters</label>
+                <input type="text" class="form-control" name="field-filters" placeholder="e.g. field-brand:Sony">
+              </div>
+              <div class="mb-2">
+                <label class="form-label">ASIN / ISBN Direct Lookup</label>
+                <input type="text" class="form-control" name="direct-lookup" placeholder="Enter ASIN, ISBN or UPC">
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Deal-Hunter Goodies -->
-        <div class="accordion-item">
+        <div class="accordion-item">  
           <h2 class="accordion-header" id="headingDeal">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeal">Deal-Hunter Goodies</button>
           </h2>
           <div id="collapseDeal" class="accordion-collapse collapse" data-bs-parent="#accordionAdvanced">
             <div class="accordion-body">
-              <div class="mb-3"><label class="form-label">Price Drop ≥ X% Below 90-Day Avg</label><input type="number" class="form-control" name="price-drop" placeholder="e.g. 20"></div>
-              <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="coupon-only" id="couponOnly"><label class="form-check-label" for="couponOnly">Coupon-Clippable Only</label></div>
-              <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="warehouse-refurb" id="warehouseRefurb"><label class="form-check-label" for="warehouseRefurb">Warehouse / Open-Box</label></div>
+              <div class="mb-3">
+                <label class="form-label">Price Drop ≥ X% Below 90-Day Avg</label>
+                <input type="number" class="form-control" name="price-drop" placeholder="e.g. 20">
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" name="coupon-only" id="couponOnly">
+                <label class="form-check-label" for="couponOnly">Coupon-Clippable Only</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" name="warehouse-refurb" id="warehouseRefurb">
+                <label class="form-check-label" for="warehouseRefurb">Warehouse / Open-Box</label>
+              </div>
               <div class="row g-3 mt-3">
-                <div class="col-6 col-md-3"><label class="form-label">▼ % vs. 30-Day Avg</label><input type="number" min="0" class="form-control" name="below-avg-30" placeholder="e.g. 20"></div>
-                <div class="col-6 col-md-3"><label class="form-label">▼ % vs. 60-Day Avg</label><input type="number" min="0" class="form-control" name="below-avg-60" placeholder="e.g. 15"></div>
-                <div class="col-6 col-md-3"><label class="form-label">▼ % vs. 90-Day Avg</label><input type="number" min="0" class="form-control" name="below-avg-90" placeholder="e.g. 10"></div>
-                <div class="col-6 col-md-3"><label class="form-label">▲ Max 7-Day Volatility</label><input type="number" min="0" class="form-control" name="max-volatility-7" placeholder="e.g. 5"></div>
+                <div class="col-6 col-md-3">
+                  <label class="form-label">▼ % vs. 30-Day Avg</label>
+                  <input type="number" min="0" class="form-control" name="below-avg-30" placeholder="e.g. 20">
+                </div>
+                <div class="col-6 col-md-3">
+                  <label class="form-label">▼ % vs. 60-Day Avg</label>
+                  <input type="number" min="0" class="form-control" name="below-avg-60" placeholder="e.g. 15">
+                </div>
+                <div class="col-6 col-md-3">
+                  <label class="form-label">▼ % vs. 90-Day Avg</label>
+                  <input type="number" min="0" class="form-control" name="below-avg-90" placeholder="e.g. 10">
+                </div>
+                <div class="col-6 col-md-3">
+                  <label class="form-label">▲ Max 7-Day Volatility</label>
+                  <input type="number" min="0" class="form-control" name="max-volatility-7" placeholder="e.g. 5">
+                </div>
               </div>
             </div>
           </div>
@@ -250,8 +326,14 @@
           </h2>
           <div id="collapseCompare" class="accordion-collapse collapse" data-bs-parent="#accordionAdvanced">
             <div class="accordion-body">
-              <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="side-by-side" id="sideBySide"><label class="form-check-label" for="sideBySide">Side-by-Side Spec Tables</label></div>
-              <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="verified-only" id="verifiedOnly"><label class="form-check-label" for="verifiedOnly">Verified-Purchase Only Reviews</label></div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" name="side-by-side" id="sideBySide">
+                <label class="form-check-label" for="sideBySide">Side-by-Side Spec Tables</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" name="verified-only" id="verifiedOnly">
+                <label class="form-check-label" for="verifiedOnly">Verified-Purchase Only Reviews</label>
+              </div>
             </div>
           </div>
         </div>
@@ -263,81 +345,62 @@
           </h2>
           <div id="collapsePersonal" class="accordion-collapse collapse" data-bs-parent="#accordionAdvanced">
             <div class="accordion-body">
-              <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="predictive-score" id="predictiveScore"><label class="form-check-label" for="predictiveScore">Buy-Now-or-Wait Score</label></div>
-              <div class="mb-2"><label class="form-label">Restock Forecasts (ASIN)</label><input type="text" class="form-control" name="restock-forecast" placeholder="Enter ASIN"></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="emotion-feedback" id="emotionFeedback"><label class="form-check-label" for="emotionFeedback">Emotion-Feedback Loop</label></div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" name="predictive-score" id="predictiveScore">
+                <label class="form-check-label" for="predictiveScore">Buy-Now-or-Wait Score</label>
+              </div>
+              <div class="mb-2">
+                <label class="form-label">Restock Forecasts (ASIN)</label>
+                <input type="text" class="form-control" name="restock-forecast" placeholder="Enter ASIN">
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="emotion-feedback" id="emotionFeedback">
+                <label class="form-check-label" for="emotionFeedback">Emotion-Feedback Loop</label>
+              </div>
             </div>
           </div>
         </div>
          <!-- Visual & Voice Interfaces (coming soon) -->
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingVisual">
-      <button
-        class="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseVisual"
-      >
-        Visual &amp; Voice Interfaces <small class="text-muted">(coming soon)</small>
-      </button>
-    </h2>
-    <div
-      id="collapseVisual"
-      class="accordion-collapse collapse"
-      data-bs-parent="#accordionAdvanced"
-    >
-      <div class="accordion-body">
-        <!-- coming soon placeholder -->
-        <p class="text-muted mb-0">We’re cooking up visual & voice input—stay tuned!</p>
-      </div>
-    </div>
-  </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingVisual">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVisual">
+              Visual &amp; Voice Interfaces <small class="text-muted">(coming soon)</small>
+            </button>
+          </h2>
+          <div id="collapseVisual" class="accordion-collapse collapse" data-bs-parent="#accordionAdvanced">
+            <div class="accordion-body">
+              <p class="text-muted mb-0">We’re cooking up visual & voice input—stay tuned!</p>
+            </div>
+          </div>
+        </div>
 
-  <!-- Niche & Lifestyle Filters (coming soon) -->
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingNiche">
-      <button
-        class="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseNiche"
-      >
-        Niche &amp; Lifestyle Filters <small class="text-muted">(coming soon)</small>
-      </button>
-    </h2>
-    <div
-      id="collapseNiche"
-      class="accordion-collapse collapse"
-      data-bs-parent="#accordionAdvanced"
-    >
-      <div class="accordion-body">
-        <p class="text-muted mb-0">Filters for your hobbies & lifestyles are on the way.</p>
-      </div>
-    </div>
-  </div>
+        <!-- Niche & Lifestyle Filters (coming soon) -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingNiche">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNiche">
+              Niche &amp; Lifestyle Filters <small class="text-muted">(coming soon)</small>
+            </button>
+          </h2>
+          <div id="collapseNiche" class="accordion-collapse collapse" data-bs-parent="#accordionAdvanced">
+            <div class="accordion-body">
+              <p class="text-muted mb-0">Filters for your hobbies & lifestyles are on the way.</p>
+            </div>
+          </div>
+        </div>
 
-  <!-- Social & Collaborative (coming soon) -->
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingSocial">
-      <button
-        class="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseSocial"
-      >
-        Social &amp; Collaborative <small class="text-muted">(coming soon)</small>
-      </button>
-    </h2>
-    <div
-      id="collapseSocial"
-      class="accordion-collapse collapse"
-      data-bs-parent="#accordionAdvanced"
-    >
-      <div class="accordion-body">
-        <p class="text-muted mb-0">Collaborative wish-lists and shared carts—very soon!</p>
-      </div>
-    </div>
-  </div>
+        <!-- Social & Collaborative (coming soon) -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingSocial">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSocial">
+              Social &amp; Collaborative <small class="text-muted">(coming soon)</small>
+            </button>
+          </h2>
+          <div id="collapseSocial" class="accordion-collapse collapse" data-bs-parent="#accordionAdvanced">
+            <div class="accordion-body">
+              <p class="text-muted mb-0">Collaborative wish-lists and shared carts—very soon!</p>
+            </div>
+          </div>
+        </div>
 
       </div><!--/.accordionAdvanced-->
 
