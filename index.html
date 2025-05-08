@@ -28,48 +28,21 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
   <style>
-    /* make all cards a bit chunkier, rounder & lift on hover */
-.card {
-  border-width: 3px !important;            /* thicker border */
-  border-color: #007bff !important;         /* pick any accent color */
-  border-radius: 0.75rem !important;        /* softer corners */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);     /* gentle shadow */
-  transition: transform 0.2s ease-in-out,
-              box-shadow   0.2s ease-in-out;
+    /* ——— Fancy frames for all your sections ——— */
+.card, 
+.accordion-item {
+  border: 3px solid #007bff !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 4px 12px rgba(0,123,255,0.15) !important;
+  padding: 1rem !important;
+  margin-bottom: 1.5rem !important;
+  background-color: #fff !important;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(0,123,255,0.2) !important;
 }
-
-/* if you want the accordion panels to match */
-.accordion-button {
-  border-width: 2px !important;
-  border-radius: 0.5rem !important;
-}
-.accordion-item {
-  margin-bottom: 1rem;
-}
-
-  body { padding: 1rem; background: #d3d3d3; }
-  .slider-label { display: flex; justify-content: space-between; }
-  small.coming-soon { color: #888; font-style: italic; margin-left: .5rem; }
-  
-  /* Thicker borders for better visibility */
-  .form-control, .form-select, .form-range {
-    border: 2px solid #999 !important;
-    border-radius: 4px !important;
-  }
-  .form-check-input {
-    width: 1.4em;
-    height: 1.4em;
-    border: 2px solid #999;
-    border-radius: 3px;
-  }
-  .btn-outline-secondary, .btn-primary {
-    border-width: 2px !important;
-  }
 
   /* ——— PULSE GLOW ANIMATION ——— */
   @keyframes pulse-glow {
