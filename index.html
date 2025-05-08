@@ -455,7 +455,13 @@
         const params = new URLSearchParams();
         const rh = [];
         // after initializing rh…
-  
+
+        // 2) Department & node
+const dept = data.get('i');
+const node = data.get('node');
+if (dept) params.set('i', dept);
+if (node) rh.push(`n:${node}`);
+
 
 
         // 1) Boolean keywords
