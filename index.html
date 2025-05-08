@@ -656,18 +656,18 @@ try {
 } catch(e) {}
 if (incArr.length) {
   const incVal = incArr.join(',');
-  params.append('rh', p_89:${incVal});
+  params.append('rh', `p_89:${incVal}`);
 }
 
 // — Exclude Brands —
 const excRaw = data.get('brand-exclude');
 let excArr = [];
 try {
-  excArr = JSON.parse(excRaw).map(o => -${encodeURIComponent(o.value)});
+  excArr = JSON.parse(excRaw).map(o => `-${encodeURIComponent(o.value)}`);
 } catch(e) {}
 if (excArr.length) {
   const excVal = excArr.join('|');           // <-- pipe not comma
-  params.append('rh', p_89:${excVal});
+  params.append('rh', `p_89:${excVal}`);
 }
 
 
@@ -686,7 +686,7 @@ if (excArr.length) {
         if (low && high) {
           const lowC  = Math.floor(parseFloat(low) * 100);
           const highC = Math.ceil (parseFloat(high) * 100);
-          params.append('rh', p_36:${lowC}-${highC});
+          params.append('rh', `p_36:${lowC}-${highC}`);
         }
 
         // 3) Discount & flags
@@ -718,7 +718,7 @@ if (excArr.length) {
 
         // Finally open the URL
         const tag      = encodeURIComponent(data.get('tag'));
-        const finalUrl = https://www.amazon.com/s?tag=${tag}&${params.toString()};
+        const finalUrl = `https://www.amazon.com/s?tag=${tag}&${params.toString()}`;
         window.open(finalUrl, '_blank');
       });
     });
