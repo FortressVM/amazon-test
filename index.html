@@ -585,38 +585,45 @@ h1.text-pulse {
 </section>
 
 
-      <!-- Help Section -->
-      <section id="help" class="mt-5">
-        <h2 class="h4">Help &amp; Usage Guide</h2>
-        <p>This guide explains every control on the Amazon Super Search page:</p>
-        <ul>
-          <li>
-            <strong>Search Keywords:</strong>
-            Enter any terms (e.g., “wireless headphones”). 
-            Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code>. 
-            e.g. <em>wireless AND headphones NOT bluetooth</em>
-          </li>
-          <li><strong>Price Range:</strong> Specify minimum and maximum prices (supports cents).</li>
-          <li><strong>% Off Discount:</strong> Slide to filter items by minimum discount percentage.</li>
-          <li><strong>Prime Only:</strong> Show only Amazon Prime–eligible products.</li>
-          <li><strong>In Stock:</strong> Show only items that are available to ship immediately.</li>
-          <li><strong>Customer Review:</strong> Select minimum star rating (1★–4★).</li>
-          <li><strong>Sort By:</strong> Choose how results are ordered (price, recency, discount).</li>
-          <li><strong>Enable Boolean Operators:</strong> Toggle to allow AND/OR/NOT in keywords.</li>
-          <li><strong>Field Filters:</strong> Restrict to fields (e.g., <code>field-brand:Sony</code>).</li>
-          <li><strong>ASIN/ISBN Direct Lookup:</strong> Jump straight to a product page by its ASIN/ISBN.</li>
-          <li><strong>Price Drop:</strong> Filter items at least X% below their 90‑day average price.</li>
-          <li><strong>Coupon‑Clippable Only:</strong> Show items with an available Amazon coupon.</li>
-          <li><strong>Warehouse / Open‑Box:</strong> Include Amazon Warehouse or open‑box deals.</li>
-          <li><strong>Side‑by‑Side Spec Tables:</strong> Compare specifications of up to two products.</li>
-          <li><strong>Verified‑Purchase Only Reviews:</strong> Show reviews verified by Amazon.</li>
-          <li><strong>Buy‑Now‑or‑Wait Score:</strong> AI‑driven recommendation on purchase timing.</li>
-          <li><strong>Restock Forecasts:</strong> Enter an ASIN to see estimated restock date.</li>
-          <li><strong>Emotion‑Feedback Loop:</strong> Provide purchase emotion insights.</li>
-        </ul>
-        <p>Controls labeled <em>(coming soon)</em> require additional API integrations.</p>
-      </section>
-  </div>
+     <section id="help" class="mt-5">
+  <h2 class="h4">Help &amp; Usage Guide</h2>
+  <p>This guide explains every control on the Amazon Super Search page:</p>
+  <ul>
+    <li><strong>Search Keywords:</strong> Enter terms and use Boolean operators (<code>AND</code>, <code>OR</code>, <code>NOT</code>).</li>
+    <li><strong>Price Range ($):</strong> Minimum and maximum price (supports cents).</li>
+    <li><strong>% Off Discount ≥:</strong> Filter by discount percentage (5% steps from 5% up to 100%).</li>
+    <li><strong>Customer Review:</strong> Filter by star rating (1★ through 5★).</li>
+    <li><strong>Sort By:</strong> Order results by relevance, price low→high, or price high→low.</li>
+    <li><strong>Include Brands:</strong> Tag brands to include; check “Match only these brands” to exclude all others.</li>
+    <li><strong>Exclude Brands:</strong> Tag brands to exclude.</li>
+    <li><strong>Prime Only:</strong> Show only Prime-eligible products.</li>
+    <li><strong>In Stock:</strong> Show only currently in-stock items.</li>
+    <li><strong>Free Shipping:</strong> Filter for free-shipping items.</li>
+    <li><strong>Sold &amp; Shipped by Amazon:</strong> Only Amazon-sold items.</li>
+    <li><strong>Lightning Deals:</strong> Active lightning deals only.</li>
+    <li><strong>Coupons Available:</strong> Items with coupons.</li>
+    <li><strong>Subscribe &amp; Save:</strong> Subscribe &amp; Save eligible items.</li>
+    <li><strong>Amazon’s Choice:</strong> Amazon’s Choice products.</li>
+    <li><strong>Best Seller:</strong> Amazon Best Sellers.</li>
+    <li><strong>Free Returns:</strong> Items with free returns.</li>
+    <li><strong>Gift Wrap Available:</strong> Items offering gift-wrap.</li>
+    <li><strong>Enable Boolean Operators:</strong> Turn on/off Boolean parsing in keywords.</li>
+    <li><strong>Field Filters:</strong> Advanced field queries (e.g. <code>field-brand:Sony</code>).</li>
+    <li><strong>ASIN/ISBN Direct Lookup:</strong> Jump to a product by ASIN, ISBN or UPC.</li>
+    <li><strong>Price Drop ≥ X% Below 90-Day Avg:</strong> Filter by drop vs. 90-day average price.</li>
+    <li><strong>Coupon-Clippable Only:</strong> Show only coupon-clippable items.</li>
+    <li><strong>Warehouse / Open-Box:</strong> Warehouse and open-box deals.</li>
+    <li><strong>▼ % vs. Avg (30/60/90-Day):</strong> Filter by percentage drop vs. short-term average.</li>
+    <li><strong>▲ Max 7-Day Volatility:</strong> Limit by 7-day price volatility.</li>
+    <li><strong>Side-by-Side Spec Tables:</strong> Compare specs of two products.</li>
+    <li><strong>Verified-Purchase Only Reviews:</strong> Only reviews with verified purchase.</li>
+    <li><strong>Buy-Now-or-Wait Score:</strong> AI-driven purchase timing recommendation.</li>
+    <li><strong>Restock Forecasts:</strong> Enter ASIN to see restock estimates.</li>
+    <li><strong>Emotion-Feedback Loop:</strong> AI-driven emotional insights on purchases.</li>
+    <li><em>(Coming Soon):</em> URL Parameter Builder, API Scratchpad, Visual &amp; Voice Interfaces, Niche &amp; Lifestyle Filters, Social &amp; Collaborative features.</li>
+  </ul>
+</section>
+
 
     <!-- Bootstrap JS Bundle (includes Popper) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
