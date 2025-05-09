@@ -4,12 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Advanced Amazon Filter Search Tool – In-Stock Lightning Deals & Price Drop Alerts</title>
-   <h1 class="mb-4 text-center text-pulse">Amazon Super Search</h1>
   <!-- Intro paragraph -->
-<p class="lead text-center mb-4">
-  Amazon Super Search is a powerful, web-based tool designed for savvy shoppers who want to uncover in-stock lightning deals, set deep-discount thresholds, and track price drops across Amazon’s vast catalog. Tailored for busy bargain hunters, it filters products by free shipping, Prime eligibility, and customer ratings—so you can zero in on the best offers in seconds. Never waste time sifting through endless listings again: find exactly what you want at the price you want, every time.
-</p>
-
 
   <!-- SEO Meta Tags -->
   <meta name="description"
@@ -138,6 +133,13 @@
   </script>
   </head>
 <body>
+  <header class="container py-4 text-center">
+  <h1 class="mb-4 text-center text-pulse">Amazon Super Search</h1>
+  <p class="lead text-center mb-4">
+    Amazon Super Search is a powerful, web-based tool designed for savvy shoppers who want to uncover in-stock lightning deals, set deep-discount thresholds, and track price drops across Amazon’s vast catalog. Tailored for busy bargain hunters, it filters products by free shipping, Prime eligibility, and customer ratings—so you can zero in on the best offers in seconds. Never waste time sifting through endless listings again: find exactly what you want at the price you want, every time.
+  </p>
+</header>
+
   <div class="container-fluid bg-white p-3 p-md-4 rounded shadow-sm">
 
     <form id="amazon-search-form" autocomplete="off">
@@ -148,16 +150,22 @@
 <input type="hidden" name="node" value="16310101">
 
 
-      <!-- Search Keywords -->
       <section>
-        <h2 class="mb-3">Search Keywords</h2>
-        <div class="card p-3 mb-4">
-          <input type="text" class="form-control" name="q" placeholder="e.g. wireless headphones" autocomplete="off">
-          <small class="form-text text-muted mt-2">
-            Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code> (e.g. <em>wireless AND headphones NOT bluetooth</em>).
-          </small>
-        </div>
-      </section>
+  <h2 class="mb-3">Search Keywords</h2>
+  <div class="card p-3 mb-4">
+    <input
+      type="text"
+      class="form-control"
+      name="q"
+      placeholder="e.g. wireless headphones"
+      autocomplete="off"
+    >
+    <small class="form-text text-muted mt-2">
+      Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code> (e.g. <em>wireless AND headphones NOT bluetooth</em>).
+    </small>
+  </div>
+</section>
+
 
       <!-- Core Filters & Sorters -->
       <section>
