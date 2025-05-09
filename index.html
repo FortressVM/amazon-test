@@ -4,6 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Advanced Amazon Filter Search Tool – In-Stock Lightning Deals & Price Drop Alerts</title>
+   <h1 class="mb-4 text-center text-pulse">Amazon Super Search</h1>
+  <!-- Intro paragraph -->
+<p class="lead text-center mb-4">
+  Amazon Super Search is a powerful, web-based tool designed for savvy shoppers who want to uncover in-stock lightning deals, set deep-discount thresholds, and track price drops across Amazon’s vast catalog. Tailored for busy bargain hunters, it filters products by free shipping, Prime eligibility, and customer ratings—so you can zero in on the best offers in seconds. Never waste time sifting through endless listings again: find exactly what you want at the price you want, every time.
+</p>
+<!-- How It Works -->
+<section id="how-it-works" class="mb-5">
+  <h2 class="text-center mb-3">How Amazon Super Search Works</h2>
+  <ul class="list-unstyled">
+    <li class="mb-2">
+      🔍 <strong>In-Stock Lightning Deals:</strong> Instantly find live, in-stock lightning deals on Amazon without browsing multiple pages.
+    </li>
+    <li class="mb-2">
+      💰 <strong>Deep-Discount Search:</strong> Set your minimum percent-off threshold to surface only the biggest savings.
+    </li>
+    <li class="mb-2">
+      📉 <strong>Price-Drop Alerts:</strong> Compare current prices versus 30-/60-/90-day averages to spot Amazon price drop alerts in real time.
+    </li>
+    <li class="mb-2">
+      📦 <strong>Prime & Free Shipping Filters:</strong> Limit results to Prime-eligible or free-shipping items—no extra fees.
+    </li>
+    <li class="mb-2">
+      ⭐️ <strong>Customer Rating Sort:</strong> Order results by top customer reviews so you only see highly rated products.
+    </li>
+    <li class="mb-2">
+      ⚙️ <strong>Boolean & ASIN Lookup:</strong> Use AND/OR/NOT queries or jump directly to a product with ASIN, ISBN, or UPC.
+    </li>
+  </ul>
+</section>
+
 
   <!-- SEO Meta Tags -->
   <meta name="description"
@@ -27,7 +57,6 @@
   <meta name="twitter:description"
         content="Discover Amazon’s best live deals: free shipping filters, deep discounts, lightning deals in stock & price drop alerts.">
   <meta name="twitter:image" content="https://amazonsupersearch.blogspot.com/thumbnail.png">
-
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -58,6 +87,19 @@
       margin-bottom: 1.5rem !important;
       background-color: #fff !important;
     }
+    .equal-columns {
+  display: flex;
+  gap: 1rem;
+}
+.equal-columns > [class*="col-"] {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+.equal-columns .card {
+  flex: 1 1 0;
+}
+
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(0,123,255,0.2) !important;
@@ -99,11 +141,6 @@
     }
   }
 </script>
-
-</head>
-<body>
-  <!-- … your page markup … -->
-
   <!-- at bottom, wire up clicks -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -123,14 +160,9 @@
         });
     });
   </script>
-</body>
-
-</head>
+  </head>
 <body>
   <div class="container-fluid bg-white p-3 p-md-4 rounded shadow-sm">
-
-    <!-- Page Title -->
-    <h1 class="mb-4 text-center text-pulse">Amazon Super Search</h1>
 
     <form id="amazon-search-form" autocomplete="off">
       <input type="hidden" name="tag" value="echolover25-20">
@@ -164,7 +196,7 @@
             </h3>
             <div id="collapseCore" class="accordion-collapse collapse show" data-bs-parent="#accordionCore">
               <div class="accordion-body">
-                <div class="row g-4">
+                <div class="row g-4 equal-columns">
 
                   <!-- Price Range -->
                   <div class="col-12 col-md-6">
@@ -187,7 +219,7 @@
                     <div class="card p-3">
                       <div class="row g-3">
                         <div class="col-12 col-lg-4">
-                          <label class="form-label">% Off ≥</label>
+                          <label class="form-label"<% Off</label>
                           <select class="form-select" name="percent-off">
                             <option value="">Any</option>
                             <option value="5">5%</option>
@@ -265,6 +297,21 @@
           </div>
         </div>
       </section>
+</section>  <!-- end Brand Filters -->
+
+<!-- Duplicate Search Button (same style) -->
+<div class="text-center mb-5">
+  <button type="submit"
+          form="amazon-search-form"
+          class="btn btn-primary btn-lg w-100 pulse-glow">
+    Search Amazon
+  </button>
+</div>
+
+<!-- Power-User Tools -->
+<section>
+  <div class="accordion mb-4" id="accordionPower">
+    <!-- … -->
 
       <!-- Checkbox Options -->
       <section>
