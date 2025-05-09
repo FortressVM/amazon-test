@@ -34,7 +34,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Amazon Super Search",
-    "url": "https://amazonsupersearch.blogspot.com/",
+    "url": "https://www.amazonsupersearch.com/",
     "applicationCategory": "WebApplication",
     "operatingSystem": "All",
     "description": "Amazon Super Search lets you uncover live in-stock lightning deals, filter by free shipping only, set deep discount thresholds, track price drops, and sort by top customer ratings."
@@ -443,18 +443,21 @@
         <h2>Share With Friends</h2>
         <p>Spread the word about Amazon Super Search:</p>
         <div class="d-flex flex-wrap gap-2 mb-3">
-          <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank');return false;" class="btn btn-primary">Share on Facebook</a>
-          <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent('Check out Amazon Super Search!'),'_blank');return false;" class="btn btn-info">Share on Twitter</a>
-          <a href="mailto:?subject=Amazon Super Search&body=Check out Amazon Super Search: https://amazonsupersearch.blogspot.com/" class="btn btn-secondary">Share via Email</a>
-          <a href="#" onclick="window.open('sms:?&body='+encodeURIComponent('Check out Amazon Super Search: '+location.href),'_blank');return false;" class="btn btn-success">Share via SMS</a>
+          <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://amazonsupersearch.com/') ,'_blank');return false;" class="btn btn-primary">Share on Facebook</a>
+          <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent('https://amazonsupersearch.com/')+'&text='+encodeURIComponent('Check out Amazon Super Search!'),'_blank');return false;" class="btn btn-info">Share on Twitter</a>
+          <a href="mailto:?subject=Amazon Super Search&body=Check out Amazon Super Search: https://amazonsupersearch.com/" class="btn btn-secondary">Share via Email</a>
+          <a href="#" onclick="window.open('sms:?&body='+encodeURIComponent('Check out Amazon Super Search: https://amazonsupersearch.com/'),'_blank');return false;" class="btn btn-success">Share via SMS</a>
         </div>
         <label class="form-label">Copy Link</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="shareLink" readonly>
           <button class="btn btn-outline-secondary pulse-orange" type="button" onclick="navigator.clipboard.writeText(document.getElementById('shareLink').value)">Copy URL</button>
-        </div>
-        <script>document.getElementById('shareLink').value = location.href;</script>
-      </section>
+  </div>
+  <script>
+    const shareBase = 'https://amazonsupersearch.com/';
+    document.getElementById('shareLink').value = shareBase;
+  </script>
+</section>
 
       <!-- Help & Usage Guide -->
       <section id="help" class="mb-5">
