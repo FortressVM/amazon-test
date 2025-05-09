@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Advanced Amazon Filter Search Tool – In-Stock Lightning Deals & Price Drop Alerts</title>
+   <h1 class="mb-4 text-center text-pulse">Amazon Super Search</h1>
+  <!-- Intro paragraph -->
+<p class="lead text-center mb-4">
+  Amazon Super Search is a powerful, web-based tool designed for savvy shoppers who want to uncover in-stock lightning deals, set deep-discount thresholds, and track price drops across Amazon’s vast catalog. Tailored for busy bargain hunters, it filters products by free shipping, Prime eligibility, and customer ratings—so you can zero in on the best offers in seconds. Never waste time sifting through endless listings again: find exactly what you want at the price you want, every time.
+</p>
+
 
   <!-- SEO Meta Tags -->
   <meta name="description"
@@ -27,7 +33,6 @@
   <meta name="twitter:description"
         content="Discover Amazon’s best live deals: free shipping filters, deep discounts, lightning deals in stock & price drop alerts.">
   <meta name="twitter:image" content="https://amazonsupersearch.blogspot.com/thumbnail.png">
-
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -59,17 +64,18 @@
       background-color: #fff !important;
     }
     .equal-columns {
-      display: flex;
-      gap: 1rem;
-    }
-    .equal-columns > [class*="col-"] {
-      flex: 1 1 0;
-      display: flex;
-      flex-direction: column;
-    }
-    .equal-columns .card {
-      flex: 1 1 0;
-    }
+  display: flex;
+  gap: 1rem;
+}
+.equal-columns > [class*="col-"] {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+.equal-columns .card {
+  flex: 1 1 0;
+}
+
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(0,123,255,0.2) !important;
@@ -90,41 +96,57 @@
     @keyframes orange-pulse {0%{box-shadow:0 0 0 0 rgba(255,153,0,0);}50%{box-shadow:0 0 12px 6px rgba(255,153,0,0.7);}100%{box-shadow:0 0 0 0 rgba(255,153,0,0);} }
     .pulse-orange {animation:orange-pulse 2s infinite ease-in-out;}
   </style>
-
   <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');   // ← replace with your GA4 measurement ID
-  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');   // ← replace with your GA4 measurement ID
+</script>
+<!-- … your existing GA4 snippet on lines 82–88 … -->
 
-  <!-- helper to fire events -->
-  <script>
-    function trackClick(category, action, label) {
-      if (typeof gtag === 'function') {
-        gtag('event', action, {
-          'event_category': category,
-          'event_label':    label
-        });
-      }
+<!-- helper to fire events -->
+<script>
+  function trackClick(category, action, label) {
+    if (typeof gtag === 'function') {
+      gtag('event', action, {
+        'event_category': category,
+        'event_label':    label
+      });
     }
+  }
+</script>
+  <!-- at bottom, wire up clicks -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Filter toggles
+      document.querySelectorAll('.form-check-input').forEach(el => {
+        el.addEventListener('change', e => {
+          const name  = e.target.name;                         // e.g. "in-stock"
+          const state = e.target.checked ? 'on' : 'off';
+          trackClick('Filter Toggle', `filter_${name}`, state);
+        });
+      });
+
+      // Search form submission
+      document.getElementById('amazon-search-form')
+        .addEventListener('submit', () => {
+          trackClick('Form', 'search_submitted', location.search);
+        });
+    });
   </script>
-</head>
+  </head>
 <body>
   <div class="container-fluid bg-white p-3 p-md-4 rounded shadow-sm">
 
-    <!-- Page Header & Intro -->
-    <h1 class="mb-4 text-center text-pulse">Amazon Super Search</h1>
-    <p class="lead text-center mb-4">
-      Amazon Super Search is a powerful, web-based tool designed for savvy shoppers who want to uncover in-stock lightning deals, set deep-discount thresholds, and track price drops across Amazon’s vast catalog. Tailored for busy bargain hunters, it filters products by free shipping, Prime eligibility, and customer ratings—so you can zero in on the best offers in seconds. Never waste time sifting through endless listings again: find exactly what you want at the price you want, every time.
-    </p>
-
     <form id="amazon-search-form" autocomplete="off">
       <input type="hidden" name="tag" value="echolover25-20">
-      <input type="hidden" name="i" value="fmc">
-      <input type="hidden" name="node" value="16310101">
+      <!-- department & node (change to suit your category) -->
+     <!-- department & node (FMC Everyday Essentials) -->
+<input type="hidden" name="i"    value="fmc">
+<input type="hidden" name="node" value="16310101">
+
 
       <!-- Search Keywords -->
       <section>
@@ -143,7 +165,8 @@
         <div class="accordion mb-4" id="accordionCore">
           <div class="accordion-item">
             <h3 class="accordion-header" id="headingCore">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCore">
+              <button class="accordion-button" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#collapseCore">
                 Show/Hide Filters
               </button>
             </h3>
@@ -172,7 +195,7 @@
                     <div class="card p-3">
                       <div class="row g-3">
                         <div class="col-12 col-lg-4">
-                          <label class="form-label">% Off</label>
+                          <label class="form-label"<% Off</label>
                           <select class="form-select" name="percent-off">
                             <option value="">Any</option>
                             <option value="5">5%</option>
@@ -364,7 +387,7 @@
               </button>
             </h2>
             <div id="collapseVisual" class="accordion-collapse collapse" data-bs-parent="#accordionVisual">
-              <div class="accordion-body text-muted">We’re cooking up visual &amp; voice input—stay tuned!</div>
+              <div class="accordion-body text-muted">We’re cooking up visual & voice input—stay tuned!</div>
             </div>
           </div>
         </div>
@@ -380,7 +403,7 @@
               </button>
             </h2>
             <div id="collapseNiche" class="accordion-collapse collapse" data-bs-parent="#accordionNiche">
-              <div class="accordion-body text-muted">Filters for your hobbies &amp; lifestyles are on the way.</div>
+              <div class="accordion-body text-muted">Filters for your hobbies & lifestyles are on the way.</div>
             </div>
           </div>
         </div>
@@ -443,7 +466,7 @@
           <li><h4>Sold &amp; Shipped by Amazon:</h4> Only Amazon-sold items.</li>
           <li><h4>Lightning Deals:</h4> Active lightning deals only.</li>
           <li><h4>Coupons Available:</h4> Items with coupons.</li>
-          <li><h4>Subscribe &amp; Save:</h4> Subscribe &amp; Save eligible items.</li>
+          <li><h4>Subscribe &amp; Save:</h4> Subscribe & Save eligible items.</li>
           <li><h4>Amazon’s Choice:</h4> Amazon’s Choice products.</li>
           <li><h4>Best Seller:</h4> Amazon Best Sellers.</li>
           <li><h4>Free Returns:</h4> Items with free returns option.</li>
@@ -466,52 +489,180 @@
       </section>
 
     </form>
+       </form>
 
-    <!-- Visitor Question -->
-    <section id="visitor-question" class="mb-4 text-center">
-      <h3>✨ Question for You ✨</h3>
-      <p>Which filter feature are you most excited to try, and what would you like to see next?</p>
-    </section>
+  </div><!-- /.container -->
 
-    <!-- Disqus Comments -->
-    <div id="disqus_thread"></div>
-    <script>
-      var disqus_config = function () {
-        this.page.url        = window.location.href;
-        this.page.identifier = 'amazon-super-search';
-      };
-      (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://amazon-super-search-1.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head||d.body).appendChild(s);
-      })();
-    </script>
-    <noscript>
-      Please enable JavaScript to view the
-      <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-    </noscript>
+  </div><!-- /.container -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Track each checkbox toggle
+    document.querySelectorAll('.form-check-input').forEach(cb => {
+      cb.addEventListener('change', e => {
+        trackClick(
+          'Filter Toggle',
+          `filter_${e.target.name}`,   // e.g. filter_in-stock
+          e.target.checked ? 'on' : 'off'
+        );
+      });
+    });
 
-  </div><!-- /.container-fluid -->
+    // Track form submissions
+    document.getElementById('amazon-search-form')
+      .addEventListener('submit', () => {
+        trackClick(
+          'Form',
+          'search_submitted',
+          window.location.search      // full query string
+        );
+      });
+  });
+</script>
+
 
   <!-- Bootstrap JS Bundle (includes Popper) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Event Tracking Wiring -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Filter toggles
-      document.querySelectorAll('.form-check-input').forEach(el => {
-        el.addEventListener('change', e => {
-          trackClick('Filter Toggle', `filter_${e.target.name}`, e.target.checked ? 'on' : 'off');
-        });
+      // Initialize Tagify
+      new Tagify(document.getElementById('brandInclude'), {
+        whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
+        dropdown: { enabled: 0, maxItems: 10 }
       });
-      // Form submission
-      document.getElementById('amazon-search-form')
-        .addEventListener('submit', () => {
-          trackClick('Form', 'search_submitted', window.location.search);
-        });
+      new Tagify(document.getElementById('brandExclude'), {
+        whitelist: ["Sony","Samsung","LG","Acer","Apple","Dell"],
+        dropdown: { enabled: 0, maxItems: 10 }
+      });
+
+      // Form submit logic unchanged
+      document.getElementById('amazon-search-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const data = new FormData(this);
+        const params = new URLSearchParams();
+        const rh = [];
+        // after initializing rh…
+
+        // 2) Department & node
+const dept = data.get('i');
+const node = data.get('node');
+if (dept) params.set('i', dept);
+if (node) rh.push(`n:${node}`);
+
+
+
+        // 1) Boolean keywords
+        let q = (data.get('q') || '').trim();
+        if (data.get('enable-boolean') === 'on' && q) {
+          q = q.replace(/\bAND\b/gi, ' ').replace(/\bNOT\b/gi, '-');
+          params.set('bop','enable');
+        }
+        if (q) params.set('k', q);
+
+        // 2) Core Filters
+        const low = data.get('min-price')?.trim(), high = data.get('max-price')?.trim();
+        if (low && high) rh.push(`p_36:${Math.floor(parseFloat(low)*100)}-${Math.ceil(parseFloat(high)*100)}`);
+        if (data.get('percent-off')) rh.push(`p_n_pct-off-with-discount:${data.get('percent-off')}`);
+        if (data.get('min-rating')) rh.push(`p_72:${data.get('min-rating')}00`);
+        if (data.get('sort')) params.set('s', data.get('sort'));
+
+        // 3) Checkbox Flags
+        if (data.get('prime-only')==='on')    rh.push('p_n_feature_fulfilled_by_amazon:1');
+        if (data.get('in-stock')==='on')      rh.push('p_n_availability:1248879011');
+        if (data.get('free-shipping')==='on') rh.push('p_76:13184787011');
+        if (data.get('fba-only')==='on')      rh.push('p_6:ATVPDKIKX0DER');
+        if (data.get('lightning-deals')==='on') rh.push('p_n_specials_match:4366');
+        if (data.get('coupons')==='on')       rh.push('p_n_coupons_available:1');
+        if (data.get('subscribe-save')==='on') rh.push('p_n_subscribe:8');
+        if (data.get('amazon-choice')==='on') rh.push('p_n_feature_browse-bin:15527960011');
+        if (data.get('best-seller')==='on')   rh.push('p_n_feature_browse-bin:15527981011');
+        if (data.get('free-returns')==='on')  rh.push('p_n_free_returns_option:1');
+        if (data.get('gift-wrap')==='on')     rh.push('p_n_gift_wrap_available:1');
+       
+
+        // 4) Brand Include/Exclude
+        const incOnly = data.get('include-only') === 'on';
+        let incArr = [], excArr = [];
+        try { incArr = JSON.parse(data.get('brand-include')||'[]').map(o=>encodeURIComponent(o.value)); } catch{}
+        try { excArr = JSON.parse(data.get('brand-exclude')||'[]').map(o=>`-${encodeURIComponent(o.value)}`); } catch{}
+        if (incArr.length) {
+          rh.push( incOnly
+            ? incArr.map(v=>`p_89:${v}`).join(',')
+            : `p_89:${incArr.join('|')}`
+          );
+        }
+        if (excArr.length) rh.push(`p_89:${excArr.join('|')}`);
+
+        // 5) Deal-Hunter Goodies
+        if (data.get('price-drop')?.trim())     rh.push(`p_n_pct-off-with-discount:${data.get('price-drop')}`);
+        if (data.get('below-avg-30')?.trim())   rh.push(`p_n_pct-off-with-discount:${data.get('below-avg-30')}`);
+        if (data.get('below-avg-60')?.trim())   rh.push(`p_n_pct-off-with-discount:${data.get('below-avg-60')}`);
+        if (data.get('below-avg-90')?.trim())   rh.push(`p_n_pct-off-with-discount:${data.get('below-avg-90')}`);
+        if (data.get('max-volatility-7')?.trim()) rh.push(`p_n_pct-off-with-discount:${data.get('max-volatility-7')}`);
+        if (data.get('coupon-only')==='on')     rh.push('p_n_coupons_available:1');
+        if (data.get('warehouse-refurb')==='on') rh.push('p_n_warehouse_refurbished:1');
+
+        // 6) Power-User & Comparison
+        if (data.get('field-filters')?.trim()) rh.push(data.get('field-filters'));
+        if (data.get('direct-lookup')?.trim()) rh.push(`asin:${data.get('direct-lookup')}`);
+        if (data.get('side-by-side')==='on')   rh.push('comparison-specs:enabled');
+        if (data.get('verified-only')==='on')  rh.push('review-verified:1');
+
+        // 7) AI/Personalization
+        if (data.get('predictive-score')==='on')  rh.push('predictive-score:1');
+        if (data.get('restock-forecast')?.trim()) rh.push(`restock:${data.get('restock-forecast')}`);
+        if (data.get('emotion-feedback')==='on')  rh.push('emotion-feedback:1');
+
+        // Combine & open
+        if (rh.length) params.set('rh', rh.join(','));
+        params.set('tag', encodeURIComponent(data.get('tag')));
+        window.open(`https://www.amazon.com/s?${params.toString()}`, '_blank');
+      });
     });
   </script>
+    <!-- …your search-logic <script> closes here… -->
+
+ 
+<!-- Visitor Question -->
+<section id="visitor-question" class="mb-4 text-center">
+  <h3>✨ Question for You ✨</h3>
+  <p>Which filter feature are you most excited to try, and what would you like to see next?</p>
+</section>
+
+<!-- Comments -->
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url        = window.location.href;
+    this.page.identifier = 'amazon-super-search';
+  };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://amazon-super-search-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head||d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+<!-- Filter-toggle & form-submit tracking -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.form-check-input').forEach(cb =>
+      cb.addEventListener('change', e =>
+        trackClick('Filter Toggle', `filter_${e.target.name}`, e.target.checked ? 'on' : 'off')
+      )
+    );
+    document.getElementById('amazon-search-form')
+      .addEventListener('submit', () =>
+        trackClick('Form', 'search_submitted', window.location.search)
+      );
+  });
+</script>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
