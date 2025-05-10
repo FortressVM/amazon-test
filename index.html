@@ -84,20 +84,22 @@
       width: 1.4em; height: 1.4em; border: 3px solid #000 !important; border-radius: 3px;
     }
     
-   /* Floating Help Panel */
+ /* Floating Help Panel */
 #helpPanel {
   position: fixed;
   bottom: 16px;   /* 16px from the bottom of the screen */
   right: 16px;    /* 16px from the right edge */
-  width: 280px;
+  width: 280px;   /* Set a fixed width for desktop */
   z-index: 1050;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   background-color: #fff;
   padding: 10px;
+  max-height: 80vh; /* Limit the height to 80% of the viewport height */
+  overflow-y: auto; /* Enable scrolling if the content is too tall */
 }
 
-/* For mobile screens, position it at the bottom of the screen */
+/* For mobile screens, position it at the bottom of the screen and adjust the width */
 @media (max-width: 768px) {
   #helpPanel {
     bottom: 10px;
@@ -150,6 +152,7 @@
 .minimized + .expand-icon {
   display: flex;
 }
+
 
 
     
