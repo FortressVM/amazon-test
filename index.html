@@ -156,14 +156,6 @@
 });
   }
 
-  // Optional: clicking the panel itself brings it back
-document.addEventListener('click', function (e) {
-  if (helpPanel.classList.contains('minimized') && e.target.closest('#helpPanel')) {
-    helpPanel.classList.remove('minimized');
-  }
-});
-;
-
 
 </script>
 
@@ -369,6 +361,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const selector = document.getElementById('howToSelector');
+    const contentContainer = document.getElementById('howToContent');
+
+    selector.addEventListener('change', () => {
+      const allSections = contentContainer.querySelectorAll('div[id^="how"]');
+      allSections.forEach(sec => sec.classList.add('d-none'));
+
+      const selected = selector.value;
+      if (selected) {
+        const targetId = `how${selected.charAt(0).toUpperCase()}${selected.slice(1)}`;
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.classList.remove('d-none');
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
 </script>
 
   <div class="container-fluid bg-white p-3 p-md-4 rounded shadow-sm">
