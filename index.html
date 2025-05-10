@@ -145,103 +145,98 @@
     <div class="card-header">
       <strong>How-To Guide</strong>
     </div>
-    <div class="card-body p-2">
-      <select id="howToSelector" class="form-select form-select-sm mb-2">
-        <option value="">Select topic…</option>
-        <option value="price">Price Filter</option>
-        <option value="brand">Brand Filters</option>
-        <option value="deals">Deal-Hunter Goodies</option>
-        <option value="boolean">Boolean Operators</option>
-        <option value="bestDeals">How to Find the Best Deals</option>
+  <div class="card-body p-2">
+  <select id="howToSelector" class="form-select form-select-sm mb-2">
+    <option value="">Select topic…</option>
+    <option value="price">Price Filter</option>
+    <option value="brand">Brand Filters</option>
+    <option value="deals">Deal-Hunter Goodies</option>
+    <option value="boolean">Boolean Operators</option>
+    <option value="bestDeals">How to Find the Best Deals</option>
+    <option value="field">Field Filters</option>
+    <option value="lookup">ASIN/ISBN Lookup</option>
+    <option value="compare">Side-by-Side Compare</option>
+    <option value="verified">Verified-Only Reviews</option>
+    <option value="score">Buy-Now-or-Wait Score</option>
+    <option value="forecast">Restock Forecasts</option>
+    <option value="emotion">Emotion-Feedback Loop</option>
+    <option value="quickBestDeals">Quick Tips: Best Deals</option>
+    <option value="trackRestocks">Track Lightning Deal Restocks</option>
+    <option value="buildUrl">Build URL Parameters</option>
+    <option value="filterSeller">Filter by Seller Type</option>
+    <option value="fieldFilters">Field-Level Filters</option>
+    <option value="sortBargains">Sort Top-Rated Bargains</option>
+    <option value="emotionLoop">Leverage Emotion-Feedback Loop</option>
+    <option value="shareSearch">Share Custom Searches</option>
+  </select>
 
-<option value="field">Field Filters</option>
-<option value="lookup">ASIN/ISBN Lookup</option>
-<option value="compare">Side-by-Side Compare</option>
-<option value="verified">Verified-Only Reviews</option>
-<option value="score">Buy-Now-or-Wait Score</option>
-<option value="forecast">Restock Forecasts</option>
-<option value="emotion">Emotion-Feedback Loop</option>
-<option value="quickBestDeals">How to Find the Best Deals (Quick Tips)</option>
-<option value="trackRestocks">How to Track Lightning Deal Restocks</option>
-<option value="buildUrl">How to Build URL Parameters Manually</option>
-<option value="filterSeller">How to Filter by Seller Type</option>
-<option value="fieldFilters">How to Use Field-Level Filters</option>
-<option value="sortBargains">How to Sort for Top-Rated Bargains</option>
-<option value="emotionLoop">How to Leverage the Emotion-Feedback Loop</option>
-<option value="shareSearch">How to Share Custom Searches with Friends</option>
+  <div id="howToContent" style="max-height: 200px; overflow-y: auto;">
 
+    <div id="howPrice" class="d-none">
+      <h6>Using the Price Filter</h6>
+      <ol class="ps-3">
+        <li>Type your Min & Max amounts.</li>
+        <li>Click “Search Amazon” to apply.</li>
+        <li>Clear values to reset.</li>
+      </ol>
+    </div>
 
-     
-      </select>
-      <div id="howToContent" style="max-height: 200px; overflow-y: auto;">
-        <div id="howPrice" class="d-none">
-          <h6>Using the Price Filter</h6>
-          <ol class="ps-3">
-            <li>Type your Min &amp; Max amounts.</li>
-            <li>Click “Search Amazon” to apply.</li>
-            <li>Clear values to reset.</li>
-          </ol>
-        </div>
-        <div id="howBrand" class="d-none">
-          <h6>Brand Filters</h6>
-          <ol class="ps-3">
-            <li>Start typing a brand name.</li>
-            <li>Check “Match only…” to exclude all others.</li>
-            <li>Uncheck to broaden your search.</li>
-          </ol>
-        </div>
-        <div id="howDeals" class="d-none">
-          <h6>Deal-Hunter Goodies</h6>
-          <ol class="ps-3">
-            <li>Enter a percent drop (e.g. “20”) in Price Drop.</li>
-            <li>Tick “Coupon-Clippable” or “Warehouse” as needed.</li>
-            <li>Use the short-term avg. fields for volatility filters.</li>
-          </ol>
-        </div>
-          <div id="howQuickBestDeals" class="d-none">
-    <h6>How to Find the Best Deals</h6>
-    <ol class="ps-3">
-      <li>Start with a broad keyword search (e.g. “wireless earbuds”).</li>
-      <li>Use the “% Off” filter to only show items with deep discounts.</li>
-      <li>Tick “Lightning Deals” and “Coupons Available” to catch limited-time offers.</li>
-      <li>Sort by “Best Sellers” or “Avg. Customer Review” to see top-rated bargains.</li>
-      <li>Combine with “In Stock” and “Prime Only” to make sure you can buy right away.</li>
-    </ol>
-  </div>
+    <div id="howBrand" class="d-none">
+      <h6>Brand Filters</h6>
+      <ol class="ps-3">
+        <li>Start typing a brand name.</li>
+        <li>Check “Match only…” to exclude all others.</li>
+        <li>Uncheck to broaden your search.</li>
+      </ol>
+    </div>
 
-        <div id="howBoolean" class="d-none">
-  <h6>Using Boolean Operators</h6>
-  <ol class="ps-3">
-    <li>✔ Check “Enable Boolean Operators”.</li>
-    <li>✔ In “Search Keywords”, join terms with <code>AND</code>/<code>OR</code> or prefix with <code>NOT</code>.</li>
-    <li>✔ Click “Search Amazon” to run your advanced query.</li>
-  </ol>
+    <div id="howDeals" class="d-none">
+      <h6>Deal-Hunter Goodies</h6>
+      <ol class="ps-3">
+        <li>Enter a percent drop (e.g. “20”) in Price Drop.</li>
+        <li>Tick “Coupon-Clippable” or “Warehouse” as needed.</li>
+        <li>Use the short-term avg. fields for volatility filters.</li>
+      </ol>
+    </div>
+
+    <div id="howQuickBestDeals" class="d-none">
+      <h6>Quick Tips: How to Find the Best Deals</h6>
+      <ol class="ps-3">
+        <li>Start with a broad keyword search (e.g. “wireless earbuds”).</li>
+        <li>Use the “% Off” filter for deep discounts.</li>
+        <li>Tick “Lightning Deals” & “Coupons Available.”</li>
+        <li>Sort by “Best Sellers” or “Avg. Customer Review.”</li>
+        <li>Combine with “In Stock” + “Prime Only.”</li>
+      </ol>
+    </div>
+
+    <div id="howBoolean" class="d-none">
+      <h6>Using Boolean Operators</h6>
+      <ol class="ps-3">
+        <li>✔ Check “Enable Boolean Operators”.</li>
+        <li>✔ In “Search Keywords” use <code>AND</code>/<code>OR</code> or prefix <code>NOT</code>.</li>
+        <li>✔ Click “Search Amazon” to run the query.</li>
+      </ol>
+    </div>
+
+    <div id="howBestDeals" class="d-none">
+      <h6>How to Find the Best Deals</h6>
+      <ol class="ps-3">
+        <li>Use the <strong>Deal-Hunter Goodies</strong> section.</li>
+        <li>Enter a % drop (e.g. “20”) in <strong>Price Drop</strong>.</li>
+        <li>Tick “Coupon-Clippable Only” or “Warehouse / Open-Box.”</li>
+        <li>Set ▼ % vs. 30/60/90-day averages.</li>
+        <li>Use ▲ Max 7-Day Volatility to limit swings.</li>
+        <li>Combine with <strong>Lightning Deals</strong> & <strong>Prime Only</strong>.</li>
+      </ol>
+    </div>
 </div>
-
-     <div id="howBestDeals" class="d-none">
-  <h6>How to Find the Best Deals</h6>
-  <ol class="ps-3">
-   <div id="howBestDeals" class="d-none">
-  <h6>How to Find the Best Deals</h6>
-  <ol class="ps-3">
-    <li>Use the <strong>Deal-Hunter Goodies</strong> (located after Checkbox Options). .</li> 
-    <li>Enter a percent drop (e.g. “20”) in the <strong>Price Drop</strong> field.</li>
-    <li>Tick <strong>“Coupon-Clippable Only”</strong> or <strong>“Warehouse / Open-Box”</strong> as needed.</li>
-    <li>Set ▼ % vs. 30/60/90-day averages to filter out true bargains.</li>
-    <li>Use ▲ Max 7-Day Volatility to avoid wildly fluctuating items.</li>
-    <li>Combine with <strong>“Lightning Deals”</strong> &amp; <strong>“Prime Only”</strong> to snag limited-time offers.</li>
-  </ol>
-</div>
-  </ol>
-</div>
-
-
-<div id="howField" class="d-none">
+    <div id="howField" class="d-none">
   <h6>Applying Field Filters</h6>
   <ol class="ps-3">
     <li>✔ In “Field Filters”, type <code>field-brand:Sony</code>.</li>
-    <li>✔ Separate multiple rules with commas (e.g. <code>field-price:100-200,field-rating:4</code>).</li>
-    <li>✔ Hit “Search Amazon” to see exact matches.</li>
+    <li>✔ Separate rules with commas (e.g. <code>field-price:100-200,field-rating:4</code>).</li>
+    <li>✔ Click “Search Amazon” to see exact matches.</li>
   </ol>
 </div>
 
@@ -250,7 +245,7 @@
   <ol class="ps-3">
     <li>✔ Paste an ASIN/ISBN/UPC into “Direct Lookup”.</li>
     <li>✔ Click “Search Amazon.”</li>
-    <li>✔ You’ll open that exact product in a new tab.</li>
+    <li>✔ The exact product opens in a new tab.</li>
   </ol>
 </div>
 
@@ -277,7 +272,7 @@
   <ol class="ps-3">
     <li>✔ Enable “Buy-Now-or-Wait Score.”</li>
     <li>✔ Perform your search.</li>
-    <li>✔ See each item’s AI score: “Buy Now” (green) or “Wait” (red).</li>
+    <li>✔ See each item’s AI score: “Buy Now” or “Wait.”</li>
   </ol>
 </div>
 
@@ -286,7 +281,7 @@
   <ol class="ps-3">
     <li>✔ Enter an ASIN into “Restock Forecasts.”</li>
     <li>✔ Click “Search Amazon.”</li>
-    <li>✔ View our estimated restock date or window.</li>
+    <li>✔ View our estimated restock window.</li>
   </ol>
 </div>
 
@@ -300,75 +295,73 @@
 </div>
 
 <div id="howTrackRestocks" class="d-none">
-  <h6>How to Track Lightning Deal Restocks</h6>
+  <h6>Track Lightning Deal Restocks</h6>
   <ol class="ps-3">
-    <li>Check the “In Stock” box.</li>
-    <li>Enter your ASIN into “Restock Forecasts.”</li>
-    <li>Click “Search Amazon” to see upcoming restock windows.</li>
+    <li>✔ Check “In Stock”.</li>
+    <li>✔ Enter your ASIN in “Restock Forecasts.”</li>
+    <li>✔ Click “Search Amazon” to see upcoming restock windows.</li>
   </ol>
 </div>
 
 <div id="howBuildUrl" class="d-none">
-  <h6>How to Build URL Parameters Manually</h6>
+  <h6>Build URL Parameters Manually</h6>
   <ol class="ps-3">
-    <li>Fill in your form controls (keywords → <code>k=…</code>, filters → <code>rh=…</code>).</li>
+    <li>Fill in keywords → <code>k=…</code>, filters → <code>rh=…</code>.</li>
     <li>Copy the generated URL from the “Copy Link” box.</li>
-    <li>Share or bookmark that URL to reapply the exact filters.</li>
+    <li>Bookmark or share that URL to reapply the exact filters.</li>
   </ol>
 </div>
 
 <div id="howFilterSeller" class="d-none">
-  <h6>How to Filter by Seller Type</h6>
+  <h6>Filter by Seller Type</h6>
   <ol class="ps-3">
     <li>Tick “Sold & Shipped by Amazon.”</li>
     <li>Tick “Warehouse / Open-Box.”</li>
-    <li>Tick “Coupons Available” if you want extra savings.</li>
+    <li>Tick “Coupons Available” for extra savings.</li>
     <li>Click “Search Amazon” to see only your chosen sources.</li>
   </ol>
 </div>
 
 <div id="howFieldFilters" class="d-none">
-  <h6>How to Use Field-Level Filters</h6>
+  <h6>Use Field-Level Filters</h6>
   <ol class="ps-3">
     <li>Open “Power-User Tools.”</li>
-    <li>In “Field Filters” enter rules like <code>field-brand:Sony,field-price:50-100</code>.</li>
-    <li>Click “Search Amazon” to get hyper-targeted results.</li>
+    <li>Enter rules like <code>field-brand:Sony,field-price:50-100</code>.</li>
+    <li>Click “Search Amazon” for hyper-targeted results.</li>
   </ol>
 </div>
 
 <div id="howSortBargains" class="d-none">
-  <h6>How to Sort for Top-Rated Bargains</h6>
+  <h6>Sort Top-Rated Bargains</h6>
   <ol class="ps-3">
     <li>Select your %-Off threshold.</li>
     <li>Choose “Avg. Customer Review.”</li>
-    <li>Sort by “Best Sellers” in the Sort dropdown.</li>
-    <li>Click “Search Amazon” to surface top-rated deals.</li>
+    <li>Sort by “Best Sellers.”</li>
+    <li>Click “Search Amazon” to surface top deals.</li>
   </ol>
 </div>
 
 <div id="howEmotionLoop" class="d-none">
-  <h6>How to Leverage the Emotion-Feedback Loop</h6>
+  <h6>Leverage the Emotion-Feedback Loop</h6>
   <ol class="ps-3">
-    <li>Check “Emotion-Feedback Loop.”</li>
-    <li>Run your search as usual.</li>
-    <li>Read the AI-generated sentiment summary under each result.</li>
+    <li>✔ Check “Emotion-Feedback Loop.”</li>
+    <li>✔ Run your search as usual.</li>
+    <li>✔ Read the sentiment summary under each result.</li>
   </ol>
 </div>
 
 <div id="howShareSearch" class="d-none">
-  <h6>How to Share Custom Searches with Friends</h6>
+  <h6>Share Custom Searches</h6>
   <ol class="ps-3">
     <li>Apply all your filters and click “Search Amazon.”</li>
     <li>Copy the URL from the “Copy Link” box.</li>
-    <li>Use the social buttons or paste the link to share.</li>
+    <li>Paste it or use the share buttons to send to friends.</li>
   </ol>
 </div>
 
-
-      </div>
-    </div>
   </div>
 </div>
+</div>  <!-- closes .position-fixed
 
 
   <div class="container-fluid bg-white p-3 p-md-4 rounded shadow-sm">
