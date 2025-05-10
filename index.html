@@ -138,29 +138,30 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const closeBtn = document.getElementById('closeHelpPanel');
-    const expandIcon = document.getElementById('expandHelpIcon');
-    const helpPanel = document.querySelector('.position-fixed');
+  const closeBtn = document.getElementById('closeHelpPanel');
+  const expandIcon = document.getElementById('expandHelpIcon');
+  const helpPanel = document.querySelector('.position-fixed');
 
-    if (closeBtn && helpPanel) {
-      closeBtn.addEventListener('click', () => {
-        helpPanel.classList.toggle('minimized');
-      });
+  if (closeBtn && helpPanel) {
+   closeBtn.addEventListener('click', () => {
+  helpPanel.classList.add('minimized');
+});
+  }
+
+  if (expandIcon && helpPanel) {
+   expandIcon.addEventListener('click', () => {
+  helpPanel.classList.remove('minimized');
+});
+  }
+
+  // Optional: clicking the panel itself brings it back
+  document.addEventListener('click', function (e) {
+    if (helpPanel.classList.contains('minimized') && e.target.closest('.position-fixed')) {
+      helpPanel.classList.remove('minimized');
     }
-
-    if (expandIcon && helpPanel) {
-      expandIcon.addEventListener('click', () => {
-        helpPanel.classList.remove('minimized');
-      });
-    }
-
-    // Optional: clicking the panel itself brings it back
-    document.addEventListener('click', function (e) {
-      if (helpPanel.classList.contains('minimized') && e.target.closest('.position-fixed')) {
-        helpPanel.classList.remove('minimized');
-      }
-    });
   });
+});
+
 </script>
 
 
