@@ -140,7 +140,7 @@
   document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById('closeHelpPanel');
   const expandIcon = document.getElementById('expandHelpIcon');
-  const helpPanel = document.querySelector('.position-fixed');
+  const helpPanel = document.getElementById('helpPanel');
 
   if (closeBtn && helpPanel) {
    closeBtn.addEventListener('click', () => {
@@ -155,12 +155,13 @@
   }
 
   // Optional: clicking the panel itself brings it back
-  document.addEventListener('click', function (e) {
-    if (helpPanel.classList.contains('minimized') && e.target.closest('.position-fixed')) {
-      helpPanel.classList.remove('minimized');
-    }
-  });
+document.addEventListener('click', function (e) {
+  if (helpPanel.classList.contains('minimized') && e.target.closest('#helpPanel')) {
+    helpPanel.classList.remove('minimized');
+  }
 });
+;
+
 
 </script>
 
@@ -351,21 +352,21 @@
 <!-- How-To Panel Logic -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const sel = document.getElementById('howToSelector');
-  if (!sel) return;
+  const closeBtn = document.getElementById('closeHelpPanel');
+  const expandIcon = document.getElementById('expandHelpIcon');
+  const helpPanel = document.getElementById('helpPanel');
 
-  sel.addEventListener('change', e => {
-    // hide all the topic panels
-    document.querySelectorAll('#howToContent > div')
-            .forEach(d => d.classList.add('d-none'));
+  if (closeBtn && helpPanel) {
+    closeBtn.addEventListener('click', () => {
+      helpPanel.classList.add('minimized');
+    });
+  }
 
-    // build the ID to show (e.g. "howCompare" for value="compare")
-    const id = 'how'
-             + e.target.value.charAt(0).toUpperCase()
-             + e.target.value.slice(1);
-
-    document.getElementById(id)?.classList.remove('d-none');
-  });
+  if (expandIcon && helpPanel) {
+    expandIcon.addEventListener('click', () => {
+      helpPanel.classList.remove('minimized');
+    });
+  }
 });
 </script>
 
