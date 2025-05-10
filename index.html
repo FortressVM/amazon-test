@@ -119,10 +119,6 @@
 }
 
 }
-#helpPanel.pinned {
-  position: sticky !important;
-  top: 20px !important;
-}
 
     .minimized {
   right: -260px; /* slide out of view */
@@ -168,19 +164,6 @@
   helpPanel.classList.add('minimized');
 });
   }
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const pinBtn = document.getElementById('togglePinHelp');
-    const helpPanel = document.getElementById('helpPanel');
-
-    if (pinBtn && helpPanel) {
-      pinBtn.addEventListener('click', () => {
-        helpPanel.classList.toggle('pinned');
-        pinBtn.innerText = helpPanel.classList.contains('pinned') ? '📌 Unpin Panel' : '📌 Pin Panel';
-      });
-    }
-  });
-</script>
 
   if (expandIcon && helpPanel) {
    expandIcon.addEventListener('click', () => {
@@ -206,8 +189,6 @@
   </div>
 
   <div class="card-body p-2">
-    <button id="closeHelpPanel" class="btn btn-sm btn-outline-danger mb-2 w-100">Close Help Panel ✖</button>
-    <button id="togglePinHelp" class="btn btn-sm btn-outline-secondary mb-2 w-100">📌 Pin Panel</button>
   <select id="howToSelector" class="form-select form-select-sm mb-2">
     <option value="">Select topic // Close Help Panel</option>
     <option value="price">Price Filter</option>
@@ -371,7 +352,7 @@
 </div>
 </div>  <!-- closes .card -->
 </div>  <!-- closes .position-fixed -->
-<div class="container mt-4 text-center">
+  <div class="container mt-4 text-center">
   <figure>
     <img src="save-big-deals-amazon-super-search.gif"
          alt="Save Big Deals Banner"
@@ -379,36 +360,7 @@
          style="width: 200px; height: 160px; object-fit: cover;">
     <figcaption class="mt-2 text-muted">Save more by mastering Amazon filters with Super Search</figcaption>
   </figure>
-
-  <!-- How-To Toggle Summary -->
-  <button class="btn btn-outline-primary mt-3" id="toggleSummary">
-    📘 How to Use Amazon Super Search
-  </button>
-
-  <div id="summaryContent" class="mt-3 text-start" style="display: none; max-width: 800px; margin: 0 auto;">
-    <ul class="list-group">
-      <li class="list-group-item"><strong>🔍 Search Keywords:</strong> Use simple or Boolean searches like <code>wireless AND headphones NOT bluetooth</code>.</li>
-      <li class="list-group-item"><strong>💵 Price Range:</strong> Choose Min/Max values and type (List or Sale Price).</li>
-      <li class="list-group-item"><strong>📉 Discount & Ratings:</strong> Set discount %, customer reviews, and sort preferences.</li>
-      <li class="list-group-item"><strong>🏷️ Deal-Hunter Tools:</strong> Set drop % vs. 30/60/90-day avg, coupon-only, warehouse, and volatility filters.</li>
-      <li class="list-group-item"><strong>🏭 Brand Filters:</strong> Add brands to include/exclude with an optional “only these” toggle.</li>
-      <li class="list-group-item"><strong>🛠️ Power-User Mode:</strong> Use field queries like <code>field-brand:Sony</code> or look up a product by ASIN/ISBN.</li>
-      <li class="list-group-item"><strong>🤖 AI Features:</strong> Try Buy-Now Score, Restock Forecast, and Emotion Feedback Loop.</li>
-      <li class="list-group-item"><strong>📊 Comparison Tools:</strong> Enable side-by-side specs and verified-review-only filters.</li>
-      <li class="list-group-item"><strong>▶️ Search:</strong> Hit “Search Amazon” to launch your filtered results in a new tab.</li>
-    </ul>
-  </div>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleBtn = document.getElementById('toggleSummary');
-    const content = document.getElementById('summaryContent');
-
-    toggleBtn.addEventListener('click', () => {
-      content.style.display = (content.style.display === 'none') ? 'block' : 'none';
-    });
-  });
-</script>
 
 
 <div id="expandHelpIcon" class="expand-icon">›</div>
@@ -811,11 +763,46 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 
-  <!-- Repeat this accordion-item block for each feature -->
-  <!-- You can paste all generated items from the accordion_html variable here -->
 
-  <!-- For brevity, just one example is shown. Let me know if you want all blocks pasted too -->
-</div>
+      <!-- Help & Usage Guide -->
+      <section id="help" class="mb-5">
+        <h2>Help &amp; Usage Guide</h2>
+        <h3>Control Descriptions</h3>
+        <ul>
+          <li><h4>Search Keywords:</h4> Enter terms and use Boolean operators (AND, OR, NOT).</li>
+          <li><h4>Price Range ($):</h4> Minimum and maximum price (supports cents).</li>
+          <li><h4>% Off Discount ≥:</h4> Filter by discount percentage (5% steps from 5% up to 100%).</li>
+          <li><h4>Customer Review:</h4> Filter by star rating (1★ through 5★).</li>
+          <li><h4>Sort By:</h4> Order results by relevance, price low→high, price high→low, review, or newest.</li>
+          <li><h4>Include Brands:</h4> Tag brands to include; check “Match only these brands” to exclude all others.</li>
+          <li><h4>Exclude Brands:</h4> Tag brands to exclude.</li>
+          <li><h4>Prime Only:</h4> Show only Prime-eligible products.</li>
+          <li><h4>In Stock:</h4> Show only currently in-stock items.</li>
+          <li><h4>Free Shipping:</h4> Filter for free-shipping items.</li>
+          <li><h4>Sold &amp; Shipped by Amazon:</h4> Only Amazon-sold items.</li>
+          <li><h4>Lightning Deals:</h4> Active lightning deals only.</li>
+          <li><h4>Coupons Available:</h4> Items with coupons.</li>
+          <li><h4>Subscribe &amp; Save:</h4> Subscribe & Save eligible items.</li>
+          <li><h4>Amazon’s Choice:</h4> Amazon’s Choice products.</li>
+          <li><h4>Best Seller:</h4> Amazon Best Sellers.</li>
+          <li><h4>Free Returns:</h4> Items with free returns option.</li>
+          <li><h4>Gift Wrap Available:</h4> Items offering gift wrap.</li>
+          <li><h4>Enable Boolean Operators:</h4> Turn on/off Boolean parsing in keywords.</li>
+          <li><h4>Field Filters:</h4> Advanced field queries (e.g. <code>field-brand:Sony</code>).</li>
+          <li><h4>ASIN/ISBN Direct Lookup:</h4> Jump to a product by ASIN, ISBN or UPC.</li>
+          <li><h4>Price Drop ≥ X% Below 90-Day Avg:</h4> Filter by drop vs. 90-day average price.</li>
+          <li><h4>Coupon-Clippable Only:</h4> Show only coupon-clippable items.</li>
+          <li><h4>Warehouse / Open-Box:</h4> Warehouse and open-box deals.</li>
+          <li><h4>▼ % vs. Avg (30/60/90-Day):</h4> Filter by price drop vs. short-term average.</li>
+          <li><h4>▲ Max 7-Day Volatility:</h4> Limit by 7-day price volatility.</li>
+          <li><h4>Side-by-Side Spec Tables:</h4> Compare specs of two products side by side.</li>
+          <li><h4>Verified-Purchase Only Reviews:</h4> Show only reviews with verified purchase.</li>
+          <li><h4>Buy-Now-or-Wait Score:</h4> AI-driven purchase timing recommendation.</li>
+          <li><h4>Restock Forecasts:</h4> Enter ASIN to see restock estimates.</li>
+          <li><h4>Emotion-Feedback Loop:</h4> AI-driven emotional insights on purchases.</li>
+          <li><em>(Coming Soon):</em> URL Parameter Builder, API Scratchpad, Visual &amp; Voice Interfaces, Niche &amp; Lifestyle Filters, Social &amp; Collaborative features.</li>
+        </ul>
+      </section>
 
     </form>
 
