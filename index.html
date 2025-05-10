@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51QSZ395GS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51QSZ395GS');
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Advanced Amazon Filter Search Tool – In-Stock Lightning Deals & Price Drop Alerts</title>
@@ -84,78 +93,47 @@
       width: 1.4em; height: 1.4em; border: 3px solid #000 !important; border-radius: 3px;
     }
     
- /* Floating Help Panel */
-#helpPanel {
+    .expand-icon {
   position: fixed;
-  bottom: 16px;   /* 16px from the bottom of the screen */
-  right: 16px;    /* 16px from the right edge */
-  width: 280px;   /* Set a fixed width for desktop */
-  z-index: 1050;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 10px;
-  max-height: 80vh; /* Limit the height to 80% of the viewport height */
-  overflow-y: auto; /* Enable scrolling if the content is too tall */
-}
-
-/* For mobile screens, position it at the bottom of the screen and adjust the width */
-@media (max-width: 768px) {
-  #helpPanel {
-    bottom: 10px;
-    right: 10px;
-    width: 90%;  /* Make it take up most of the screen width */
-  }
-
-  /* Make the floating icon smaller on mobile */
-  #expandHelpIcon {
-    font-size: 20px;
-    width: 40px;
-    height: 40px;
-  }
-}
-
-/* Floating Help Icon */
-.expand-icon {
-  position: fixed;
-  bottom: 1rem;  /* 1rem from the bottom of the screen */
-  right: 1rem;   /* 1rem from the right edge */
+  top: 1rem;      /* pin 16px down from top of viewport */
+  right: 1rem;    /* pin 16px in from the right edge */
+  /* remove the old left:-25px; rule entirely */
   font-size: 22px;
   background: #007bff;
   color: white;
   border-radius: 50%;
   width: 24px;
   height: 24px;
-  display: none; /* Hidden by default */
+  display: none;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
-
 .minimized + .expand-icon {
   display: flex;
 }
 
-.minimized {
-  right: -260px;  /* Slide out of view */
+/* Place this after it, at top level */
+#helpPanel,
+#helpPanel .card-body,
+#helpPanel select,
+#helpPanel button,
+#helpPanel ol,
+#helpPanel h6,
+#helpPanel div {
+  background-color: #fff !important;
+}
+
+    .minimized {
+  right: -260px; /* slide out of view */
   opacity: 0.3;
   transition: all 0.3s ease-in-out;
 }
-
 .minimized:hover {
   opacity: 1;
   cursor: pointer;
 }
-
-/* When the help panel is expanded, the icon stays at the bottom */
-.minimized + .expand-icon {
-  display: flex;
-}
-
-
-
-    
 
     /* Pulse animations */
     @keyframes pulse-glow {0%{box-shadow:0 0 0 0 rgba(13,110,253,0.5);}50%{box-shadow:0 0 20px 10px rgba(13,110,253,0.5);}100%{box-shadow:0 0 0 0 rgba(13,110,253,0.5);} }
