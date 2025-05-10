@@ -363,6 +363,26 @@
 </div>
 </div>  <!-- closes .position-fixed
 
+<!-- How-To Panel Logic -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sel = document.getElementById('howToSelector');
+  if (!sel) return;
+
+  sel.addEventListener('change', e => {
+    // hide all the topic panels
+    document.querySelectorAll('#howToContent > div')
+            .forEach(d => d.classList.add('d-none'));
+
+    // build the ID to show (e.g. "howCompare" for value="compare")
+    const id = 'how'
+             + e.target.value.charAt(0).toUpperCase()
+             + e.target.value.slice(1);
+
+    document.getElementById(id)?.classList.remove('d-none');
+  });
+});
+</script>
 
   <div class="container-fluid bg-white p-3 p-md-4 rounded shadow-sm">
 
