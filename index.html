@@ -119,6 +119,10 @@
 }
 
 }
+#helpPanel.pinned {
+  position: sticky !important;
+  top: 20px !important;
+}
 
     .minimized {
   right: -260px; /* slide out of view */
@@ -164,6 +168,19 @@
   helpPanel.classList.add('minimized');
 });
   }
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const pinBtn = document.getElementById('togglePinHelp');
+    const helpPanel = document.getElementById('helpPanel');
+
+    if (pinBtn && helpPanel) {
+      pinBtn.addEventListener('click', () => {
+        helpPanel.classList.toggle('pinned');
+        pinBtn.innerText = helpPanel.classList.contains('pinned') ? '📌 Unpin Panel' : '📌 Pin Panel';
+      });
+    }
+  });
+</script>
 
   if (expandIcon && helpPanel) {
    expandIcon.addEventListener('click', () => {
@@ -189,6 +206,8 @@
   </div>
 
   <div class="card-body p-2">
+    <button id="closeHelpPanel" class="btn btn-sm btn-outline-danger mb-2 w-100">Close Help Panel ✖</button>
+    <button id="togglePinHelp" class="btn btn-sm btn-outline-secondary mb-2 w-100">📌 Pin Panel</button>
   <select id="howToSelector" class="form-select form-select-sm mb-2">
     <option value="">Select topic // Close Help Panel</option>
     <option value="price">Price Filter</option>
@@ -791,19 +810,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </div>
 </div>
-<div class="accordion my-4" id="helpUsageGuide">
-  <h3 class="mb-3 text-center">📘 Help & Usage Guide</h3>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingKeywords">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseKeywords">
-        🔍 Search Keywords
-      </button>
-    </h2>
-    <div id="collapseKeywords" class="accordion-collapse collapse" data-bs-parent="#helpUsageGuide">
-      <div class="accordion-body">Enter terms and use Boolean operators like <code>AND</code>, <code>OR</code>, <code>NOT</code>.</div>
-    </div>
-  </div>
 
   <!-- Repeat this accordion-item block for each feature -->
   <!-- You can paste all generated items from the accordion_html variable here -->
