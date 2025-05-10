@@ -151,7 +151,16 @@
         <option value="price">Price Filter</option>
         <option value="brand">Brand Filters</option>
         <option value="deals">Deal-Hunter Goodies</option>
-        <!-- add more topics here -->
+        <option value="boolean">Boolean Operators</option>
+<option value="field">Field Filters</option>
+<option value="lookup">ASIN/ISBN Lookup</option>
+<option value="compare">Side-by-Side Compare</option>
+<option value="verified">Verified-Only Reviews</option>
+<option value="score">Buy-Now-or-Wait Score</option>
+<option value="forecast">Restock Forecasts</option>
+<option value="emotion">Emotion-Feedback Loop</option>
+
+     
       </select>
       <div id="howToContent" style="max-height: 200px; overflow-y: auto;">
         <div id="howPrice" class="d-none">
@@ -178,7 +187,78 @@
             <li>Use the short-term avg. fields for volatility filters.</li>
           </ol>
         </div>
-        <!-- more topic blocks here -->
+        <div id="howBoolean" class="d-none">
+  <h6>Using Boolean Operators</h6>
+  <ol class="ps-3">
+    <li>✔ Check “Enable Boolean Operators”.</li>
+    <li>✔ In “Search Keywords”, join terms with <code>AND</code>/<code>OR</code> or prefix with <code>NOT</code>.</li>
+    <li>✔ Click “Search Amazon” to run your advanced query.</li>
+  </ol>
+</div>
+
+<div id="howField" class="d-none">
+  <h6>Applying Field Filters</h6>
+  <ol class="ps-3">
+    <li>✔ In “Field Filters”, type <code>field-brand:Sony</code>.</li>
+    <li>✔ Separate multiple rules with commas (e.g. <code>field-price:100-200,field-rating:4</code>).</li>
+    <li>✔ Hit “Search Amazon” to see exact matches.</li>
+  </ol>
+</div>
+
+<div id="howLookup" class="d-none">
+  <h6>Doing an ASIN / ISBN Lookup</h6>
+  <ol class="ps-3">
+    <li>✔ Paste an ASIN/ISBN/UPC into “Direct Lookup”.</li>
+    <li>✔ Click “Search Amazon.”</li>
+    <li>✔ You’ll open that exact product in a new tab.</li>
+  </ol>
+</div>
+
+<div id="howCompare" class="d-none">
+  <h6>Comparing Side-by-Side Specs</h6>
+  <ol class="ps-3">
+    <li>✔ Tick “Side-by-Side Spec Tables.”</li>
+    <li>✔ Enter two ASINs or keywords (one per field).</li>
+    <li>✔ Click “Search Amazon” for a spec comparison table.</li>
+  </ol>
+</div>
+
+<div id="howVerified" class="d-none">
+  <h6>Filtering for Verified-Only Reviews</h6>
+  <ol class="ps-3">
+    <li>✔ Check “Verified-Purchase Only Reviews.”</li>
+    <li>✔ Click “Search Amazon.”</li>
+    <li>✔ Only confirmed-buyer reviews will show.</li>
+  </ol>
+</div>
+
+<div id="howScore" class="d-none">
+  <h6>Reading the Buy-Now-or-Wait Score</h6>
+  <ol class="ps-3">
+    <li>✔ Enable “Buy-Now-or-Wait Score.”</li>
+    <li>✔ Perform your search.</li>
+    <li>✔ See each item’s AI score: “Buy Now” (green) or “Wait” (red).</li>
+  </ol>
+</div>
+
+<div id="howForecast" class="d-none">
+  <h6>Checking Restock Forecasts</h6>
+  <ol class="ps-3">
+    <li>✔ Enter an ASIN into “Restock Forecasts.”</li>
+    <li>✔ Click “Search Amazon.”</li>
+    <li>✔ View our estimated restock date or window.</li>
+  </ol>
+</div>
+
+<div id="howEmotion" class="d-none">
+  <h6>Using the Emotion-Feedback Loop</h6>
+  <ol class="ps-3">
+    <li>✔ Check “Emotion-Feedback Loop.”</li>
+    <li>✔ Run your search.</li>
+    <li>✔ Read the AI-generated sentiment summary under each result.</li>
+  </ol>
+</div>
+
       </div>
     </div>
   </div>
@@ -746,19 +826,6 @@ if (data.get('percent-off')) rh.push(`p_n_pct-off-with-discount:${data.get('perc
 
 <!-- Bootstrap JS Bundle -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
- <!-- How-To Panel Logic: place this right after Bootstrap, just above </body> -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const sel = document.getElementById('howToSelector');
-  if (!sel) return;
-  sel.addEventListener('change', e => {
-    document.querySelectorAll('#howToContent > div')
-            .forEach(d => d.classList.add('d-none'));
-    const id = 'how' + e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
-    document.getElementById(id)?.classList.remove('d-none');
-  });
-});
-</script>
 </body>
 </html>
 
