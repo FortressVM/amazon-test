@@ -83,6 +83,7 @@
     .form-check-input {
       width: 1.4em; height: 1.4em; border: 3px solid #000 !important; border-radius: 3px;
     }
+    
     .expand-icon {
   position: absolute;
   top: 10px;
@@ -101,6 +102,20 @@
 }
 .minimized + .expand-icon {
   display: flex;
+}
+
+/* Place this after it, at top level */
+#helpPanel,
+#helpPanel .card-body,
+#helpPanel select,
+#helpPanel button,
+#helpPanel ol,
+#helpPanel h6,
+#helpPanel div {
+  background-color: #fff !important;
+}
+
+
 }
 
 }
