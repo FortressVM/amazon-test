@@ -85,9 +85,10 @@
     }
     
     .expand-icon {
-  position: absolute;
-  top: 10px;
-  left: -25px;
+  position: fixed;
+  top: 1rem;      /* pin 16px down from top of viewport */
+  right: 1rem;    /* pin 16px in from the right edge */
+  /* remove the old left:-25px; rule entirely */
   font-size: 22px;
   background: #007bff;
   color: white;
@@ -113,11 +114,6 @@
 #helpPanel h6,
 #helpPanel div {
   background-color: #fff !important;
-}
-
-
-}
-
 }
 
     .minimized {
@@ -183,9 +179,10 @@
 </header>
 
 <!-- Help panel -->
-<div id="helpPanel" class="position-fixed top-0 end-0 m-3" style="width: 280px; z-index: 1050;">
-  <div class="card-header">
+<div id="helpPanel" class="position-fixed top-0 end-0 m-3 card" style="width: 280px; z-index: 1050;">
+  <div class="card-header d-flex justify-content-between align-items-center">
     <strong>How-To Guide</strong>
+    <button id="closeHelpPanel" class="btn-close btn-close-white" aria-label="Close"></button>
   </div>
 
   <div class="card-body p-2">
