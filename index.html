@@ -99,8 +99,10 @@
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
-.minimized .expand-icon {
+.minimized + .expand-icon {
   display: flex;
+}
+
 }
 
     .minimized {
@@ -172,12 +174,12 @@ document.addEventListener('click', function (e) {
     Amazon Super Search is a powerful, web-based tool designed for savvy shoppers who want to uncover in-stock lightning deals, set deep-discount thresholds, and track price drops across Amazon’s vast catalog. Tailored for busy bargain hunters, it filters products by free shipping, Prime eligibility, and customer ratings—so you can zero in on the best offers in seconds. Never waste time sifting through endless listings again: find exactly what you want at the price you want, every time.
   </p>
 </header>
-  <!-- Floating How-To Panel -->
+
+<!-- Help panel -->
 <div id="helpPanel" class="position-fixed top-0 end-0 m-3" style="width: 280px; z-index: 1050;">
-    <div class="card-header">
-      <strong>How-To Guide</strong>
-    </div>
-    <div id="expandHelpIcon" class="expand-icon">›</div>
+  <div class="card-header">
+    <strong>How-To Guide</strong>
+  </div>
 
   <div class="card-body p-2">
   <select id="howToSelector" class="form-select form-select-sm mb-2">
@@ -201,7 +203,6 @@ document.addEventListener('click', function (e) {
 </button>
 
   <div id="howToContent" style="max-height: 200px; overflow-y: auto;">
-
     <div id="howPrice" class="d-none">
       <h6>Using the Price Filter</h6>
       <ol class="ps-3">
@@ -347,7 +348,7 @@ document.addEventListener('click', function (e) {
 </div>
 </div>  <!-- closes .card -->
 </div>  <!-- closes .position-fixed -->
-
+<div id="expandHelpIcon" class="expand-icon">›</div>
 
 <!-- How-To Panel Logic -->
 <script>
