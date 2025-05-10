@@ -352,7 +352,7 @@
 </div>
 </div>  <!-- closes .card -->
 </div>  <!-- closes .position-fixed -->
-  <div class="container mt-4 text-center">
+<div class="container mt-4 text-center">
   <figure>
     <img src="save-big-deals-amazon-super-search.gif"
          alt="Save Big Deals Banner"
@@ -360,7 +360,36 @@
          style="width: 200px; height: 160px; object-fit: cover;">
     <figcaption class="mt-2 text-muted">Save more by mastering Amazon filters with Super Search</figcaption>
   </figure>
+
+  <!-- How-To Toggle Summary -->
+  <button class="btn btn-outline-primary mt-3" id="toggleSummary">
+    📘 How to Use Amazon Super Search
+  </button>
+
+  <div id="summaryContent" class="mt-3 text-start" style="display: none; max-width: 800px; margin: 0 auto;">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>🔍 Search Keywords:</strong> Use simple or Boolean searches like <code>wireless AND headphones NOT bluetooth</code>.</li>
+      <li class="list-group-item"><strong>💵 Price Range:</strong> Choose Min/Max values and type (List or Sale Price).</li>
+      <li class="list-group-item"><strong>📉 Discount & Ratings:</strong> Set discount %, customer reviews, and sort preferences.</li>
+      <li class="list-group-item"><strong>🏷️ Deal-Hunter Tools:</strong> Set drop % vs. 30/60/90-day avg, coupon-only, warehouse, and volatility filters.</li>
+      <li class="list-group-item"><strong>🏭 Brand Filters:</strong> Add brands to include/exclude with an optional “only these” toggle.</li>
+      <li class="list-group-item"><strong>🛠️ Power-User Mode:</strong> Use field queries like <code>field-brand:Sony</code> or look up a product by ASIN/ISBN.</li>
+      <li class="list-group-item"><strong>🤖 AI Features:</strong> Try Buy-Now Score, Restock Forecast, and Emotion Feedback Loop.</li>
+      <li class="list-group-item"><strong>📊 Comparison Tools:</strong> Enable side-by-side specs and verified-review-only filters.</li>
+      <li class="list-group-item"><strong>▶️ Search:</strong> Hit “Search Amazon” to launch your filtered results in a new tab.</li>
+    </ul>
+  </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('toggleSummary');
+    const content = document.getElementById('summaryContent');
+
+    toggleBtn.addEventListener('click', () => {
+      content.style.display = (content.style.display === 'none') ? 'block' : 'none';
+    });
+  });
+</script>
 
 
 <div id="expandHelpIcon" class="expand-icon">›</div>
