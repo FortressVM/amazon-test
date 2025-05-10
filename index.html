@@ -152,9 +152,9 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-  const closeBtn = document.getElementById('closeHelpPanel');
-  const expandIcon = document.getElementById('expandHelpIcon');
-  const helpPanel = document.getElementById('helpPanel');
+    const closeBtn = document.getElementById('closeHelpPanel');
+    const expandIcon = document.getElementById('expandHelpIcon');
+    const helpPanel = document.getElementById('helpPanel');
 
   if (closeBtn && helpPanel) {
    closeBtn.addEventListener('click', () => {
@@ -370,17 +370,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const helpPanel = document.getElementById('helpPanel');
 
   if (closeBtn && helpPanel) {
-    closeBtn.addEventListener('click', () => {
-      helpPanel.classList.add('minimized');
-    });
-  }
+      closeBtn.addEventListener('click', () => {
+        helpPanel.classList.add('minimized');
+      });
+    }
 
   if (expandIcon && helpPanel) {
-    expandIcon.addEventListener('click', () => {
-      helpPanel.classList.remove('minimized');
-    });
-  }
-});
+      expandIcon.addEventListener('click', () => {
+        helpPanel.classList.remove('minimized');
+      });
+    }
+  });
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
