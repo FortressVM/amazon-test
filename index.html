@@ -84,26 +84,59 @@
       width: 1.4em; height: 1.4em; border: 3px solid #000 !important; border-radius: 3px;
     }
     
-    /* New styles for floating help section in the bottom-right */
+   /* Floating Help Panel */
+#helpPanel {
+  position: fixed;
+  bottom: 16px;   /* 16px from the bottom of the screen */
+  right: 16px;    /* 16px from the right edge */
+  width: 280px;
+  z-index: 1050;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 10px;
+}
+
+/* For mobile screens, position it at the bottom of the screen */
+@media (max-width: 768px) {
+  #helpPanel {
+    bottom: 10px;
+    right: 10px;
+    width: 90%;  /* Make it take up most of the screen width */
+  }
+
+  /* Make the floating icon smaller on mobile */
+  #expandHelpIcon {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Floating Help Icon */
 .expand-icon {
   position: fixed;
-  bottom: 1rem;  /* pin 16px from the bottom of the viewport */
-  right: 1rem;   /* pin 16px from the right edge */
+  bottom: 1rem;  /* 1rem from the bottom of the screen */
+  right: 1rem;   /* 1rem from the right edge */
   font-size: 22px;
   background: #007bff;
   color: white;
   border-radius: 50%;
   width: 24px;
   height: 24px;
-  display: none;
+  display: none; /* Hidden by default */
   align-items: center;
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
+.minimized + .expand-icon {
+  display: flex;
+}
+
 .minimized {
-  bottom: -260px; /* slide out of view to bottom */
+  right: -260px;  /* Slide out of view */
   opacity: 0.3;
   transition: all 0.3s ease-in-out;
 }
@@ -113,30 +146,11 @@
   cursor: pointer;
 }
 
-/* Place this after it, at top level */
-#helpPanel,
-#helpPanel .card-body,
-#helpPanel select,
-#helpPanel button,
-#helpPanel ol,
-#helpPanel h6,
-#helpPanel div {
-  background-color: #fff !important;
+/* When the help panel is expanded, the icon stays at the bottom */
+.minimized + .expand-icon {
+  display: flex;
 }
 
-/* Floating help panel styles */
-#helpPanel {
-  position: fixed;
-  bottom: 0;  /* position at the bottom of the page */
-  right: 0;   /* position on the right side */
-  width: 280px;
-  z-index: 1050;
-  border: 3px solid #007bff;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
-  padding: 1rem;
-  background-color: #fff;
-}
 
     
 
