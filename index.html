@@ -50,31 +50,43 @@
         <input type="text" class="form-control amazon-query" name="q" placeholder="Search Amazon…">
         <button class="btn amazon-btn" type="submit"><i class="bi bi-search"></i></button>
       </form>
-      <div class="d-flex align-items-center">
-        <div class="me-2">
-            <label for="zipCodeInput" class="visually-hidden">ZIP code</label>
-            <input id="zipCodeInput" type="text" class="form-control form-control-sm" name="zipcode" placeholder="ZIP code">
-          </div>
-        <div class="me-2">
-            <label for="languageSelect" class="visually-hidden">Language</label>
-            <select id="languageSelect" class="form-select form-select-sm" name="language">
-              <option value="" disabled selected>Select Language</option>
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="zh">中文</option>
-          <option value="ja">日本語</option>
-        </select>
+      <div class=\"d-flex align-items-center\">
+        <div class=\"me-2\">
+          <label for=\"zipCodeInput\" class=\"visually-hidden\">ZIP code</label>
+          <input id=\"zipCodeInput\" type=\"text\" class=\"form-control form-control-sm\" name=\"zipcode\" placeholder=\"ZIP code\">
+        </div>
+        <div class=\"me-2\">
+          <label for=\"languageSelect\" class=\"visually-hidden\">Language</label>
+          <select id=\"languageSelect\" class=\"form-select form-select-sm\" name=\"language\">
+            <option value=\"\" disabled>Select Language</option>
+            <option value=\"en\">English</option>
+            <option value=\"es\">Español</option>
+            <option value=\"fr\">Français</option>
+            <option value=\"de\">Deutsch</option>
+            <option value=\"zh\">中文</option>
+            <option value=\"ja\">日本語</option>
+          </select>
+        </div>
+        <div class=\"me-2\">
+          <label for=\"currencySelect\" class=\"visually-hidden\">Currency</label>
+          <select id=\"currencySelect\" class=\"form-select form-select-sm\" name=\"currency\">
+            <option value=\"\" disabled>Select Currency</option>
+            <option value=\"USD\">USD – US Dollar</option>
+            <option value=\"EUR\">EUR – Euro</option>
+            <option value=\"GBP\">GBP – British Pound</option>
+            <option value=\"JPY\">JPY – Japanese Yen</option>
+            <option value=\"CAD\">CAD – Canadian Dollar</option>
+          </select>
+        </div>
         <div>
-            <label for="countrySelect" class="visually-hidden">Country</label>
-            <select id="countrySelect" class="form-select form-select-sm" name="country">
-              <option value="" disabled selected>Select Country</option>
-          <!-- full country list -->
-        </select>
+          <label for=\"countrySelect\" class=\"visually-hidden\">Country</label>
+          <select id=\"countrySelect\" class=\"form-select form-select-sm\" name=\"country\">
+            <option value=\"\" disabled>Select Country</option>
+            <!-- full country list -->
+          </select>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <!-- How‑To Guide Offcanvas -->
   <div class="offcanvas offcanvas-start" id="helpOffcanvas">
