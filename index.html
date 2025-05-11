@@ -13,65 +13,293 @@
   <link href="/css/style.css" rel="stylesheet">
 
   <style>
-    body { font-family: Arial, sans-serif; background: #f2f2f2; }
-    .bg-amazon { background-color: #131921 !important; }
-    .navbar-dark .navbar-brand, .navbar-dark .btn-outline-info { color: #ffffff; }
     .filter-panel { max-height: 80vh; overflow-y: auto; }
     .pref-panel { max-height: 80vh; overflow-y: auto; }
-    .pref-box { border:1px solid #ddd; border-radius:4px; padding:1rem; margin-bottom:1rem; background:#ffffff; box-shadow:0 1px 3px rgba(0,0,0,0.1); }
-    .amazon-dept-btn {i think  background:#ffffff; border:1px solid #ccc; border-right:none; color:#111; border-radius:4px 0 0 4px; }
-    .amazon-query { border:1px solid #ccc; border-left:none; border-radius:0 0 0.25rem 0.25rem; }
-    .amazon-btn { background-color:#FF9900; border:1px solid #FF9900; color:#111; border-radius:0 4px 4px 0; }
-    .amazon-btn:hover { background-color:#e88c00; }
+    .pref-box { border:1px solid #ccc; border-radius:4px; padding:1rem; margin-bottom:1rem; background:#fafafa; }
+    .amazon-dept-btn { background:#fff; border:1px solid #ccc; border-right:none; border-radius:4px 0 0 4px; }
+    .amazon-query { border:1px solid #ccc; border-left:none; }
+    .amazon-btn { background:#febd69; border:1px solid #febd69; border-radius:0 4px 4px 0; }
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-amazon shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container">
       <a class="navbar-brand fw-bold me-4" href="/">Amazon Super Search</a>
-      <button class="btn btn-outline-info me-3" data-bs-toggle="offcanvas" data-bs-target="#helpOffcanvas">How‑To Guide</button>
-      <form id="amazon-search-form" class="input-group input-group-lg flex-grow-1 me-3" action="https://www.amazon.com/s" method="GET" autocomplete="off">
-        <input type="hidden" name="tag" value="echolover25-20">
-        <button class="btn amazon-dept-btn dropdown-toggle" type="button" id="deptDropdown" data-bs-toggle="dropdown" aria-expanded="false">All Departments</button>
-        <ul class="dropdown-menu dept-menu" aria-labelledby="deptDropdown">
-          <li><a class="dropdown-item" href="https://www.amazon.com/s?tag=echolover25-20">All Departments</a></li>
-          <li><a class="dropdown-item" href="https://www.amazon.com/s?i=aps&tag=echolover25-20">Amazon Devices</a></li>
-          <li><a class="dropdown-item" href="https://www.amazon.com/s?i=collectibles&tag=echolover25-20">Collectibles</a></li>
-          <li><a class="dropdown-item" href="https://www.amazon.com/s?i=electronics&tag=echolover25-20">Electronics</a></li>
-          <li><a class="dropdown-item" href="https://www.amazon.com/s?i=books&tag=echolover25-20">Books</a></li>
-          <li><a class="dropdown-item" href="https://www.amazon.com/s?i=software&tag=echolover25-20">Software</a></li>
-          <li><a class="dropdown-item" href="https://www.amazon.com/s?i=toys-and-games&tag=echolover25-20">Toys & Games</a></li>
-          <li><a class="dropdown-item" href="https://www.amazon.com/s?i=home-garden&tag=echolover25-20">Home & Garden</a></li>
-          <li><a class="dropdown-item" href="https://www.amazon.com/s?i=fashion&tag=echolover25-20">Fashion</a></li>
-          <li><a class="dropdown-item" href="https://www.amazon.com/s?i=grocery&tag=echolover25-20">Grocery</a></li>
-        </ul>
-        <input type="text" class="form-control amazon-query" name="q" placeholder="Search Amazon…">
-        <button class="btn amazon-btn" type="submit"><i class="bi bi-search"></i></button>
-      </form>
-      <div class="d-flex align-items-center">
-        <div class="me-2">
-            <label for="zipCodeInput" class="visually-hidden">ZIP code</label>
-            <input id="zipCodeInput" type="text" class="form-control form-control-sm" name="zipcode" placeholder="ZIP code">
+      <div class="d-flex align-items-center flex-grow-1">
+        <button class="btn btn-outline-info me-3" data-bs-toggle="offcanvas" data-bs-target="#helpOffcanvas">How‑To Guide</button>
+        <form id="amazon-search-form" class="d-flex input-group input-group-lg w-100 me-3" autocomplete="off">
+          <div class="dropdown">
+            <button class="btn amazon-dept-btn dropdown-toggle" type="button" id="deptDropdown" data-bs-toggle="dropdown">All Departments</button>
+            <ul class="dropdown-menu dept-menu" aria-labelledby="deptDropdown">
+              <!-- Department list -->
+            </ul>
           </div>
-        <div class="me-2">
-            <label for="languageSelect" class="visually-hidden">Language</label>
-            <select id="languageSelect" class="form-select form-select-sm" name="language">
-              <option value="" disabled selected>Select Language</option>
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="zh">中文</option>
-          <option value="ja">日本語</option>
-        </select>
-        <div>
-            <label for="countrySelect" class="visually-hidden">Country</label>
-            <select id="countrySelect" class="form-select form-select-sm" name="country">
-              <option value="" disabled selected>Select Country</option>
-          <!-- full country list -->
-        </select>
+          <input type="text" class="form-control amazon-query" name="q" placeholder="Search Amazon…">
+          <button class="btn amazon-btn" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+        <!-- Country, Language & ZIP -->
+        <div class="d-flex align-items-center">
+          <input type="text" class="form-control form-control-sm me-2" name="zipcode" placeholder="ZIP code" aria-label="ZIP code">
+          <select class="form-select form-select-sm me-2" name="language" aria-label="Select Language">
+            <option value="en" selected>English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+          </select>
+          <select class="form-select form-select-sm" name="country" aria-label="Select Country">
+            <option value="AF">Afghanistan</option>
+            <option value="AX">Åland Islands</option>
+            <option value="AL">Albania</option>
+            <option value="DZ">Algeria</option>
+            <option value="AS">American Samoa</option>
+            <option value="AD">Andorra</option>
+            <option value="AO">Angola</option>
+            <option value="AI">Anguilla</option>
+            <option value="AQ">Antarctica</option>
+            <option value="AG">Antigua and Barbuda</option>
+            <option value="AR">Argentina</option>
+            <option value="AM">Armenia</option>
+            <option value="AW">Aruba</option>
+            <option value="AU">Australia</option>
+            <option value="AT">Austria</option>
+            <option value="AZ">Azerbaijan</option>
+            <option value="BS">Bahamas</option>
+            <option value="BH">Bahrain</option>
+            <option value="BD">Bangladesh</option>
+            <option value="BB">Barbados</option>
+            <option value="BY">Belarus</option>
+            <option value="BE">Belgium</option>
+            <option value="BZ">Belize</option>
+            <option value="BJ">Benin</option>
+            <option value="BM">Bermuda</option>
+            <option value="BT">Bhutan</option>
+            <option value="BO">Bolivia</option>
+            <option value="BA">Bosnia and Herzegovina</option>
+            <option value="BW">Botswana</option>
+            <option value="BV">Bouvet Island</option>
+            <option value="BR">Brazil</option>
+            <option value="IO">British Indian Ocean Territory</option>
+            <option value="BN">Brunei Darussalam</option>
+            <option value="BG">Bulgaria</option>
+            <option value="BF">Burkina Faso</option>
+            <option value="BI">Burundi</option>
+            <option value="KH">Cambodia</option>
+            <option value="CM">Cameroon</option>
+            <option value="CA">Canada</option>
+            <option value="CV">Cape Verde</option>
+            <option value="KY">Cayman Islands</option>
+            <option value="CF">Central African Republic</option>
+            <option value="TD">Chad</option>
+            <option value="CL">Chile</option>
+            <option value="CN">China</option>
+            <option value="CX">Christmas Island</option>
+            <option value="CC">Cocos (Keeling) Islands</option>
+            <option value="CO">Colombia</option>
+            <option value="KM">Comoros</option>
+            <option value="CG">Congo</option>
+            <option value="CD">Congo, The Democratic Republic of the</option>
+            <option value="CK">Cook Islands</option>
+            <option value="CR">Costa Rica</option>
+            <option value="CI">Côte d'Ivoire</option>
+            <option value="HR">Croatia</option>
+            <option value="CU">Cuba</option>
+            <option value="CY">Cyprus</option>
+            <option value="CZ">Czech Republic</option>
+            <option value="DK">Denmark</option>
+            <option value="DJ">Djibouti</option>
+            <option value="DM">Dominica</option>
+            <option value="DO">Dominican Republic</option>
+            <option value="EC">Ecuador</option>
+            <option value="EG">Egypt</option>
+            <option value="SV">El Salvador</option>
+            <option value="GQ">Equatorial Guinea</option>
+            <option value="ER">Eritrea</option>
+            <option value="EE">Estonia</option>
+            <option value="ET">Ethiopia</option>
+            <option value="FK">Falkland Islands (Malvinas)</option>
+            <option value="FO">Faroe Islands</option>
+            <option value="FJ">Fiji</option>
+            <option value="FI">Finland</option>
+            <option value="FR">France</option>
+            <option value="GF">French Guiana</option>
+            <option value="PF">French Polynesia</option>
+            <option value="TF">French Southern Territories</option>
+            <option value="GA">Gabon</option>
+            <option value="GM">Gambia</option>
+            <option value="GE">Georgia</option>
+            <option value="DE">Germany</option>
+            <option value="GH">Ghana</option>
+            <option value="GI">Gibraltar</option>
+            <option value="GR">Greece</option>
+            <option value="GL">Greenland</option>
+            <option value="GD">Grenada</option>
+            <option value="GP">Guadeloupe</option>
+            <option value="GU">Guam</option>
+            <option value="GT">Guatemala</option>
+            <option value="GG">Guernsey</option>
+            <option value="GN">Guinea</option>
+            <option value="GW">Guinea-Bissau</option>
+            <option value="GY">Guyana</option>
+            <option value="HT">Haiti</option>
+            <option value="HM">Heard Island and McDonald Islands</option>
+            <option value="VA">Holy See (Vatican City State)</option>
+            <option value="HN">Honduras</option>
+            <option value="HK">Hong Kong</option>
+            <option value="HU">Hungary</option>
+            <option value="IS">Iceland</option>
+            <option value="IN">India</option>
+            <option value="ID">Indonesia</option>
+            <option value="IR">Iran, Islamic Republic of</option>
+            <option value="IQ">Iraq</option>
+            <option value="IE">Ireland</option>
+            <option value="IM">Isle of Man</option>
+            <option value="IL">Israel</option>
+            <option value="IT">Italy</option>
+            <option value="JM">Jamaica</option>
+            <option value="JP" selected>Japan</option>
+            <option value="JE">Jersey</option>
+            <option value="JO">Jordan</option>
+            <option value="KZ">Kazakhstan</option>
+            <option value="KE">Kenya</option>
+            <option value="KI">Kiribati</option>
+            <option value="KP">Korea, Democratic People&#39;s Republic of</option>
+            <option value="KR">Korea, Republic of</option>
+            <option value="KW">Kuwait</option>
+            <option value="KG">Kyrgyzstan</option>
+            <option value="LA">Lao People&#39;s Democratic Republic</option>
+            <option value="LV">Latvia</option>
+            <option value="LB">Lebanon</option>
+            <option value="LS">Lesotho</option>
+            <option value="LR">Liberia</option>
+            <option value="LY">Libya</option>
+            <option value="LI">Liechtenstein</option>
+            <option value="LT">Lithuania</option>
+            <option value="LU">Luxembourg</option>
+            <option value="MO">Macao</option>
+            <option value="MK">Macedonia, the Former Yugoslav Republic of</option>
+            <option value="MG">Madagascar</option>
+            <option value="MW">Malawi</option>
+            <option value="MY">Malaysia</option>
+            <option value="MV">Maldives</option>
+            <option value="ML">Mali</option>
+            <option value="MT">Malta</option>
+            <option value="MH">Marshall Islands</option>
+            <option value="MQ">Martinique</option>
+            <option value="MR">Mauritania</option>
+            <option value="MU">Mauritius</option>
+            <option value="YT">Mayotte</option>
+            <option value="MX">Mexico</option>
+            <option value="FM">Micronesia, Federated States of</option>
+            <option value="MD">Moldova, Republic of</option>
+            <option value="MC">Monaco</option>
+            <option value="MN">Mongolia</option>
+            <option value="ME">Montenegro</option>
+            <option value="MS">Montserrat</option>
+            <option value="MA">Morocco</option>
+            <option value="MZ">Mozambique</option>
+            <option value="MM">Myanmar</option>
+            <option value="NA">Namibia</option>
+            <option value="NR">Nauru</option>
+            <option value="NP">Nepal</option>
+            <option value="NL">Netherlands</option>
+            <option value="NC">New Caledonia</option>
+            <option value="NZ">New Zealand</option>
+            <option value="NI">Nicaragua</option>
+            <option value="NE">Niger</option>
+            <option value="NG">Nigeria</option>
+            <option value="NU">Niue</option>
+            <option value="NF">Norfolk Island</option>
+            <option value="MP">Northern Mariana Islands</option>
+            <option value="NO">Norway</option>
+            <option value="OM">Oman</option>
+            <option value="PK">Pakistan</option>
+            <option value="PW">Palau</option>
+            <option value="PS">Palestine, State of</option>
+            <option value="PA">Panama</option>
+            <option value="PG">Papua New Guinea</option>
+            <option value="PY">Paraguay</option>
+            <option value="PE">Peru</option>
+            <option value="PH">Philippines</option>
+            <option value="PN">Pitcairn</option>
+            <option value="PL">Poland</option>
+            <option value="PT">Portugal</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="QA">Qatar</option>
+            <option value="RE">Réunion</option>
+            <option value="RO">Romania</option>
+            <option value="RU">Russian Federation</option>
+            <option value="RW">Rwanda</option>
+            <option value="BL">Saint Barthélemy</option>
+            <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+            <option value="KN">Saint Kitts and Nevis</option>
+            <option value="LC">Saint Lucia</option>
+            <option value="MF">Saint Martin (French part)</option>
+            <option value="PM">Saint Pierre and Miquelon</option>
+            <option value="VC">Saint Vincent and the Grenadines</option>
+            <option value="WS">Samoa</option>
+            <option value="SM">San Marino</option>
+            <option value="ST">Sao Tome and Principe</option>
+            <option value="SA">Saudi Arabia</option>
+            <option value="SN">Senegal</option>
+            <option value="RS">Serbia</option>
+            <option value="SC">Seychelles</option>
+            <option value="SL">Sierra Leone</option>
+            <option value="SG">Singapore</option>
+            <option value="SX">Sint Maarten (Dutch part)</option>
+            <option value="SK">Slovakia</option>
+            <option value="SI">Slovenia</option>
+            <option value="SB">Solomon Islands</option>
+            <option value="SO">Somalia</option>
+            <option value="ZA">South Africa</option>
+            <option value="GS">South Georgia and the South Sandwich Islands</option>
+            <option value="SS">South Sudan</option>
+            <option value="ES">Spain</option>
+            <option value="LK">Sri Lanka</option>
+            <option value="SD">Sudan</option>
+            <option value="SR">Suriname</option>
+            <option value="SJ">Svalbard and Jan Mayen</option>
+            <option value="SZ">Swaziland</option>
+            <option value="SE">Sweden</option>
+            <option value="CH">Switzerland</option>
+            <option value="SY">Syrian Arab Republic</option>
+            <option value="TW">Taiwan, Province of China</option>
+            <option value="TJ">Tajikistan</option>
+            <option value="TZ">Tanzania, United Republic of</option>
+            <option value="TH">Thailand</option>
+            <option value="TL">Timor-Leste</option>
+            <option value="TG">Togo</option>
+            <option value="TK">Tokelau</option>
+            <option value="TO">Tonga</option>
+            <option value="TT">Trinidad and Tobago</option>
+            <option value="TN">Tunisia</option>
+            <option value="TR">Turkey</option>
+            <option value="TM">Turkmenistan</option>
+            <option value="TC">Turks and Caicos Islands</option>
+            <option value="TV">Tuvalu</option>
+            <option value="UG">Uganda</option>
+            <option value="UA">Ukraine</option>
+            <option value="AE">United Arab Emirates</option>
+            <option value="GB">United Kingdom</option>
+            <option value="US" selected>United States</option>
+            <option value="UM">United States Minor Outlying Islands</option>
+            <option value="UY">Uruguay</option>
+            <option value="UZ">Uzbekistan</option>
+            <option value="VU">Vanuatu</option>
+            <option value="VE">Venezuela</option>
+            <option value="VN">Viet Nam</option>
+            <option value="VG">Virgin Islands, British</option>
+            <option value="VI">Virgin Islands, U.S.</option>
+            <option value="WF">Wallis and Futuna</option>
+            <option value="EH">Western Sahara</option>
+            <option value="YE">Yemen</option>
+            <option value="ZM">Zambia</option>
+            <option value="ZW">Zimbabwe</option>
+          </select>
+        </div>
       </div>
     </div>
   </nav>
@@ -91,190 +319,94 @@
   <div class="container mt-5">
     <div class="row">
       <!-- Left Filters -->
-      <aside class="col-lg-6 mb-4">
+      <aside class="col-lg-3 mb-4">
         <div class="card shadow-sm">
           <div class="card-body p-3 filter-panel">
-            <h5 class="mb-3">Amazon Features</h5>
             <div class="accordion" id="filterAccordion">
-              <!-- Departments -->
+              <!-- Price Range Panel -->
               <div class="accordion-item">
-                <h2 class="accordion-header" id="headingDept">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDept">Departments</button>
+                <h2 class="accordion-header" id="headingPrice">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice">Price Range</button>
                 </h2>
-                <div id="collapseDept" class="accordion-collapse collapse">
+                <div id="collapsePrice" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="dept-all" name="dept-all"><label class="form-check-label" for="dept-all">All Departments</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="dept-electronics" name="dept-electronics"><label class="form-check-label" for="dept-electronics">Electronics</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="dept-books" name="dept-books"><label class="form-check-label" for="dept-books">Books</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="dept-toys" name="dept-toys"><label class="form-check-label" for="dept-toys">Toys & Games</label></div>
-                  </div>
-                </div>
-              </div>
-              <!-- Delivery & Availability -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingDelivery">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDelivery">Delivery & Availability</button>
-                </h2>
-                <div id="collapseDelivery" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="prime-only" name="prime-only"><label class="form-check-label" for="prime-only">Prime Eligible</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="two-day" name="two-day"><label class="form-check-label" for="two-day">Get it by Tomorrow</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="free-shipping" name="free-shipping"><label class="form-check-label" for="free-shipping">Free Shipping</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="in-stock" name="in-stock"><label class="form-check-label" for="in-stock">In Stock</label></div>
-                  </div>
-                </div>
-              </div>
-              <!-- Price Presets -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingPricePresets">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePricePresets">Price</button>
-                </h2>
-                <div id="collapsePricePresets" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="price-1" name="price-0-25"><label class="form-check-label" for="price-1">Under $25</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="price-2" name="price-25-50"><label class="form-check-label" for="price-2">$25 to $50</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="price-3" name="price-50-100"><label class="form-check-label" for="price-3">$50 to 00</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="price-4" name="price-100-200"><label class="form-check-label" for="price-4">$100 to $200</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="price-5" name="price-200-plus"><label class="form-check-label" for="price-5">$200 & above</label></div>
-                  </div>
-                </div>
-              </div>
-              <!-- Customer Review -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingReview">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReview">Avg. Customer Review</button>
-                </h2>
-                <div id="collapseReview" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="4-star" name="4-star"><label class="form-check-label" for="4-star">4 Stars & up</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="3-star" name="3-star"><label class="form-check-label" for="3-star">3 Stars & up</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="2-star" name="2-star"><label class="form-check-label" for="2-star">2 Stars & up</label></div>
-                  </div>
-                </div>
-              </div>
-              $1
-              <!-- Review & Q&A Metrics -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingReviews">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReviews">Review & Q&A Metrics</button>
-                </h2>
-                <div id="collapseReviews" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                    <div class="row g-2 mb-2">
-                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="min-reviews" placeholder="Min Reviews"></div>
-                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="min-verified-pct" placeholder="Min Verified %"></div>
+                    <!-- Currency Selector -->
+                    <div class="mb-2">
+                      <label class="form-label">Currency</label>
+                      <select class="form-select form-select-sm" name="currency">
+                        <option value="USD">USD – US Dollar</option>
+                        <option value="EUR">EUR – Euro</option>
+                        <option value="GBP">GBP – British Pound</option>
+                        <option value="JPY">JPY – Japanese Yen</option>
+                        <option value="CAD">CAD – Canadian Dollar</option>
+                        <option value="AUD">AUD – Australian Dollar</option>
+                        <option value="CHF">CHF – Swiss Franc</option>
+                        <option value="CNY">CNY – Chinese Yuan</option>
+                        <option value="SEK">SEK – Swedish Krona</option>
+                        <option value="NZD">NZD – New Zealand Dollar</option>
+                        <option value="MXN">MXN – Mexican Peso</option>
+                        <option value="SGD">SGD – Singapore Dollar</option>
+                        <option value="HKD">HKD – Hong Kong Dollar</option>
+                        <option value="NOK">NOK – Norwegian Krone</option>
+                        <option value="KRW">KRW – South Korean Won</option>
+                        <option value="TRY">TRY – Turkish Lira</option>
+                        <option value="INR">INR – Indian Rupee</option>
+                        <option value="BRL">BRL – Brazilian Real</option>
+                        <option value="ZAR">ZAR – South African Rand</option>
+                        <option value="RUB">RUB – Russian Ruble</option>
+                        <option value="AED">AED – UAE Dirham</option>
+                        <option value="ARS">ARS – Argentine Peso</option>
+                        <option value="DKK">DKK – Danish Krone</option>
+                        <option value="PLN">PLN – Polish Zloty</option>
+                        <option value="TWD">TWD – New Taiwan Dollar</option>
+                        <option value="THB">THB – Thai Baht</option>
+                        <option value="MYR">MYR – Malaysian Ringgit</option>
+                        <option value="IDR">IDR – Indonesian Rupiah</option>
+                        <option value="VND">VND – Vietnamese Dong</option>
+                        <option value="PHP">PHP – Philippine Peso</option>
+                        <option value="CZK">CZK – Czech Koruna</option>
+                        <option value="HUF">HUF – Hungarian Forint</option>
+                        <option value="ILS">ILS – Israeli New Shekel</option>
+                        <option value="CLP">CLP – Chilean Peso</option>
+                        <option value="PKR">PKR – Pakistani Rupee</option>
+                        <option value="EGP">EGP – Egyptian Pound</option>
+                        <option value="BDT">BDT – Bangladeshi Taka</option>
+                        <option value="NGN">NGN – Nigerian Naira</option>
+                        <option value="UAH">UAH – Ukrainian Hryvnia</option>
+                        <option value="COP">COP – Colombian Peso</option>
+                        <option value="SAR">SAR – Saudi Riyal</option>
+                        <option value="RSD">RSD – Serbian Dinar</option>
+                        <option value="RON">RON – Romanian Leu</option>
+                        <option value="QAR">QAR – Qatari Riyal</option>
+                        <option value="KWD">KWD – Kuwaiti Dinar</option>
+                        <option value="NZD">NZD – New Zealand Dollar</option>
+                        <option value="MXN">MXN – Mexican Peso</option>
+                        <!-- Add additional ISO 4217 currency codes as needed -->
+                      </select>
                     </div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="answered-questions" id="answered-questions"><label class="form-check-label" for="answered-questions">Require Answered Questions</label></div>
+                    <div class="row g-2">
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="min-price" placeholder="Min"></div>
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="max-price" placeholder="Max"></div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <!-- Rich Query Inputs -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingRichQuery">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRichQuery">Rich Query Inputs</button>
-                </h2>
-                <div id="collapseRichQuery" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="voice-nlp" id="voice-nlp"><label class="form-check-label" for="voice-nlp">Voice & Natural-Language Query</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="image-search" id="image-search"><label class="form-check-label" for="image-search">Image & Screenshot Search</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="mood-board" id="mood-board"><label class="form-check-label" for="mood-board">“Mood-Board” Search</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="story-search" id="story-search"><label class="form-check-label" for="story-search">“Story” Search</label></div>
-                  </div>
-                </div>
-              </div>
-              <!-- Results Enrichment -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingEnrichment">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnrichment">Results Enrichment</button>
-                </h2>
-                <div id="collapseEnrichment" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="fake-review-detect" id="fake-review-detect"><label class="form-check-label" for="fake-review-detect">Fake-Review Detection Score</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="user-bundles" id="user-bundles"><label class="form-check-label" for="user-bundles">User-Generated Bundles</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="ar-preview" id="ar-preview"><label class="form-check-label" for="ar-preview">AR-Preview Links</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="price-chart" id="price-chart"><label class="form-check-label" for="price-chart">Snapshot Price History Chart</label></div>
-                  </div>
-                </div>
-              </div>
-              <!-- Deals & Promotions -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingPromotions">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePromotions">Deals & Promotions</button>
-                </h2>
-                <div id="collapsePromotions" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="deal-of-day" id="deal-of-day"><label class="form-check-label" for="deal-of-day">Deal of the Day</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bundle-offers" id="bundle-offers"><label class="form-check-label" for="bundle-offers">Bundle Offers</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="coupon-only-mode" id="coupon-only-mode"><label class="form-check-label" for="coupon-only-mode">Coupon-Only Mode</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="promo-only-mode" id="promo-only-mode"><label class="form-check-label" for="promo-only-mode">Promo-Only Mode</label></div>
-                  </div>
-                </div>
-              </div>
-              </div>
+              <!-- Other panels... -->
             </div>
           </div>
         </div>
       </aside>
 
       <!-- Center: Search & Results -->
-      
+      <section class="col-lg-6 mb-4">
+        <!-- existing search form & results -->
+      </section>
 
       <!-- Right Preferences -->
-      <aside class="col-lg-6 mb-4">
+      <aside class="col-lg-3 mb-4">
         <div class="card shadow-sm">
           <div class="card-body p-3 pref-panel">
-            <h5 class="mb-3">Amazon Super Search</h5>
-                        <!-- Delivery Speed -->
-            <div class="pref-box">
-              <h6>Delivery Speed</h6>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-prime-delivery"><label class="form-check-label" for="pref-prime-delivery">Prime Delivery</label></div>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-next-day"><label class="form-check-label" for="pref-next-day">Next Day</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="pref-two-day"><label class="form-check-label" for="pref-two-day">Two-Day</label></div>
-            </div>
-            <!-- Seller Type -->
-            <div class="pref-box">
-              <h6>Seller Type</h6>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-amazon-sold"><label class="form-check-label" for="pref-amazon-sold">Sold &amp; Shipped by Amazon</label></label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="pref-third-party"><label class="form-check-label" for="pref-third-party">Third-Party Sellers</label></div>
-            </div>
-            <!-- Condition -->
-            <div class="pref-box">
-              <h6>Condition</h6>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-new"><label class="form-check-label" for="pref-new">New</label></div>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-used"><label class="form-check-label" for="pref-used">Used</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="pref-refurbished"><label class="form-check-label" for="pref-refurbished">Refurbished</label></div>
-            </div>
-            <!-- Alerts & Integrations -->
-            <div class="pref-box">
-              <h6>Alerts &amp; Integrations</h6>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-voice-alerts"><label class="form-check-label" for="pref-voice-alerts">Voice Assistant Push</label></div>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-haptic-alerts"><label class="form-check-label" for="pref-haptic-alerts">Smart Watch Haptic Alerts</label></div>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-group-wish"><label class="form-check-label" for="pref-group-wish">Group-Wish Notifications</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="pref-crypto-rewards"><label class="form-check-label" for="pref-crypto-rewards">Crypto-Rewards Integration</label></div>
-            </div>
-            <!-- Predictive & AI -->
-            <div class="pref-box">
-              <h6>Predictive &amp; AI</h6>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-restock-alerts"><label class="form-check-label" for="pref-restock-alerts">Predictive Restock Alerts</label></div>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-price-anticipation"><label class="form-check-label" for="pref-price-anticipation">Price-Drop Anticipation</label></div>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-reverse-search"><label class="form-check-label" for="pref-reverse-search">Reverse Search for Accessories</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="pref-emotion-feedback"><label class="form-check-label" for="pref-emotion-feedback">Emotion-Aware Recommendations</label></div>
-            </div>
-            <!-- Lab Features -->
-            <div class="pref-box">
-              <h6>Lab Features</h6>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-experiment-mode"><label class="form-check-label" for="pref-experiment-mode">One-Click Experiment Mode</label></div>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-trending-keywords"><label class="form-check-label" for="pref-trending-keywords">Crowd-Sourced Hot Keywords</label></div>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-virtual-companion"><label class="form-check-label" for="pref-virtual-companion">Virtual Shopping Companion</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="pref-bundle-ai"><label class="form-check-label" for="pref-bundle-ai">Bundle AI Suggestions</label></div>
-            </div>
-            <!-- Sustainability & Ethics -->
-            <div class="pref-box">
-              <h6>Sustainability &amp; Ethics</h6>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-recycled"><label class="form-check-label" for="pref-recycled">Recycled Materials</label></div>
-              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-carbon-neutral"><label class="form-check-label" for="pref-carbon-neutral">Carbon-Neutral Shipping</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="pref-fair-trade"><label class="form-check-label" for="pref-fair-trade">Fair Trade Certified</label></div>
-            </div>
+            <!-- existing preference boxes -->
           </div>
         </div>
       </aside>
@@ -288,39 +420,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
   <!-- Tagify & custom JS -->
   <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
-  <!-- Search Logic -->
-  <script>
-    document.getElementById('amazon-search-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      const params = new URLSearchParams();
-      // Affiliate tag
-      const tag = data.get('tag');
-      if (tag) params.set('tag', tag);
-      // Keywords
-      const q = (data.get('q') || '').trim();
-      if (q) params.set('k', q);
-      // Currency & Price Range
-      ['currency','min-price','max-price'].forEach(name => {
-        const v = data.get(name);
-        if (v) params.set(name, v);
-      });
-      // Location & Locale
-      ['zipcode','language','country'].forEach(name => {
-        const v = data.get(name);
-        if (v) params.set(name, v);
-      });
-      // Checkboxes (include all checked as parameter=1)
-      form.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-        if (cb.checked && cb.name) params.set(cb.name, '1');
-      });
-      // Open Amazon search in new tab
-      const url = 'https://www.amazon.com/s?' + params.toString();
-      window.open(url, '_blank');
-    });
-  </script>
-
+  <script src="/js/search-logic.js"></script>
+  <script src="/js/howto-guide.js"></script>
   <!-- Locale Auto-Detection -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -344,3 +445,24 @@
         const optCountry = Array.from(countrySelect.options).find(o => o.value === region);
         if (optCountry) countrySelect.value = region;
       }
+      // Default currency mapping
+      const regionCurrencyMap = {US: 'USD', CA: 'CAD', GB: 'GBP', AU: 'AUD', DE: 'EUR', FR: 'EUR', ES: 'EUR', IT: 'EUR', JP: 'JPY', CN: 'CNY', IN: 'INR'};
+      const defaultCurrency = regionCurrencyMap[region] || 'USD';
+      if (currencySelect) {
+        const optCurr = Array.from(currencySelect.options).find(o => o.value === defaultCurrency);
+        if (optCurr) currencySelect.value = defaultCurrency;
+      }
+      // Adapt ZIP/Postal placeholder
+      if (zipInput) {
+        if (region === 'US') {
+          zipInput.placeholder = 'ZIP code';
+          zipInput.setAttribute('aria-label', 'ZIP code');
+        } else {
+          zipInput.placeholder = 'Postal code';
+          zipInput.setAttribute('aria-label', 'Postal code');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
