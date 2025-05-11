@@ -505,27 +505,29 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   });
 </script>
-  document.getElementById('start-btn').addEventListener('click', function() {
+ document.getElementById('start-btn').addEventListener('click', function() {
     var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    var micButton = document.getElementById('start-btn');
-    
-    // Start recording
-    recognition.lang = 'en-US';
+    var micButton = document.getElementById('start-btn');  // Target the button
+    recognition.lang = "en-US"; // Set language to English
     recognition.start();
     
     // Add recording styles to mic button
     micButton.classList.add('recording');
 
     recognition.onresult = function(event) {
-        var transcript = event.results[0][0].transcript;
-        document.getElementById('search-input').value = transcript; // Set the input field to the result
+        var transcript = event.results[0][0].transcript; // Get the voice input
+        document.getElementById('search-input').value = transcript; // Set the input field to the transcript
+
+        // Redirect to Amazon search results page using the spoken query
+        var searchQuery = encodeURIComponent(transcript); // URL-encode the query
+        window.location.href = `https://www.amazon.com/s?k=${searchQuery}`; // Redirect to Amazon with the query
     };
 
     recognition.onerror = function(event) {
         console.error("Speech recognition error", event.error);
     };
 
-    // End recording
+    // Remove recording styles when done
     recognition.onend = function() {
         micButton.classList.remove('recording'); // Remove the recording effect when done
     };
