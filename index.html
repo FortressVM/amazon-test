@@ -7,16 +7,16 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Your custom stylesheet -->
+  <!-- Custom stylesheet -->
   <link href="/css/style.css" rel="stylesheet">
 
   <style>
-    /* Sidebar filters scrollable */
     .filter-panel { max-height: 80vh; overflow-y: auto; }
-    /* Amazon-style search bar tweaks */
-    .amazon-dept-btn { background: #fff; border: 1px solid #ccc; border-right: none; border-radius:4px 0 0 4px; }
-    .amazon-query    { border: 1px solid #ccc; border-left: none; }
-    .amazon-btn      { background: #febd69; border:1px solid #febd69; border-radius:0 4px 4px 0; }
+    .pref-panel { max-height: 80vh; overflow-y: auto; }
+    .pref-box { border:1px solid #ccc; border-radius:4px; padding:1rem; margin-bottom:1rem; background:#fafafa; }
+    .amazon-dept-btn { background:#fff; border:1px solid #ccc; border-right:none; border-radius:4px 0 0 4px; }
+    .amazon-query { border:1px solid #ccc; border-left:none; }
+    .amazon-btn { background:#febd69; border:1px solid #febd69; border-radius:0 4px 4px 0; }
   </style>
 </head>
 <body>
@@ -31,37 +31,7 @@
           <div class="dropdown">
             <button class="btn amazon-dept-btn dropdown-toggle" type="button" id="deptDropdown" data-bs-toggle="dropdown">All Departments</button>
             <ul class="dropdown-menu dept-menu" aria-labelledby="deptDropdown">
-              <li><a class="dropdown-item" href="#">All Departments</a></li>
-              <li><a class="dropdown-item" href="#">Alexa Skills</a></li>
-              <li><a class="dropdown-item" href="#">Amazon Devices</a></li>
-              <li><a class="dropdown-item" href="#">Amazon Fresh</a></li>
-              <li><a class="dropdown-item" href="#">Amazon Pharmacy</a></li>
-              <li><a class="dropdown-item" href="#">Appliances</a></li>
-              <li><a class="dropdown-item" href="#">Apps & Games</a></li>
-              <li><a class="dropdown-item" href="#">Arts, Crafts & Sewing</a></li>
-              <li><a class="dropdown-item" href="#">Automotive</a></li>
-              <li><a class="dropdown-item" href="#">Baby</a></li>
-              <li><a class="dropdown-item" href="#">Beauty & Personal Care</a></li>
-              <li><a class="dropdown-item" href="#">Books</a></li>
-              <li><a class="dropdown-item" href="#">CDs & Vinyl</a></li>
-              <li><a class="dropdown-item" href="#">Cell Phones & Accessories</a></li>
-              <li><a class="dropdown-item" href="#">Clothing, Shoes & Jewelry</a></li>
-              <li><a class="dropdown-item" href="#">Electronics</a></li>
-              <li><a class="dropdown-item" href="#">Grocery & Gourmet Food</a></li>
-              <li><a class="dropdown-item" href="#">Health & Household</a></li>
-              <li><a class="dropdown-item" href="#">Home & Kitchen</a></li>
-              <li><a class="dropdown-item" href="#">Industrial & Scientific</a></li>
-              <li><a class="dropdown-item" href="#">Luggage & Travel Gear</a></li>
-              <li><a class="dropdown-item" href="#">Movies & TV</a></li>
-              <li><a class="dropdown-item" href="#">Musical Instruments</a></li>
-              <li><a class="dropdown-item" href="#">Office Products</a></li>
-              <li><a class="dropdown-item" href="#">Patio, Lawn & Garden</a></li>
-              <li><a class="dropdown-item" href="#">Pet Supplies</a></li>
-              <li><a class="dropdown-item" href="#">Software</a></li>
-              <li><a class="dropdown-item" href="#">Sports & Outdoors</a></li>
-              <li><a class="dropdown-item" href="#">Tools & Home Improvement</a></li>
-              <li><a class="dropdown-item" href="#">Toys & Games</a></li>
-              <li><a class="dropdown-item" href="#">Video Games</a></li>
+              <!-- Department list -->
             </ul>
           </div>
           <input type="text" class="form-control amazon-query" name="q" placeholder="Search Amazon…">
@@ -71,21 +41,22 @@
     </div>
   </nav>
 
-  <!-- How‑To Offcanvas -->
+  <!-- How‑To Guide Offcanvas -->
   <div class="offcanvas offcanvas-start" id="helpOffcanvas">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">How‑To Guide</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
-      <!-- existing how‑to content -->
+      <!-- existing content -->
     </div>
   </div>
 
-  <!-- Main Content -->
+  <!-- Main -->
   <div class="container mt-5">
     <div class="row">
-      <!-- Sidebar Filters -->
+
+      <!-- Left Filters -->
       <aside class="col-lg-3 mb-4">
         <div class="card shadow-sm">
           <div class="card-body p-3 filter-panel">
@@ -96,133 +67,146 @@
                 <h2 class="accordion-header" id="headingDept">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDept">Departments</button>
                 </h2>
-                <div id="collapseDept" class="accordion-collapse collapse show" >
+                <div id="collapseDept" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
                   <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-all" value="all"><label class="form-check-label" for="dept-all">All Departments</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-books" value="books"><label class="form-check-label" for="dept-books">Books</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-electronics" value="electronics"><label class="form-check-label" for="dept-electronics">Electronics</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-home" value="home-kitchen"><label class="form-check-label" for="dept-home">Home & Kitchen</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-fashion" value="fashion"><label class="form-check-label" for="dept-fashion">Clothing, Shoes & Jewelry</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-beauty" value="beauty"><label class="form-check-label" for="dept-beauty">Beauty & Personal Care</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-sports" value="sports-outdoors"><label class="form-check-label" for="dept-sports">Sports & Outdoors</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-tg" value="toys-games"><label class="form-check-label" for="dept-tg">Toys & Games</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-grocery" value="grocery-gourmet-food"><label class="form-check-label" for="dept-grocery">Grocery & Gourmet Food</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-pet" value="pet-supplies"><label class="form-check-label" for="dept-pet">Pet Supplies</label></div>
+                    <!-- checkboxes for main categories -->
                   </div>
                 </div>
               </div>
 
-              <!-- Price Range -->
+              <!-- Price History & Deals -->
               <div class="accordion-item">
-                <h2 class="accordion-header" id="headingPrice">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice">Price Range</button>
+                <h2 class="accordion-header" id="headingDealTiming">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDealTiming">Price History & Timing</button>
                 </h2>
-                <div id="collapsePrice" class="accordion-collapse collapse" >
+                <div id="collapseDealTiming" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
                   <div class="accordion-body">
-                    <div class="row g-2">
-                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="min-price" placeholder="Min $0.00"></div>
-                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="max-price" placeholder="Max $1000.00"></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="all-time-low" id="all-time-low"><label class="form-check-label" for="all-time-low">All‑Time Low Price</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="price-alert" id="price-alert"><label class="form-check-label" for="price-alert">Price Alert Enabled</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="deal-countdown" id="deal-countdown"><label class="form-check-label" for="deal-countdown">Show Deal Countdown</label></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review & Q&A Metrics -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingReviews">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReviews">Review & Q&amp;A Metrics</button>
+                </h2>
+                <div id="collapseReviews" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                  <div class="accordion-body">
+                    <div class="row g-2 mb-2">
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="min-reviews" placeholder="Min Reviews"></div>
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="min-verified-pct" placeholder="Min Verified %"></div>
                     </div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="min-answered-questions" id="min-answered-questions"><label class="form-check-label" for="min-answered-questions">Require Answered Questions</label></div>
                   </div>
                 </div>
               </div>
 
-              <!-- Discount & Rating -->
+              <!-- Seller & Fulfillment -->
               <div class="accordion-item">
-                <h2 class="accordion-header" id="headingDiscount">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount">% Off & Rating</button>
+                <h2 class="accordion-header" id="headingSeller">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeller">Seller & Fulfillment</button>
                 </h2>
-                <div id="collapseDiscount" class="accordion-collapse collapse" >
+                <div id="collapseSeller" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
                   <div class="accordion-body">
-                    <select class="form-select form-select-sm mb-2" name="percent-off">
-                      <option value="">Any % Off</option>
-                      <option>5%</option><option>10%</option><option>15%</option><option>20%</option><option>25%</option>
-                      <option>30%</option><option>35%</option><option>40%</option><option>45%</option><option>50%</option>
-                      <option>55%</option><option>60%</option><option>65%</option><option>70%</option><option>75%</option>
-                      <option>80%</option><option>85%</option><option>90%</option><option>95%</option><option>100%</option>
-                    </select>
-                    <select class="form-select form-select-sm" name="min-rating">
-                      <option value="">Any Rating</option>
-                      <option>1★ & up</option><option>2★ & up</option><option>3★ & up</option><option>4★ & up</option><option>5★ & up</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Brand Filters -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingBrand">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBrand">Brand Filters</button>
-                </h2>
-                <div id="collapseBrand" class="accordion-collapse collapse" >
-                  <div class="accordion-body">
-                    <input type="text" class="form-control form-control-sm mb-2" name="brand-include" placeholder="e.g. Sony, Samsung, LG">
-                    <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" name="include-only" id="brandIncludeOnly"><label class="form-check-label" for="brandIncludeOnly">Match only these brands</label></div>
-                    <input type="text" class="form-control form-control-sm" name="brand-exclude" placeholder="e.g. Acer, Apple">
-                  </div>
-                </div>
-              </div>
-
-              <!-- Quick Checkbox Options -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingQuick">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuick">Quick Filters</button>
-                </h2>
-                <div id="collapseQuick" class="accordion-collapse collapse" >
-                  <div class="accordion-body">
-                    <div class="list-group list-group-flush">
-                      <label class="list-group-item"><input class="form-check-input me-2" type="checkbox" name="prime-only">Prime Only</label>
-                      <label class="list-group-item"><input class="form-check-input me-2" type="checkbox" name="in-stock">In Stock</label>
-                      <label class="list-group-item"><input class="form-check-input me-2" type="checkbox" name="free-shipping">Free Shipping</label>
-                      <label class="list-group-item"><input class="form-check-input me-2" type="checkbox" name="lightning-deals">Lightning Deals</label>
-                      <label class="list-group-item"><input class="form-check-input me-2" type="checkbox" name="coupons">Coupons Available</label>
+                    <div class="row g-2 mb-2">
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="min-seller-rating" placeholder="Min Seller ★"></div>
+                      <div class="col-6"><input type="text" class="form-control form-control-sm" name="return-window" placeholder="Min Return Days"></div>
                     </div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="amazon-marketplace" id="amazon-marketplace"><label class="form-check-label" for="amazon-marketplace">Amazon Marketplace</label></div>
                   </div>
                 </div>
               </div>
 
-              <!-- Power-User Tools -->
+              <!-- Product Attributes -->
+              <div class="accordion-body">
+                <label class="form-label small">Color:</label>
+                <select class="form-select form-select-sm mb-2" name="color"><option>Any</option><option>Black</option><option>White</option><option>Red</option><option>Blue</option></select>
+                <label class="form-label small">Size:</label>
+                <select class="form-select form-select-sm mb-2" name="size"><option>Any</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+                <label class="form-label small">Weight:</label>
+                <select class="form-select form-select-sm mb-2" name="weight"><option>Any</option><option>&lt;2 lbs</option><option>2–5 lbs</option><option>&gt;5 lbs</option></select>
+                <!-- Facet-Level Pricing Tiers -->
+                <label class="form-label small mt-3">Price Tier:</label>
+                <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="tier-0-25" id="tier-0-25"><label class="form-check-label" for="tier-0-25">$0–$25</label></div>
+                <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="tier-25-50" id="tier-25-50"><label class="form-check-label" for="tier-25-50">$25–$50</label></div>
+                <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="tier-50-100" id="tier-50-100"><label class="form-check-label" for="tier-50-100">$50–$100</label></div>
+                <div class="form-check"><input class="form-check-input" type="checkbox" name="tier-100+" id="tier-100+"><label class="form-check-label" for="tier-100+">$100+</label></div>
+              </div>
+                </div>
+              </div>
+
+              <!-- Deals & Promotions -->
               <div class="accordion-item">
-                <h2 class="accordion-header" id="headingPower">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePower">Power-User Tools</button>
+                <h2 class="accordion-header" id="headingPromotions">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePromotions">Deals & Promotions</button>
                 </h2>
-                <div id="collapsePower" class="accordion-collapse collapse" >
+                <div id="collapsePromotions" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
                   <div class="accordion-body">
-                    <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="enable-boolean">Enable Boolean Operators</div>
-                    <div class="mb-2"><input type="text" class="form-control form-control-sm" name="field-filters" placeholder="field-brand:Sony,field-price:100-200"></div>
-                    <div class="mb-2"><input type="text" class="form-control form-control-sm" name="direct-lookup" placeholder="Enter ASIN, ISBN or UPC"></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="deal-of-day" id="deal-of-day"><label class="form-check-label" for="deal-of-day">Deal of the Day</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bundle-offers" id="bundle-offers"><label class="form-check-label" for="bundle-offers">Bundle Offers</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="coupon-only" id="coupon-only"><label class="form-check-label" for="coupon-only">Coupon-Only</label></div>
                   </div>
                 </div>
               </div>
 
-              <!-- Deal-Hunter Goodies -->
+              <!-- Advanced Power-User -->
               <div class="accordion-item">
-                <h2 class="accordion-header" id="headingDeal">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeal">Deal-Hunter Goodies</button>
+                <h2 class="accordion-header" id="headingAdvanced">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdvanced">Advanced Options</button>
                 </h2>
-                <div id="collapseDeal" class="accordion-collapse collapse" >
+                <div id="collapseAdvanced" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
                   <div class="accordion-body">
-                    <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="coupon-only">Coupon-Clippable Only</div>
-                    <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="warehouse-refurb">Warehouse / Open-Box</div>
-                    <div class="mt-2 row g-2">
-                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="below-avg-30" placeholder="▼ % vs 30d"></div>
-                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="max-volatility-7" placeholder="▲ Max 7d vol"></div>
-                    </div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="regex-search" id="regex-search"><label class="form-check-label" for="regex-search">Enable Regex Search</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="api-export" id="api-export"><label class="form-check-label" for="api-export">Show API Export</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="batch-lookup" id="batch-lookup"><label class="form-check-label" for="batch-lookup">Batch ASIN Lookup</label></div>
                   </div>
                 </div>
               </div>
-
-              <!-- More filter groups… -->
 
             </div>
           </div>
         </div>
       </aside>
 
-      <!-- Main Section: Results -->
-      <section class="col-lg-9">
-        <!-- Your existing search form & results here -->
+      <!-- Center: Search & Results -->
+      <section class="col-lg-6 mb-4">
+        <!-- existing search form & results -->
       </section>
+
+      <!-- Right Preferences -->
+      <aside class="col-lg-3 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body p-3 pref-panel">
+
+            <!-- Delivery Speed -->
+            <div class="pref-box">
+              <h6>Delivery Speed</h6>
+              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-prime-delivery"><label class="form-check-label" for="pref-prime-delivery">Prime Delivery</label></div>
+              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-next-day"><label class="form-check-label" for="pref-next-day">Next Day</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" id="pref-two-day"><label class="form-check-label" for="pref-two-day">Two-Day</label></div>
+            </div>
+
+            <!-- Seller Type -->
+            <div class="pref-box">
+              <h6>Seller Type</h6>
+              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-amazon-sold"><label class="form-check-label" for="pref-amazon-sold">Sold & Shipped by Amazon</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" id="pref-third-party"><label class="form-check-label" for="pref-third-party">Third-Party Sellers</label></div>
+            </div>
+
+            <!-- Condition -->
+            <div class="pref-box">
+              <h6>Condition</h6>
+              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-new"><label class="form-check-label" for="pref-new">New</label></div>
+              <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="pref-used"><label class="form-check-label" for="pref-used">Used</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" id="pref-refurbished"><label class="form-check-label" for="pref-refurbished">Refurbished</label></div>
+            </div>
+
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 
