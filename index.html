@@ -402,6 +402,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advanced Amazon Filter Search Tool – In-Stock Lightning Deals & Price Drop Alerts</title>
+  <!-- Add any other head elements here (like SEO tags or link to external stylesheets) -->
+</head>
+<body>
+  <!-- Voice search button -->
+  <button id="start-btn">🎤 Start Voice Search</button>
+
+  <!-- Input field where voice input will be shown -->
+  <input type="text" id="search-input" placeholder="Search for products..." />
+
+  <!-- Link to your external JavaScript file (if you’re using an external file) -->
+  <!-- <script src="voice-search.js"></script> -->
+  <script>
+  document.getElementById("start-btn").addEventListener("click", function() {
+    var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "en-US"; // Set language to English
+    recognition.start();
+
+    recognition.onresult = function(event) {
+      var transcript = event.results[0][0].transcript;
+      document.getElementById("search-input").value = transcript; // Display the speech in the input field
+    };
+
+    recognition.onerror = function(event) {
+      console.error("Speech recognition error", event.error);
+    };
+  });
+</script>
+</body>
+</html>
 
   <div class="container-fluid bg-white p-3 p-md-4 rounded shadow-sm">
 
