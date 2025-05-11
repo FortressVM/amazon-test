@@ -14,7 +14,7 @@
     body { font-family: Arial, sans-serif; background: #f2f2f2; }
     .bg-amazon { background-color: #131921!important; }
     .navbar-dark .navbar-brand, .navbar-dark .btn-outline-light { color: #ffffff; }
-    .filter-panel, .pref-panel { overflow-y: visible!important; max-height: none!important; }
+    .filter-panel, .pref-panel { overflow: visible!important; max-height: none!important; }
     .pref-box { border:1px solid #ddd; border-radius:4px; padding:1rem; margin-bottom:1rem; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.1); }
     .amazon-dept-btn { background:#fff; border:1px solid #ccc; border-right:none; color:#111; border-radius:4px 0 0 4px; }
     .amazon-query { border:1px solid #ccc; border-left:none; border-radius:0 .25rem .25rem 0; }
@@ -35,7 +35,15 @@
         <input type="hidden" name="tag" value="echolover25-20">
         <button class="btn amazon-dept-btn dropdown-toggle" type="button" id="deptDropdown" data-bs-toggle="dropdown" aria-expanded="false">All Departments</button>
         <ul class="dropdown-menu" aria-labelledby="deptDropdown">
-          <!-- department items -->
+          <li><a class="dropdown-item" href="#">Amazon Devices</a></li>
+          <li><a class="dropdown-item" href="#">Collectibles</a></li>
+          <li><a class="dropdown-item" href="#">Electronics</a></li>
+          <li><a class="dropdown-item" href="#">Books</a></li>
+          <li><a class="dropdown-item" href="#">Software</a></li>
+          <li><a class="dropdown-item" href="#">Toys & Games</a></li>
+          <li><a class="dropdown-item" href="#">Home & Kitchen</a></li>
+          <li><a class="dropdown-item" href="#">Fashion</a></li>
+          <li><a class="dropdown-item" href="#">Grocery</a></li>
         </ul>
         <input type="text" class="form-control amazon-query" name="k" placeholder="Search Amazon…">
         <button class="btn amazon-btn" type="submit" aria-label="Search"><i class="bi bi-search"></i></button>
@@ -94,7 +102,109 @@
           <div class="card-body">
             <h5 class="card-title mb-4">Amazon Features</h5>
             <div class="accordion" id="accordionFeatures">
-              <!-- Departments, Delivery, Price, Review etc. -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDept">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDept">
+                    Departments
+                  </button>
+                </h2>
+                <div id="collapseDept" class="accordion-collapse collapse show" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">
+                    <ul class="list-unstyled mb-0">
+                      <li><a href="#">Amazon Devices</a></li>
+                      <li><a href="#">Collectibles</a></li>
+                      <li><a href="#">Electronics</a></li>
+                      <li><a href="#">Books</a></li>
+                      <li><a href="#">Software</a></li>
+                      <li><a href="#">Toys & Games</a></li>
+                      <li><a href="#">Home & Kitchen</a></li>
+                      <li><a href="#">Fashion</a></li>
+                      <li><a href="#">Grocery</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDelivery">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDelivery">
+                    Delivery & Availability
+                  </button>
+                </h2>
+                <div id="collapseDelivery" class="accordion-collapse collapse" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="primeOnly"><label class="form-check-label" for="primeOnly">Prime Only</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="inStock"><label class="form-check-label" for="inStock">In Stock</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="freeShipping"><label class="form-check-label" for="freeShipping">Free Shipping</label></div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingPrice">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice">
+                    Price Range
+                  </button>
+                </h2>
+                <div id="collapsePrice" class="accordion-collapse collapse" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">
+                    <div class="row g-3">
+                      <div class="col-6"><input type="number" class="form-control" placeholder="Min"></div>
+                      <div class="col-6"><input type="number" class="form-control" placeholder="Max"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingReview">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReview">
+                    Avg. Customer Review
+                  </button>
+                </h2>
+                <div id="collapseReview" class="accordion-collapse collapse" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">
+                    <select class="form-select"><option>Any</option><option>1★ & up</option><option>2★ & up</option><option>3★ & up</option><option>4★ & up</option></select>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingQA">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQA">
+                    Review & Q&A Metrics
+                  </button>
+                </h2>
+                <div id="collapseQA" class="accordion-collapse collapse" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">Additional review statistics filters…</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingRich">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRich">
+                    Rich Query Inputs
+                  </button>
+                </h2>
+                <div id="collapseRich" class="accordion-collapse collapse" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">Boolean, field, and lookup filters…</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEnrich">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnrich">
+                    Results Enrichment
+                  </button>
+                </h2>
+                <div id="collapseEnrich" class="accordion-collapse collapse" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">Bundle suggestions, trust scores…</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDeals">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeals">
+                    Deals & Promotions
+                  </button>
+                </h2>
+                <div id="collapseDeals" class="accordion-collapse collapse" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">Coupons, lightning deals, subscribe & save…</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -105,7 +215,6 @@
         <div class="card shadow-sm pref-panel">
           <div class="card-body">
             <h5 class="card-title mb-4">Amazon Super Search</h5>
-
             <!-- Delivery Speed -->
             <div class="pref-box">
               <h6>Delivery Speed</h6>
@@ -113,51 +222,6 @@
               <div class="form-check"><input class="form-check-input" type="checkbox" id="ssNext"><label class="form-check-label" for="ssNext">Next Day</label></div>
               <div class="form-check"><input class="form-check-input" type="checkbox" id="ssTwo"><label class="form-check-label" for="ssTwo">Two-Day</label></div>
             </div>
-
             <!-- Condition -->
             <div class="pref-box">
-              <h6>Condition</h6>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="ssNew"><label class="form-check-label" for="ssNew">New</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="ssUsed"><label class="form-check-label" for="ssUsed">Used</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="ssRefurb"><label class="form-check-label" for="ssRefurb">Refurbished</label></div>
-            </div>
-
-            <!-- Extra Filters: Price Volatility, Sustainability, AR Preview -->
-            <div class="pref-box">
-              <h6>Price Volatility</h6>
-              <input type="number" class="form-control mb-3" placeholder="Max % volatility (7 days)">
-
-              <h6>Sustainability & Ethical</h6>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="ecoFriendly"><label class="form-check-label" for="ecoFriendly">Eco-Friendly</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="fairTrade"><label class="form-check-label" for="fairTrade">Fair Trade</label></div>
-            </div>
-
-            <div class="pref-box">
-              <h6>Guaranteed Delivery</h6>
-              <select class="form-select">
-                <option>Arrives within 1 day</option>
-                <option selected>Arrives within 2 days</option>
-                <option>Arrives within 5 days</option>
-              </select>
-            </div>
-
-            <div class="pref-box">
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="arPreview"><label class="form-check-label" for="arPreview">AR Preview Links</label></div>
-            </div>
-
-          </div>
-        </div>
-      </aside>
-
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="text-center py-3 bg-white shadow-sm">
-    Footer content…
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+              <h6>Condition</n
