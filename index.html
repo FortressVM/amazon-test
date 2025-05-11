@@ -10,157 +10,152 @@
   <!-- Your custom stylesheet -->
   <link href="/css/style.css" rel="stylesheet">
 
-  <!-- Inline tweaks for department dropdown -->
   <style>
-    /* Limit dropdown height and set width to mimic Amazon */
-    .dept-menu {
-      max-height: 320px;
+    /* Sidebar filters scrollable */
+    .filter-panel {
+      max-height: 80vh;
       overflow-y: auto;
-      width: 360px;
     }
-    .amazon-dept-btn {
-      background: #fff;
-      border: 1px solid #ccc;
-      border-right: none;
-      border-radius: 4px 0 0 4px;
-      color: #111;
-    }
-    .amazon-query {
-      border: 1px solid #ccc;
-      border-left: none;
-    }
-    .amazon-btn {
-      background: #febd69;
-      border: 1px solid #febd69;
-      border-radius: 0 4px 4px 0;
-    }
+    /* Amazon-style search bar tweaks */
+    .amazon-dept-btn { background: #fff; border: 1px solid #ccc; border-right: none; border-radius:4px 0 0 4px; }
+    .amazon-query    { border: 1px solid #ccc; border-left: none; }
+    .amazon-btn      { background: #febd69; border:1px solid #febd69; border-radius:0 4px 4px 0; }
   </style>
 </head>
 <body>
 
-  <!-- Navbar with Amazon-style search bar and How-To toggle -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
     <div class="container">
       <a class="navbar-brand fw-bold me-4" href="/">Amazon Super Search</a>
-
-      <div class="d-flex align-items-center flex-grow-1">
-        <!-- How-To Guide toggle -->
-        <button class="btn btn-outline-info me-3" type="button"
-                data-bs-toggle="offcanvas" data-bs-target="#helpOffcanvas">
-          How‑To Guide
-        </button>
-
-        <!-- Search bar group -->
+      <div class="d-flex flex-grow-1 align-items-center">
+        <button class="btn btn-outline-info me-3" data-bs-toggle="offcanvas" data-bs-target="#helpOffcanvas">How‑To Guide</button>
         <form id="amazon-search-form" class="d-flex input-group input-group-lg w-100" autocomplete="off">
-
-          <!-- Department dropdown as Bootstrap menu -->
+          <!-- Dept dropdown -->
           <div class="dropdown">
-            <button class="btn amazon-dept-btn dropdown-toggle" type="button"
-                    id="deptDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              All Departments
-            </button>
+            <button class="btn amazon-dept-btn dropdown-toggle" type="button" id="deptDropdown" data-bs-toggle="dropdown">All Departments</button>
             <ul class="dropdown-menu dept-menu" aria-labelledby="deptDropdown">
-              <!-- Populate with all Amazon departments -->
-              <li><a class="dropdown-item" href="#">All Departments</a></li>
-              <li><a class="dropdown-item" href="#">Amazon Haul</a></li>
-              <li><a class="dropdown-item" href="#">Medical Care</a></li>
-              <li><a class="dropdown-item" href="#">Saks</a></li>
-              <li><a class="dropdown-item" href="#">Best Sellers</a></li>
-              <li><a class="dropdown-item" href="#">Amazon Basics</a></li>
-              <li><a class="dropdown-item" href="#">New Releases</a></li>
-              <li><a class="dropdown-item" href="#">Music</a></li>
-              <li><a class="dropdown-item" href="#">Registry</a></li>
-              <li><a class="dropdown-item" href="#">Today's Deals</a></li>
-              <li><a class="dropdown-item" href="#">Smart Home</a></li>
-              <li><a class="dropdown-item" href="#">Gift Cards</a></li>
-              <li><a class="dropdown-item" href="#">Groceries</a></li>
-              <li><a class="dropdown-item" href="#">Prime</a></li>
-              <li><a class="dropdown-item" href="#">Customer Service</a></li>
-              <li><a class="dropdown-item" href="#">Pharmacy</a></li>
-              <li><a class="dropdown-item" href="#">Books</a></li>
-              <li><a class="dropdown-item" href="#">Amazon Home</a></li>
-              <li><a class="dropdown-item" href="#">Luxury Stores</a></li>
-              <li><a class="dropdown-item" href="#">Fashion</a></li>
+              <!-- full dept list -->
             </ul>
           </div>
-
-          <!-- Keyword input -->
-          <input type="text" class="form-control amazon-query" name="q"
-                 placeholder="Search Amazon…" aria-label="Search Amazon">
-
-          <!-- Submit button -->
-          <button class="btn amazon-btn" type="submit">
-            <i class="bi bi-search"></i>
-          </button>
+          <input type="text" class="form-control amazon-query" name="q" placeholder="Search Amazon…">
+          <button class="btn amazon-btn" type="submit"><i class="bi bi-search"></i></button>
         </form>
       </div>
     </div>
   </nav>
 
-  <!-- Offcanvas How-To Guide -->
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="helpOffcanvas">
+  <!-- How‑To Offcanvas -->
+  <div class="offcanvas offcanvas-start" id="helpOffcanvas">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">How‑To Guide</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
-      <!-- Import your existing how-to selector & content here -->
+      <!-- existing how‑to content -->
     </div>
   </div>
 
-  <!-- Main content area -->
-  <main class="container my-5">
+  <!-- Main Content -->
+  <div class="container-fluid mt-4">
     <div class="row">
-      <!-- Sidebar with department card -->
+      <!-- Sidebar Filters -->
       <aside class="col-lg-3 mb-4">
-        <div class="card">
-          <div class="card-header bg-primary text-white">
-            Departments
+        <div class="filter-panel accordion" id="filterAccordion">
+
+          <!-- Departments -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingDept">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDept">Departments</button>
+            </h2>
+            <div id="collapseDept" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+              <div class="accordion-body">
+                <!-- checkbox list -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="dept-all" value="all">
+                  <label class="form-check-label" for="dept-all">All Departments</label>
+                </div>
+                <!-- repeat for each dept -->
+              </div>
+            </div>
           </div>
-          <ul class="list-group list-group-flush dept-menu">
-            <li class="list-group-item"><a href="#" class="text-decoration-none">All Departments</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Amazon Haul</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Medical Care</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Saks</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Best Sellers</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Amazon Basics</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">New Releases</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Music</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Registry</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Today's Deals</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Smart Home</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Gift Cards</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Groceries</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Prime</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Customer Service</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Pharmacy</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Books</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Amazon Home</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Luxury Stores</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Fashion</a></li>
-          </ul>
+
+          <!-- Price Range -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPrice">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice">Price Range</button>
+            </h2>
+            <div id="collapsePrice" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+              <div class="accordion-body">
+                <div class="row g-2">
+                  <div class="col-6">
+                    <input type="number" class="form-control form-control-sm" name="min-price" placeholder="Min">
+                  </div>
+                  <div class="col-6">
+                    <input type="number" class="form-control form-control-sm" name="max-price" placeholder="Max">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Discount & Rating -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingDiscount">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount">% Off & Rating</button>
+            </h2>
+            <div id="collapseDiscount" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+              <div class="accordion-body">
+                <select class="form-select form-select-sm mb-2" name="percent-off">
+                  <option value="">Any % Off</option>
+                  <option>5%</option><option>10%</option><!--…-->
+                </select>
+                <select class="form-select form-select-sm" name="min-rating">
+                  <option value="">Any Rating</option>
+                  <option>4★ & up</option><option>3★ & up</option><!--…-->
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand Filters -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingBrand">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBrand">Brand Filters</button>
+            </h2>
+            <div id="collapseBrand" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+              <div class="accordion-body">
+                <input type="text" class="form-control form-control-sm mb-2" name="brand-include" placeholder="Include Brands">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" name="include-only" id="brandIncludeOnly">
+                  <label class="form-check-label" for="brandIncludeOnly">Match only these brands</label>
+                </div>
+                <input type="text" class="form-control form-control-sm mt-2" name="brand-exclude" placeholder="Exclude Brands">
+              </div>
+            </div>
+          </div>
+
+          <!-- More filter groups… (Deal-Hunter, Power-User, etc.) -->
+
         </div>
       </aside>
 
-      <!-- Primary features -->
+      <!-- Main Section: Search Form & Results -->
       <section class="col-lg-9">
-        <!-- Import your full search form markup, scripts, and logic here -->
+        <!-- your existing search form markup & scripts -->
       </section>
     </div>
-  </main>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-light py-4">
-    <div class="container">
-      <!-- Import your share section, visitor question, and Disqus here -->
-    </div>
+    <div class="container">Footer content…</div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-  <!-- Tagify JS -->
+  <!-- Tagify & your custom JS -->
   <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
-  <!-- Import your custom JS files -->
   <script src="/js/search-logic.js"></script>
   <script src="/js/howto-guide.js"></script>
 </body>
