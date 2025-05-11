@@ -448,31 +448,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   <h2 class="mb-3">Search Keywords (or enter ASIN, ISBN, or UPC)</h2>
 
-  <form id="amazon-search-form"
-        class="d-flex align-items-center search-toolbar rounded-pill overflow-hidden p-1 mb-2"
-        autocomplete="off">
-    <div class="dropdown">
-      <button class="btn dropdown-toggle text-white bg-dark border-0 ps-3 pe-2"
-              type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        All
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">All Departments</a></li>
-        <!-- … -->
-      </ul>
-    </div>
+  <!-- departments dropdown -->
+  <form>
+   id="amazon-search-form"
+   action="https://www.amazon.com/s"
+   method="GET"
+   target="_blank"
+   class="d-flex align-items-center search-toolbar rounded-pill overflow-hidden p-1 mb-2"   <!-- departments dropdown -->
+   <input type="hidden" name="tag" value="echolover25-20">
+  <div class="dropdown">
+    <button
+      class="btn dropdown-toggle text-white bg-dark border-0 p-2"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      All
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">All Departments</a></li>
+      <!-- …other categories… -->
+    </ul>
+  </div>
 
-    <input type="text"
-           name="q"
-           class="form-control border-0 mx-2"
-           placeholder="Search Amazon…">
+  <!-- keyword field -->
+  <input
+    type="text"
+    name="k"
+    class="form-control border-0 mx-2"
+    placeholder="Search Amazon…"
+    required
+  >
 
+  <!-- yellow submit button -->
   <button class="btn amazon-btn px-4 py-2" type="submit">
-  Search
-</button>
-
-  </form>
-
+    Search
+  </button>
+</form>
   <small class="search-helper d-block">
     Supports Boolean operators: <strong>AND</strong>, <strong>OR</strong>, <strong>NOT</strong>
     (e.g. <em>wireless AND headphones NOT bluetooth</em>).
