@@ -12,10 +12,7 @@
 
   <style>
     /* Sidebar filters scrollable */
-    .filter-panel {
-      max-height: 80vh;
-      overflow-y: auto;
-    }
+    .filter-panel { max-height: 80vh; overflow-y: auto; }
     /* Amazon-style search bar tweaks */
     .amazon-dept-btn { background: #fff; border: 1px solid #ccc; border-right: none; border-radius:4px 0 0 4px; }
     .amazon-query    { border: 1px solid #ccc; border-left: none; }
@@ -25,17 +22,16 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container">
-      <a class="navbar-brand fw-bold me-4" href="/">Amazon Super Search</a>
-      <div class="d-flex flex-grow-1 align-items-center">
+      <a class="navbar-brand fw-bold" href="/">Amazon Super Search</a>
+      <div class="d-flex align-items-center flex-grow-1">
         <button class="btn btn-outline-info me-3" data-bs-toggle="offcanvas" data-bs-target="#helpOffcanvas">How‑To Guide</button>
         <form id="amazon-search-form" class="d-flex input-group input-group-lg w-100" autocomplete="off">
-          <!-- Dept dropdown -->
           <div class="dropdown">
             <button class="btn amazon-dept-btn dropdown-toggle" type="button" id="deptDropdown" data-bs-toggle="dropdown">All Departments</button>
             <ul class="dropdown-menu dept-menu" aria-labelledby="deptDropdown">
-              <!-- full dept list -->
+              <!-- Full department list here -->
             </ul>
           </div>
           <input type="text" class="form-control amazon-query" name="q" placeholder="Search Amazon…">
@@ -57,104 +53,139 @@
   </div>
 
   <!-- Main Content -->
-  <div class="container-fluid mt-4">
+  <div class="container mt-5">
     <div class="row">
       <!-- Sidebar Filters -->
       <aside class="col-lg-3 mb-4">
-        <div class="filter-panel accordion" id="filterAccordion">
+        <div class="card shadow-sm">
+          <div class="card-body p-3 filter-panel">
+            <div class="accordion" id="filterAccordion">
 
-          <!-- Departments -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingDept">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDept">Departments</button>
-            </h2>
-            <div id="collapseDept" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
-              <div class="accordion-body">
-                <!-- checkbox list -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="dept-all" value="all">
-                  <label class="form-check-label" for="dept-all">All Departments</label>
-                </div>
-                <!-- repeat for each dept -->
-              </div>
-            </div>
-          </div>
-
-          <!-- Price Range -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingPrice">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice">Price Range</button>
-            </h2>
-            <div id="collapsePrice" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
-              <div class="accordion-body">
-                <div class="row g-2">
-                  <div class="col-6">
-                    <input type="number" class="form-control form-control-sm" name="min-price" placeholder="Min">
-                  </div>
-                  <div class="col-6">
-                    <input type="number" class="form-control form-control-sm" name="max-price" placeholder="Max">
+              <!-- Departments -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDept">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDept">Departments</button>
+                </h2>
+                <div id="collapseDept" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+                  <div class="accordion-body">
+                    <!-- Department checkboxes -->
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dept-all" value="all"><label class="form-check-label" for="dept-all">All Departments</label></div>
+                    <!-- Repeat form-check for each department -->
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Discount & Rating -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingDiscount">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount">% Off & Rating</button>
-            </h2>
-            <div id="collapseDiscount" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
-              <div class="accordion-body">
-                <select class="form-select form-select-sm mb-2" name="percent-off">
-                  <option value="">Any % Off</option>
-                  <option>5%</option><option>10%</option><!--…-->
-                </select>
-                <select class="form-select form-select-sm" name="min-rating">
-                  <option value="">Any Rating</option>
-                  <option>4★ & up</option><option>3★ & up</option><!--…-->
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <!-- Brand Filters -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingBrand">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBrand">Brand Filters</button>
-            </h2>
-            <div id="collapseBrand" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
-              <div class="accordion-body">
-                <input type="text" class="form-control form-control-sm mb-2" name="brand-include" placeholder="Include Brands">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" name="include-only" id="brandIncludeOnly">
-                  <label class="form-check-label" for="brandIncludeOnly">Match only these brands</label>
+              <!-- Price Range -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingPrice">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice">Price Range</button>
+                </h2>
+                <div id="collapsePrice" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                  <div class="accordion-body">
+                    <div class="row g-2">
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="min-price" placeholder="Min"></div>
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="max-price" placeholder="Max"></div>
+                    </div>
+                  </div>
                 </div>
-                <input type="text" class="form-control form-control-sm mt-2" name="brand-exclude" placeholder="Exclude Brands">
               </div>
+
+              <!-- Discount & Rating -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDiscount">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount">% Off & Rating</button>
+                </h2>
+                <div id="collapseDiscount" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                  <div class="accordion-body">
+                    <select class="form-select form-select-sm mb-2" name="percent-off"><option value="">Any % Off</option><option>5%</option><option>10%</option></select>
+                    <select class="form-select form-select-sm" name="min-rating"><option value="">Any Rating</option><option>4★ & up</option><option>3★ & up</option></select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Brand Filters -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingBrand">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBrand">Brand Filters</button>
+                </h2>
+                <div id="collapseBrand" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                  <div class="accordion-body">
+                    <input type="text" class="form-control form-control-sm mb-2" name="brand-include" placeholder="Include Brands">
+                    <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" name="include-only" id="brandIncludeOnly"><label class="form-check-label" for="brandIncludeOnly">Match only</label></div>
+                    <input type="text" class="form-control form-control-sm" name="brand-exclude" placeholder="Exclude Brands">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Checkbox Options -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingQuick">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuick">Quick Filters</button>
+                </h2>
+                <div id="collapseQuick" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                  <div class="accordion-body">
+                    <div class="list-group list-group-flush">
+                      <label class="list-group-item"><input class="form-check-input me-2" type="checkbox" name="prime-only">Prime Only</label>
+                      <label class="list-group-item"><input class="form-check-input me-2" type="checkbox" name="in-stock">In Stock</label>
+                      <label class="list-group-item"><input class="form-check-input me-2" type="checkbox" name="free-shipping">Free Shipping</label>
+                      <label class="list-group-item"><input class="form-check-input me-2" type="checkbox" name="lightning-deals">Lightning Deals</label>
+                      <label class="list-group-item"><input class="form-check-input me-2" type="checkbox" name="coupons">Coupons Available</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Power-User Tools -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingPower">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePower">Power-User Tools</button>
+                </h2>
+                <div id="collapsePower" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                  <div class="accordion-body">
+                    <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="enable-boolean">Enable Boolean Operators</div>
+                    <div class="mb-2"><input type="text" class="form-control form-control-sm" name="field-filters" placeholder="field-brand:Sony"></div>
+                    <div class="mb-2"><input type="text" class="form-control form-control-sm" name="direct-lookup" placeholder="ASIN/ISBN lookup"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Deal-Hunter Goodies -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDeal">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeal">Deal-Hunter Goodies</button>
+                </h2>
+                <div id="collapseDeal" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                  <div class="accordion-body">
+                    <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="coupon-only">Coupon-Clippable Only</div>
+                    <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="warehouse-refurb">Warehouse / Open-Box</div>
+                    <div class="mt-2 row g-2">
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="below-avg-30" placeholder="▼ % vs 30d"></div>
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="max-volatility-7" placeholder="▲ Max 7d vol"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- More filter groups… -->
+
             </div>
           </div>
-
-          <!-- More filter groups… (Deal-Hunter, Power-User, etc.) -->
-
         </div>
       </aside>
 
-      <!-- Main Section: Search Form & Results -->
+      <!-- Main Section: Results -->
       <section class="col-lg-9">
-        <!-- your existing search form markup & scripts -->
+        <!-- Your existing search form & results here -->
       </section>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-light py-4">
-    <div class="container">Footer content…</div>
-  </footer>
+  <footer class="bg-light py-4 text-center"><div class="container">Footer content…</div></footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-  <!-- Tagify & your custom JS -->
+  <!-- Tagify & custom JS -->
   <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
   <script src="/js/search-logic.js"></script>
   <script src="/js/howto-guide.js"></script>
