@@ -103,7 +103,68 @@
   <div class="container mt-5">
     <div class="row">
       <!-- Left Filters -->
-      $1$1$2
+      <aside class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body p-3 filter-panel">
+            <h5 class="mb-3">Amazon Features</h5>
+            <div class="accordion" id="accordionFeatures">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDept">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDept" aria-expanded="true">Departments</button>
+                </h2>
+                <div id="collapseDept" class="accordion-collapse collapse show" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">
+                    <!-- List of Amazon department checkboxes or links here -->
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDelivery">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDelivery">Delivery & Availability</button>
+                </h2>
+                <div id="collapseDelivery" class="accordion-collapse collapse" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">
+                    <!-- Prime, Two-Day, Next-Day --></div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingPrice">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice">Price</button>
+                </h2>
+                <div id="collapsePrice" class="accordion-collapse collapse" data-bs-parent="#accordionFeatures">
+                  <div class="accordion-body">
+                    <!-- Min/Max price inputs --></div>
+                </div>
+              </div>
+              <!-- Repeat for avg review, Q&A metrics, rich inputs, enrichment, deals --></div>
+          </div>
+        </div>
+      </aside>
+      <aside class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body p-3 pref-panel">
+            <h5 class="mb-3">Amazon Super Search</h5>
+            <div class="pref-box">
+              <h6>Delivery Speed</h6>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="prime-delivery" id="primeDelivery"><label class="form-check-label" for="primeDelivery">Prime Delivery</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="next-day" id="nextDay"><label class="form-check-label" for="nextDay">Next Day</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="two-day" id="twoDay"><label class="form-check-label" for="twoDay">Two-Day</label></div>
+            </div>
+            <div class="pref-box">
+              <h6>Seller Type</h6>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="sold-by-amazon" id="soldByAmazon"><label class="form-check-label" for="soldByAmazon">Sold & Shipped by Amazon</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="third-party" id="thirdParty"><label class="form-check-label" for="thirdParty">Third-Party Sellers</label></div>
+            </div>
+            <div class="pref-box">
+              <h6>Condition</h6>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="new" id="condNew"><label class="form-check-label" for="condNew">New</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="used" id="condUsed"><label class="form-check-label" for="condUsed">Used</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="refurbished" id="condRefurbished"><label class="form-check-label" for="condRefurbished">Refurbished</label></div>
+            </div>
+            <!-- Additional advanced feature boxes go here -->
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 
