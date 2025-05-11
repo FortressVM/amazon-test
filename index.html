@@ -82,9 +82,11 @@
   <div class="container mt-5">
     <div class="row">
       <!-- Left Filters -->
-      <aside class="col-lg-3 mb-4">
+      <aside class="col-lg-6 mb-4">
         <div class="card shadow-sm">
           <div class="card-body p-3 filter-panel">
+          <div class="card-body p-3 filter-panel">
+            <h5 class="mb-3">Amazon Features</h5>
             <div class="accordion" id="filterAccordion">
               <!-- Departments -->
               <div class="accordion-item">
@@ -142,18 +144,64 @@
                   </div>
                 </div>
               </div>
-              <!-- Condition -->
+              $1
+              <!-- Review & Q&A Metrics -->
               <div class="accordion-item">
-                <h2 class="accordion-header" id="headingCondition">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCondition">Condition</button>
+                <h2 class="accordion-header" id="headingReviews">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReviews">Review & Q&A Metrics</button>
                 </h2>
-                <div id="collapseCondition" class="accordion-collapse collapse">
+                <div id="collapseReviews" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="condition-new" name="condition-new"><label class="form-check-label" for="condition-new">New</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="condition-used" name="condition-used"><label class="form-check-label" for="condition-used">Used</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="condition-refurbished" name="condition-refurbished"><label class="form-check-label" for="condition-refurbished">Refurbished</label></div>
+                    <div class="row g-2 mb-2">
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="min-reviews" placeholder="Min Reviews"></div>
+                      <div class="col-6"><input type="number" class="form-control form-control-sm" name="min-verified-pct" placeholder="Min Verified %"></div>
+                    </div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="answered-questions" id="answered-questions"><label class="form-check-label" for="answered-questions">Require Answered Questions</label></div>
                   </div>
                 </div>
+              </div>
+              <!-- Rich Query Inputs -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingRichQuery">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRichQuery">Rich Query Inputs</button>
+                </h2>
+                <div id="collapseRichQuery" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="voice-nlp" id="voice-nlp"><label class="form-check-label" for="voice-nlp">Voice & Natural-Language Query</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="image-search" id="image-search"><label class="form-check-label" for="image-search">Image & Screenshot Search</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="mood-board" id="mood-board"><label class="form-check-label" for="mood-board">“Mood-Board” Search</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="story-search" id="story-search"><label class="form-check-label" for="story-search">“Story” Search</label></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Results Enrichment -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEnrichment">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnrichment">Results Enrichment</button>
+                </h2>
+                <div id="collapseEnrichment" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="fake-review-detect" id="fake-review-detect"><label class="form-check-label" for="fake-review-detect">Fake-Review Detection Score</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="user-bundles" id="user-bundles"><label class="form-check-label" for="user-bundles">User-Generated Bundles</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="ar-preview" id="ar-preview"><label class="form-check-label" for="ar-preview">AR-Preview Links</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="price-chart" id="price-chart"><label class="form-check-label" for="price-chart">Snapshot Price History Chart</label></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Deals & Promotions -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingPromotions">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePromotions">Deals & Promotions</button>
+                </h2>
+                <div id="collapsePromotions" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="deal-of-day" id="deal-of-day"><label class="form-check-label" for="deal-of-day">Deal of the Day</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bundle-offers" id="bundle-offers"><label class="form-check-label" for="bundle-offers">Bundle Offers</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="coupon-only-mode" id="coupon-only-mode"><label class="form-check-label" for="coupon-only-mode">Coupon-Only Mode</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="promo-only-mode" id="promo-only-mode"><label class="form-check-label" for="promo-only-mode">Promo-Only Mode</label></div>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>
           </div>
@@ -161,14 +209,13 @@
       </aside>
 
       <!-- Center: Search & Results -->
-      <section class="col-lg-6 mb-4">
-        <!-- existing search form & results -->
-      </section>
+      
 
       <!-- Right Preferences -->
-      <aside class="col-lg-3 mb-4">
+      <aside class="col-lg-6 mb-4">
         <div class="card shadow-sm">
           <div class="card-body p-3 pref-panel">
+            <h5 class="mb-3">Amazon Super Search</h5>
                         <!-- Delivery Speed -->
             <div class="pref-box">
               <h6>Delivery Speed</h6>
