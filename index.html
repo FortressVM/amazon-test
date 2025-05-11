@@ -7,35 +7,86 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
+  <!-- Your custom stylesheet -->
   <link href="/css/style.css" rel="stylesheet">
+
+  <!-- Inline tweaks for department dropdown -->
+  <style>
+    /* Limit dropdown height and set width to mimic Amazon */
+    .dept-menu {
+      max-height: 320px;
+      overflow-y: auto;
+      width: 360px;
+    }
+    .amazon-dept-btn {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      color: #111;
+    }
+    .amazon-query {
+      border: 1px solid #ccc;
+      border-left: none;
+    }
+    .amazon-btn {
+      background: #febd69;
+      border: 1px solid #febd69;
+      border-radius: 0 4px 4px 0;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navbar with Amazon-style search bar and How‑To toggle -->
+  <!-- Navbar with Amazon-style search bar and How-To toggle -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/">Amazon Super Search</a>
+      <a class="navbar-brand fw-bold me-4" href="/">Amazon Super Search</a>
 
-      <div class="d-flex align-items-center">
-        <!-- How‑To Guide button -->
+      <div class="d-flex align-items-center flex-grow-1">
+        <!-- How-To Guide toggle -->
         <button class="btn btn-outline-info me-3" type="button"
                 data-bs-toggle="offcanvas" data-bs-target="#helpOffcanvas">
           How‑To Guide
         </button>
 
-        <!-- Amazon‑style search bar -->
-        <form id="amazon-search-form" class="amazon-search input-group input-group-lg w-auto" autocomplete="off">
-          <!-- Department dropdown -->
-          <select class="form-select amazon-dept" name="i">
-            <option>All</option>
-            <!-- … your departments … -->
-          </select>
+        <!-- Search bar group -->
+        <form id="amazon-search-form" class="d-flex input-group input-group-lg w-100" autocomplete="off">
+
+          <!-- Department dropdown as Bootstrap menu -->
+          <div class="dropdown">
+            <button class="btn amazon-dept-btn dropdown-toggle" type="button"
+                    id="deptDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              All Departments
+            </button>
+            <ul class="dropdown-menu dept-menu" aria-labelledby="deptDropdown">
+              <!-- Populate with all Amazon departments -->
+              <li><a class="dropdown-item" href="#">All Departments</a></li>
+              <li><a class="dropdown-item" href="#">Amazon Haul</a></li>
+              <li><a class="dropdown-item" href="#">Medical Care</a></li>
+              <li><a class="dropdown-item" href="#">Saks</a></li>
+              <li><a class="dropdown-item" href="#">Best Sellers</a></li>
+              <li><a class="dropdown-item" href="#">Amazon Basics</a></li>
+              <li><a class="dropdown-item" href="#">New Releases</a></li>
+              <li><a class="dropdown-item" href="#">Music</a></li>
+              <li><a class="dropdown-item" href="#">Registry</a></li>
+              <li><a class="dropdown-item" href="#">Today's Deals</a></li>
+              <li><a class="dropdown-item" href="#">Smart Home</a></li>
+              <li><a class="dropdown-item" href="#">Gift Cards</a></li>
+              <li><a class="dropdown-item" href="#">Groceries</a></li>
+              <li><a class="dropdown-item" href="#">Prime</a></li>
+              <li><a class="dropdown-item" href="#">Customer Service</a></li>
+              <li><a class="dropdown-item" href="#">Pharmacy</a></li>
+              <li><a class="dropdown-item" href="#">Books</a></li>
+              <li><a class="dropdown-item" href="#">Amazon Home</a></li>
+              <li><a class="dropdown-item" href="#">Luxury Stores</a></li>
+              <li><a class="dropdown-item" href="#">Fashion</a></li>
+            </ul>
+          </div>
 
           <!-- Keyword input -->
           <input type="text" class="form-control amazon-query" name="q"
-                 placeholder="Search Amazon &hellip;">
+                 placeholder="Search Amazon…" aria-label="Search Amazon">
 
           <!-- Submit button -->
           <button class="btn amazon-btn" type="submit">
@@ -46,48 +97,70 @@
     </div>
   </nav>
 
-  <!-- Offcanvas How‑To Guide -->
+  <!-- Offcanvas How-To Guide -->
   <div class="offcanvas offcanvas-start" tabindex="-1" id="helpOffcanvas">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">How‑To Guide</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
-      <!-- IMPORT your existing <select id="howToSelector"> + content sections here -->
+      <!-- Import your existing how-to selector & content here -->
     </div>
   </div>
 
   <!-- Main content area -->
   <main class="container my-5">
     <div class="row">
-      <!-- Sidebar (optional banner, summary, referrals) -->
+      <!-- Sidebar with department card -->
       <aside class="col-lg-3 mb-4">
-        <!-- e.g. Save‑Big‑Deals banner -->
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            Departments
+          </div>
+          <ul class="list-group list-group-flush dept-menu">
+            <li class="list-group-item"><a href="#" class="text-decoration-none">All Departments</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Amazon Haul</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Medical Care</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Saks</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Best Sellers</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Amazon Basics</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">New Releases</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Music</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Registry</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Today's Deals</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Smart Home</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Gift Cards</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Groceries</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Prime</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Customer Service</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Pharmacy</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Books</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Amazon Home</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Luxury Stores</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Fashion</a></li>
+          </ul>
+        </div>
       </aside>
 
-      <!-- Primary search form & features -->
+      <!-- Primary features -->
       <section class="col-lg-9">
-        <!-- IMPORT your existing <form id="amazon-search-form"> markup and scripts here -->
+        <!-- Import your full search form markup, scripts, and logic here -->
       </section>
     </div>
   </main>
 
-  <!-- Footer with share, visitor question, comments -->
+  <!-- Footer -->
   <footer class="bg-light py-4">
     <div class="container">
-      <!-- IMPORT your Share With Friends section -->
-      <!-- IMPORT your Visitor Question section -->
-      <!-- IMPORT your Disqus comments block -->
+      <!-- Import your share section, visitor question, and Disqus here -->
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle -->
+  <!-- Bootstrap JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-
   <!-- Tagify JS -->
   <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
-
-  <!-- Custom JS -->
+  <!-- Import your custom JS files -->
   <script src="/js/search-logic.js"></script>
   <script src="/js/howto-guide.js"></script>
 </body>
