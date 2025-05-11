@@ -58,79 +58,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
 
   <style>
-    /* Button styling */
-.mic-btn {
-    background-color: #007bff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    box-shadow: 0 0 8px rgba(0,123,255,0.5);
-    transition: all 0.3s ease-in-out;
-}
-
-/* Microphone icon */
-.mic-icon {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background-color: white;
-    position: relative;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Sound wave animation */
-@keyframes wave-animation {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.5);
-        opacity: 0.6;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
-}
-
-/* Glowing and wave effects when recording */
-.mic-btn.recording {
-    background-color: #ff6347; /* Red when recording */
-    box-shadow: 0 0 20px rgba(255,99,71,0.5); /* Glowing red effect */
-}
-
-.mic-btn.recording {
-    background-color: #ff6347; /* Red when recording */
-    box-shadow: 0 0 20px rgba(255,99,71,0.5); /* Glowing red effect */
-}
-
-.mic-btn.recording .mic-icon {
-    background-color: red; /* Red color for mic icon */
-    animation: wave-animation 1s infinite ease-in-out;
-}
-
-.mic-btn.recording::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid rgba(255,99,71,0.5);
-    animation: wave-animation 1.5s infinite ease-in-out;
-    transform: translate(-50%, -50%);
-}
-
-}
-
     /* Fancy frames */
     .card, .accordion-item {
       border: 3px solid #007bff !important;
@@ -475,77 +402,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 </script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Advanced Amazon Filter Search Tool – In-Stock Lightning Deals & Price Drop Alerts</title>
-  <!-- Add any other head elements here (like SEO tags or link to external stylesheets) -->
-</head>
-<body>
-  <!-- Voice search button -->
-<button id="start-btn" class="mic-btn" aria-label="Start Voice Search">
-    <span id="mic-icon" class="mic-icon"></span>
-</button>
-
-
-<!-- Input field where voice input will be shown -->
-<input type="text" id="search-input" placeholder="Search for products..." autocomplete="off">
-
-
-  <!-- Link to your external JavaScript file (if you’re using an external file) -->
-  <!-- <script src="voice-search.js"></script> -->
-  <script>
-  document.getElementById("start-btn").addEventListener("click", function() {
-    var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.lang = "en-US"; // Set language to English
-    recognition.start();
-
-    recognition.onresult = function(event) {
-      var transcript = event.results[0][0].transcript;
-      document.getElementById("search-input").value = transcript; // Display the speech in the input field
-    };
-
-    recognition.onerror = function(event) {
-      console.error("Speech recognition error", event.error);
-    };
-  });
-</script>
- <script>
-  document.getElementById('start-btn').addEventListener('click', function() {
-    var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    var micButton = document.getElementById('start-btn'); // Target the button
-    recognition.lang = "en-US"; // Set language to English
-    recognition.start();
-    
-    // Add recording styles to mic button
-    micButton.classList.add('recording');
-
-    recognition.onresult = function(event) {
-        var transcript = event.results[0][0].transcript; // Get the voice input
-        document.getElementById('search-input').value = transcript; // Set the input field to the transcript
-
-        // Redirect to Amazon search results page using the spoken query
-        var searchQuery = encodeURIComponent(transcript); // URL-encode the query
-        window.location.href = `https://www.amazon.com/s?k=${searchQuery}`; // Redirect to Amazon with the query
-    };
-
-    recognition.onerror = function(event) {
-        console.error("Speech recognition error", event.error);
-    };
-
-    // Remove recording styles when done
-    recognition.onend = function() {
-        micButton.classList.remove('recording'); // Remove the recording effect when done
-    };
-  });
-</script>
-
-});
-
-</body>
-</html>
 
   <div class="container-fluid bg-white p-3 p-md-4 rounded shadow-sm">
 
@@ -1108,26 +964,6 @@ if (data.get('percent-off')) rh.push(`p_n_pct-off-with-discount:${data.get('perc
 
 <!-- Bootstrap JS Bundle -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-  <script>
-  document.getElementById('start-btn').addEventListener('click', function() {
-      var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-      recognition.lang = "en-US"; // Set language to English
-      recognition.start();
-
-      recognition.onresult = function(event) {
-          var transcript = event.results[0][0].transcript; // Get the voice input
-          document.getElementById('search-input').value = transcript; // Set the input field to the transcript
-
-          // Redirect to Amazon search results page using the spoken query
-          var searchQuery = encodeURIComponent(transcript); // URL-encode the query
-          window.location.href = `https://www.amazon.com/s?k=${searchQuery}`; // Redirect to Amazon with the query
-      };
-
-      recognition.onerror = function(event) {
-          console.error("Speech recognition error", event.error);
-      };
-  });
-</script>
-
+  
 </body>
 </html>
