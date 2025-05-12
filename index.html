@@ -143,44 +143,6 @@
     @keyframes orange-pulse {0%{box-shadow:0 0 0 0 rgba(255,153,0,0);}50%{box-shadow:0 0 12px 6px rgba(255,153,0,0.7);}100%{box-shadow:0 0 0 0 rgba(255,153,0,0);} }
     .pulse-orange {animation:orange-pulse 2s infinite ease-in-out;}
   </style>
-  <style>
-/* NEW: Pill-shaped dark toolbar */
-.search-toolbar {
-  background-color: #131921;
-  border: 1px solid #333;
-}
-
-/* Remove default pill focus outlines */
-.search-toolbar .btn:focus,
-.search-toolbar .form-control:focus {
-  box-shadow: none;
-  outline: none;
-}
-
-/* Placeholder color inside toolbar */
-.search-toolbar .form-control::placeholder {
-  color: #ccc;
-}
-
-/* Orange search button */
-.amazon-btn {
-  background-color: #FF9900;
-  border-color:   #FF9900;
-  color:          #111;
-}
-.amazon-btn:hover {
-  background-color: #e88c00;
-  border-color:     #e88c00;
-}
-
-/* Helper text sizing */
-.search-helper {
-  font-size: 1rem;   /* 16px */
-  line-height: 1.4;
-  color:       #6c757d;
-}
-</style>
-
 <!-- … your existing GA4 snippet on lines 82–88 … -->
 
 <!-- helper to fire events -->
@@ -388,11 +350,11 @@
 </div>  <!-- closes .card -->
   <div class="container mt-4 text-center">
   <figure>
-    <img src="save-big-deals-amazon-super-search.gif"
+    <img src="step1.png"
          alt="Save Big Deals Banner"
          class="img-fluid rounded shadow"
-         style="width: 200px; height: 160px; object-fit: cover;">
-    <figcaption class="mt-2 text-muted">Save more by mastering Amazon filters with Super Search</figcaption>
+         style="width: 300px; height: 300px; object-fit: cover;">
+    <figcaption class="mt-2 text-muted">Save more by mastering Amazon filters with Amazon Super Search</figcaption>
   </figure>
 </div>
 
@@ -440,57 +402,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 </script>
-<!-- NEW Search Keywords Section -->
-<div class="container my-4">
-  <div class="alert alert-warning text-center fw-bold">
-    Please select your advanced search options from the sections below before you click “Search.”
-  </div>
-
-  <h2 class="mb-3">Search Keywords (or enter ASIN, ISBN, or UPC)</h2>
-
-  <!-- departments dropdown -->
-  <form>
-   id="amazon-search-form"
-   action="https://www.amazon.com/s"
-   method="GET"
-   target="_blank"
-   class="d-flex align-items-center search-toolbar rounded-pill overflow-hidden p-1 mb-2"   <!-- departments dropdown -->
-   <input type="hidden" name="tag" value="echolover25-20">
-  <div class="dropdown">
-    <button
-      class="btn dropdown-toggle text-white bg-dark border-0 p-2"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      All
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">All Departments</a></li>
-      <!-- …other categories… -->
-    </ul>
-  </div>
-
-  <!-- keyword field -->
-  <input
-    type="text"
-    name="k"
-    class="form-control border-0 mx-2"
-    placeholder="Search Amazon…"
-    required
-  >
-
-  <!-- yellow submit button -->
-  <button class="btn amazon-btn px-4 py-2" type="submit">
-    Search
-  </button>
-</form>
-  <small class="search-helper d-block">
-    Supports Boolean operators: <strong>AND</strong>, <strong>OR</strong>, <strong>NOT</strong>
-    (e.g. <em>wireless AND headphones NOT bluetooth</em>).
-  </small>
-</div>
-<!-- END NEW Search Keywords Section -->
 
   <div class="container-fluid bg-white p-3 p-md-4 rounded shadow-sm">
 
@@ -500,7 +411,14 @@ document.addEventListener('DOMContentLoaded', () => {
      <!-- department & node (FMC Everyday Essentials) -->
 
 
-     
+      <h2 class="mb-3">Enter a Product, Keyword, ASIN, ISBN, or UPC Number (DO NOT HIT ENTER! PROCEED TO STEP 2!).</h2>
+  <div class="card p-3 mb-4">
+    <input
+      type="text"
+      class="form-control"
+      name="q"
+      placeholder="e.g. wireless headphones"
+      autocomplete="off"
     >
     <small class="form-text text-muted mt-2">
       Supports Boolean operators: <code>AND</code>, <code>OR</code>, <code>NOT</code> (e.g. <em>wireless AND headphones NOT bluetooth</em>).
